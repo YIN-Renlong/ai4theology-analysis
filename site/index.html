@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#102c3a">
+  <meta name="description" content="Follow a theological argument as it develops through human–AI collaboration. An evidence-linked, interactive research edition by YIN Renlong.">
+  <title>Whose thinking? · AI4Theology</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="scenes.css">
+  <script defer src="vendor/gsap.min.js"></script>
+  <script defer src="vendor/ScrollTrigger.min.js"></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#reading">Skip to the argument</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="AI4Theology home"><span class="brand-symbol" aria-hidden="true">a<span>i</span></span><span>AI4THEOLOGY<small>A study in understanding</small></span></a>
+    <nav class="nav-links" aria-label="Main navigation"><a href="#reading">The inquiry</a><a href="#explore">Relationships</a><a href="#evidence">The record</a></nav>
+    <button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">Reduce motion</button>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">THEOLOGY · HUMAN–AI COLLABORATION</p>
+        <h1>Whose<br><em>thinking?</em></h1>
+        <p class="hero-summary">An argument is more than its conclusion.<br>Follow the questions that changed its shape.</p>
+        <div class="hero-links"><a class="button-primary" href="#reading">Enter the inquiry</a><a class="text-link" href="https://www.yin.roma.it/2026/10/whose-thinking-is-being-assessed-the-unsettled-boundary-between-assistance-and-authorship-in-ai-assisted-education/" target="_blank" rel="noopener">Read the original essay</a></div>
+        <p class="hero-caption">An explorable research edition<br>YIN Renlong · Theological pedagogy</p>
+      </div>
+      <div class="hero-art" aria-label="A question develops through a distinction and an objection, returning as a more precise question.">
+        <div class="art-grid"></div>
+        <svg viewBox="0 0 640 570" role="img" aria-labelledby="hero-viz-title">
+          <title id="hero-viz-title">The shape of an inquiry</title>
+          <defs><marker id="hero-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8" fill="none" stroke="currentColor" stroke-width="1.5"/></marker></defs>
+          <g class="hero-paths" fill="none" stroke-width="2"><path d="M147 200 C220 200 190 105 300 105"/><path d="M147 200 C220 200 190 310 300 310"/><path d="M420 105 C525 105 490 310 530 310"/><path d="M425 310 H530"/><path class="return-path" d="M530 350 C530 485 110 485 110 245"/></g>
+          <g class="hero-vertex vertex-question" transform="translate(45 165)"><rect width="155" height="72" rx="36"/><text x="77" y="44">A question</text></g>
+          <g class="hero-vertex vertex-ai" transform="translate(260 70)"><rect width="175" height="72" rx="6"/><text x="88" y="44">A distinction</text></g>
+          <g class="hero-vertex vertex-human" transform="translate(260 275)"><rect width="175" height="72" rx="6"/><text x="88" y="44">An objection</text></g>
+          <g class="hero-vertex vertex-return" transform="translate(495 275)"><rect width="70" height="72" rx="35"/><text x="35" y="47">?</text></g>
+          <text class="hero-svg-note" x="350" y="469" text-anchor="middle">RETURNING, WITH A SHARPER QUESTION</text>
+          <text class="hero-svg-label" x="290" y="33">AI CONTRIBUTION</text><text class="hero-svg-label" x="280" y="390">HUMAN INTERVENTION</text>
+        </svg>
+        <span class="art-caption">A visual reading of one documented argument</span>
+      </div>
+    </section>
+
+    <section class="intro-band"><p>The same assistance.<br><strong>A different judgment?</strong></p><div><p>A friend suggests a distinction. An AI offers equivalent feedback. If I undertake the same intellectual work, what educationally relevant difference justifies treating the two processes differently?</p><p class="small-note">This edition follows the published essay’s account. It distinguishes reported dialogue from hypothetical examples and later reading.</p></div></section>
+
+    <section class="story section-shell" id="reading">
+      <div class="section-heading"><p class="eyebrow">READ THE DEVELOPMENT</p><h2>Watch the question<br>change its shape.</h2><p class="lede">Scroll through the passage. The words become the relationships they ask us to examine.</p></div>
+      <div class="story-layout">
+        <div class="story-copy">
+          <article class="story-step" data-step="0"><p class="step-label">THE STARTING COMPARISON</p><h3>Keep the learner’s work constant.</h3><p>“An AI system offers the same kind of assistance, and I undertake the same intellectual work.”</p><p>The question compares the source of assistance. The activity of the person receiving it remains the same.</p><button class="evidence-trigger" data-nodes="A01">Read the source passage</button></article>
+          <article class="story-step" data-step="1"><p class="step-label">TWO PATHS THROUGH ONE QUESTION</p><h3>Separate the source from the work.</h3><p>The paragraph opens into two paths. A human and an AI can supply a suggestion; the learner’s response is a further part of the account.</p><p>The distinction makes the comparison inspectable. It does not establish that every actual interaction is equivalent.</p><button class="evidence-trigger" data-nodes="A01,A10">Examine the comparison</button></article>
+          <article class="story-step" data-step="2"><p class="step-label">A CONDITION CHANGES</p><h3>A correct caution can miss the question.</h3><p>The reply warns against a machine producing a complete proposal. That is a different kind of assistance.</p><blockquote>“What bothered me was that the reply contained a sound caution while leaving the comparison untouched.”</blockquote><button class="evidence-trigger" data-nodes="A04,A05">Locate the mismatch</button></article>
+          <article class="story-step" data-step="3"><p class="step-label">THE AUTHOR INTERVENES</p><h3>Bring the original question back.</h3><p>The objection questions the caution’s relevance. The assistant acknowledges the mismatch; the article reports that a qualification later resurfaces.</p><p>Progress includes the work of keeping a difficult comparison in view.</p><button class="evidence-trigger" data-nodes="A05,A06,A25">Inspect the reported return</button></article>
+          <article class="story-step" data-step="4"><p class="step-label">A THEOLOGICAL DISTINCTION ENTERS</p><h3>What if feedback helps create an idea?</h3><p>The AI offers a hypothetical question: “Does your argument distinguish methodological naturalism from metaphysical naturalism?”</p><p>A question like this could introduce the distinction around which a later argument develops. Feedback and idea generation begin to overlap.</p><button class="evidence-trigger" data-nodes="A07,A08">Explore the example</button></article>
+          <article class="story-step" data-step="5"><p class="step-label">AN OPEN QUESTION, MORE PRECISELY ASKED</p><h3>The conclusion need not reverse.</h3><p>The inquiry returns to the original comparison with a more demanding account of what feedback can contribute.</p><p>The initial question about where the boundary lies becomes a question about whether the activities on either side can always be separated.</p><button class="evidence-trigger" data-nodes="A08,A18,A21">Read the revised question</button></article>
+        </div>
+        <div class="stage-wrap"><div class="stage" id="argument-stage">
+          <div class="stage-topline"><span id="stage-kicker">THE PUBLISHED PASSAGE</span><span id="stage-counter">1 / 6</span></div>
+          <div class="stage-screen" id="stage-screen" aria-label="Developing comparison diagram">
+            <svg id="scene-links" viewBox="0 0 600 450" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="scene-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7" fill="#547481"/></marker></defs><path id="line-human"/><path id="line-ai"/><path id="line-work"/><path id="line-return"/><path id="line-example"/></svg>
+            <p class="transform-paragraph" id="transform-paragraph"><span class="phrase phrase-human" id="phrase-human">A friend</span><span class="prose-rest"> suggests a distinction, asks a difficult question, or points out a weakness in my argument. I follow the suggestion, examine the sources and develop my thinking. </span><span class="phrase phrase-ai" id="phrase-ai">An AI system</span><span class="prose-rest"> offers </span><span class="phrase phrase-feedback" id="phrase-feedback">the same kind of assistance</span><span class="prose-rest">, and </span><span class="phrase phrase-work" id="phrase-work">I undertake the same intellectual work.</span></p>
+            <div class="scene-element outsource-node" id="outsource-node"><small>THE CASE HAS CHANGED</small><strong>A complete proposal</strong><span>Different amount and function of assistance</span></div>
+            <div class="scene-element intervention-node" id="unspecified-node"><small>LEARNER’S ACTIVITY</small><strong>Not specified here.</strong></div>
+            <div class="scene-element intervention-node" id="intervention-node"><small>AUTHOR’S OBJECTION</small><strong>Hold the learner’s work constant.</strong></div>
+            <div class="scene-element naturalism-node" id="naturalism-node"><small>AI’S HYPOTHETICAL QUESTION</small><strong>Methodological or<br>metaphysical naturalism?</strong></div>
+            <div class="scene-element overlap-node" id="overlap-node"><span>Feedback</span><span>Idea generation</span></div>
+            <div class="scene-element open-question" id="open-question"><span>Can these activities<br>always be separated?</span><b>?</b></div>
+            <div class="scene-element condition-tag" id="condition-tag">SAME LEARNER ACTIVITY</div>
+          </div>
+          <p class="stage-caption" id="stage-caption" aria-live="polite">The original comparison is presented as prose.</p>
+          <div class="stage-controls" aria-label="Reading stages"><button type="button" id="previous-stage">Previous</button><div id="stage-dots"></div><button type="button" id="next-stage">Next</button></div>
+          <p class="stage-footnote">Analytical reading sequence · source-linked interpretation</p>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="comparison-section section-shell" id="compare">
+      <div class="section-heading"><p class="eyebrow">A COMPUTATIONAL CHECK</p><h2>Exactly what changed?</h2><p class="lede">Python compares explicit descriptions of the cases. Switch the AI case and inspect which conditions remain comparable.</p></div>
+      <div class="comparison-switch" role="group" aria-label="Choose comparison"><button type="button" data-comparison="C01" aria-pressed="true">Equivalent feedback</button><button type="button" data-comparison="C02" aria-pressed="false">Complete proposal</button></div>
+      <div class="comparison-grid" id="comparison-grid" aria-live="polite"></div><p id="comparison-result" class="comparison-result"></p>
+      <p class="small-note">Descriptions are interpretive coding. “Unknown” means the selected passage does not specify the condition; it is never counted as agreement.</p>
+    </section>
+
+    <section class="naturalism-section section-shell" id="theology">
+      <div class="naturalism-layout"><div><p class="eyebrow">THE THEOLOGICAL INFERENCE</p><h2>A distinction must<br>do some work.</h2><p class="lede">Being able to name methodological and metaphysical naturalism leaves a further task: examining the inference between them.</p><p>The essay’s hypothetical learner can question a metaphysical conclusion while retaining the scientific finding. The issue is the justification of that step.</p><button id="inference-toggle" class="button-primary" aria-pressed="false">Examine the inference</button><button class="evidence-trigger" data-nodes="A16,A22,A23,A24">Read the theological passage</button></div>
+      <div class="inference-diagram" id="inference-diagram"><div class="inference-top"><span class="diagram-label">SCIENTIFIC METHOD</span><p>A method restricts the explanations it uses.</p></div><div class="inference-bridge"><div class="inference-wire"></div><span class="inference-jump">Does this establish what exists?</span><div class="inference-question" hidden>This step needs an additional justification.</div></div><div class="inference-bottom"><span class="diagram-label">METAPHYSICAL CLAIM</span><p>A conclusion about everything that exists.</p></div><p class="inference-retain" hidden>The scientific finding can remain while this inference is challenged.</p><span class="diagram-footnote">Hypothetical contrast from the article</span></div></div>
+    </section>
+
+    <section class="quant-section section-shell" id="evidence"><div class="section-heading"><p class="eyebrow">THE RECORD BEHIND THE READING</p><h2>Evidence, at different scales.</h2><p class="lede">Descriptive counts locate the analysis. The passages explain what the relationships mean.</p></div>
+      <div class="metrics-strip" id="metrics-strip"></div>
+      <div class="chart-layout"><div><h3>What kind of record is this?</h3><p>Each proposed interpretation keeps its evidential basis. A reported conversation and a hypothetical example are different kinds of material.</p><p class="chart-note">Counts refer to selected analytical records, not shares of authorship or amounts of learning.</p></div><div class="basis-chart" id="basis-chart" aria-label="Analytical records grouped by evidence basis"></div></div>
+      <details class="revision-details"><summary>What changed after the first analysis?</summary><div id="revision-list"></div></details>
+    </section>
+
+    <section class="explore-section section-shell" id="explore"><div class="section-heading"><p class="eyebrow">EXPLORE THE RELATIONSHIPS</p><h2>Follow a connection.<br>Read its evidence.</h2><p class="lede">Select a claim to focus its relationships. Each interpretation opens onto the passage that supports it.</p></div><div id="explorer-controls"></div><div class="explore-layout"><div id="relationship-map"></div><aside id="evidence-panel" aria-live="polite"></aside></div></section>
+
+    <section class="method-section section-shell" id="method"><div class="section-heading"><p class="eyebrow">READING THE METHOD</p><h2>Interpretation you can inspect.</h2></div><div class="method-grid"><div><h3>The computational work</h3><p>Python extracts the article and checks exact source locations. It compares coded conditions and prepares the connected records used by this edition.</p><p>The display combines a guided argument with an explorable map. Each view uses the same underlying evidence.</p><a class="text-link" href="data/analysis.json" download>Download the visualisation data</a></div><div><h3>The pedagogical question</h3><p>What counts as developing judgment through collaboration? This case examines the work of recognising a mismatch and reconsidering an inference.</p><p>It presents proposed interpretations of one published account. It does not measure a learning effect or reconstruct every moment of the original conversation.</p><a class="text-link" href="data/research-record.json" download>Download the original analysis record</a></div></div><details><summary>Sources, interpretation and accessibility</summary><p>Based on YIN Renlong’s “Whose Thinking Is Being Assessed? The Unsettled Boundary Between Assistance and Authorship in AI-Assisted Education.” All analytical annotations remain proposals for researcher review. Short labels in diagrams are paraphrases; source panels retain the original passages. The guided sequence follows the article’s argument, not a verified timestamped chat history.</p><p>Use the stage buttons or scroll. Reduced motion preserves complete states. The map has equivalent selection controls, and all evidence can be read without following an animation.</p><p>GSAP 3.14.2 is bundled locally under its <a href="https://gsap.com/standard-license/" target="_blank" rel="noopener">standard license</a>. No model calls occur while reading.</p></details></section>
+  </main>
+  <footer class="site-footer"><div><a class="brand" href="#top">AI4THEOLOGY</a><p>A question can remain open<br>while its reasons develop.</p></div><div><span>Research &amp; conception</span><a href="https://www.yin.roma.it/" target="_blank" rel="noopener">YIN Renlong</a><span>Human–AI collaboration in theological pedagogy</span></div></footer>
+  <dialog id="evidence-dialog" aria-labelledby="dialog-title"><div class="dialog-inner"><button class="dialog-close" type="button" aria-label="Close evidence">Close</button><p class="eyebrow">RETURN TO THE TEXT</p><h2 id="dialog-title">Source passages</h2><div id="dialog-content"></div></div></dialog>
+  <p id="load-error" hidden role="alert">The analysis could not be loaded. Please refresh this page.</p>
+</body>
+</html>
