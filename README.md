@@ -102,4 +102,4 @@ The script works through a temporary checkout and preserves the current local pr
 
 The bundled GSAP 3.14.2 files are distributed under the [GSAP Standard License](https://gsap.com/standard-license/). Their copyright and license notices are retained in the vendor files. GSAP’s terms apply to those files; this repository does not relicense them.
 
-Research and conception: **YIN Renlong**. Implementation and provisional analytical coding were developed with AI assistance.
+Research and conception: **YIN Renlong**, Faculty of Theology and Religion, University of Oxford. Implementation and provisional analytical coding were developed with AI assistance.
