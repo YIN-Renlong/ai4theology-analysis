@@ -5,6 +5,7 @@ import importlib.util
 import io
 import json
 import tempfile
+import shutil
 import unittest
 from html.parser import HTMLParser
 from pathlib import Path
@@ -14,6 +15,9 @@ ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location('build_edition', ROOT / 'scripts/build_edition.py')
 BUILD = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(BUILD)
+ANALYTICS_SPEC = importlib.util.spec_from_file_location('analyze_collaboration', ROOT / 'scripts/analyze_collaboration.py')
+ANALYTICS = importlib.util.module_from_spec(ANALYTICS_SPEC)
+ANALYTICS_SPEC.loader.exec_module(ANALYTICS)
 
 
 class EditionHTML(HTMLParser):
@@ -80,6 +84,8 @@ class EditionTests(unittest.TestCase):
         self.site = self.root / 'site'
         (self.site / 'data').mkdir(parents=True)
         (self.root / 'data').mkdir()
+        for name in ('collaboration-codebook.json', 'collaboration-episodes.json'):
+            shutil.copy2(ROOT / 'data' / name, self.root / 'data' / name)
         (self.site / 'edition-template.html').write_text(self.template)
         self.root_patch = patch.object(BUILD, 'ROOT', self.root)
         self.site_patch = patch.object(BUILD, 'SITE', self.site)
@@ -91,6 +97,7 @@ class EditionTests(unittest.TestCase):
     def write_inputs(self, analysis=None, chapters=None):
         (self.site / 'data/analysis.json').write_text(json.dumps(self.analysis if analysis is None else analysis))
         (self.root / 'data/edition-chapters.json').write_text(json.dumps(self.chapters if chapters is None else chapters))
+        ANALYTICS.export(root=self.root)
 
     def build(self):
         with contextlib.redirect_stdout(io.StringIO()):
@@ -109,6 +116,8 @@ class EditionTests(unittest.TestCase):
         payload = json.loads(page.payload)
         self.assertEqual(payload['analysis'], self.analysis)
         self.assertEqual(payload['chapters'], self.chapters)
+        self.assertEqual(payload['collaboration']['counts']['nodes'], 25)
+        self.assertEqual(payload['collaboration']['counts']['relations'], 21)
         expected_nodes = {n['id'] for n in self.analysis['nodes']}
         self.assertEqual(len(expected_nodes), 25)
         self.assertEqual({n for c in payload['chapters'] for n in c['node_ids']}, expected_nodes)
@@ -159,6 +168,15 @@ class EditionTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     self.build()
                 self.assertEqual((self.site / 'index.html').read_text(), 'previous verified page')
+
+    def test_stale_analysis_cannot_be_embedded_in_new_edition(self):
+        self.write_inputs()
+        (self.site / 'index.html').write_text('previous verified page')
+        path = self.root / 'data/collaboration-codebook.json'
+        path.write_text(path.read_text() + '\n')
+        with self.assertRaisesRegex(ValueError, 'Stale collaboration analysis'):
+            self.build()
+        self.assertEqual((self.site / 'index.html').read_text(), 'previous verified page')
 
 
 if __name__ == '__main__':

@@ -1,0 +1,22 @@
+relation_id,source,target,type,family,source_ids,rationale,review_status
+R01,A03,A02,distinguishes,argument,P032,"The reported assistant contribution articulates distinctions relevant to the broader phrase “my own thinking.” This edge is an analytical relationship, not a timestamp.",proposed_by_assistant
+R02,A04,A01,contextualises,argument,P036,The caution limits what can be inferred from permission for human feedback; it does not by itself settle the intended equivalent-assistance comparison.,proposed_by_assistant
+R03,A05,A04,questions_relevance_of,interaction,P037,The author accepts the caution as sound while questioning its relevance to the intended comparison. This does not reject the caution's truth.,proposed_by_assistant
+R04,A06,A05,acknowledges,interaction,P038,The article reports the assistant acknowledging the mismatch. Acknowledgment is not independent evidence that the criticism is correct.,proposed_by_assistant
+R05,A07,A08,illustrates,argument,P041,The hypothetical question illustrates how a feedback intervention could help generate a new direction. No actual learning effect is claimed.,proposed_by_assistant
+R06,A08,A01,reframes,argument,P042,The author reports a revised diagnosis: the categories themselves become an object of inquiry.,proposed_by_assistant
+R07,A09,A08,supports,argument,P043,The article explicitly presents later feedback scholarship as supporting the emerging account. This edge concerns the article’s use of the source.,proposed_by_assistant
+R08,A10,A01,illustrates,argument,P044,The relay thought experiment develops the opening comparison by examining whether a human intermediary changes the relevant contribution.,proposed_by_assistant
+R09,A12,A11,qualifies,argument,P050,The author explicitly describes this source engagement as qualifying the earlier emphasis.,proposed_by_assistant
+R10,A14,A13,qualifies,argument,P063,The ICAP discussion qualifies what the reported blogging practice establishes about learning.,proposed_by_assistant
+R11,A15,A13,qualifies,argument,P065,The limitation preserves uncertainty about the learning claimed for a return to the blog.,proposed_by_assistant
+R12,A16,A07,develops_example,argument,P108,The later theological example specifies that using the naturalism distinction accurately requires more than recital and retains its hypothetical evidential status.,proposed_by_assistant
+R13,A17,A13,distinguishes,argument,P126,The closing formulation separates the times at which learning and contribution claims might become warranted.,proposed_by_assistant
+R14,A18,A01,returns_to,argument,P128,"The final open question returns to the initial equivalent-assistance comparison; this is a textual return, not an inferred hidden cognitive event.",proposed_by_assistant
+R15,A20,A05,contextualises,argument,P047,The literature discussion limits an inference from the mere presence of objections or corrections to their intellectual quality.,proposed_by_assistant
+R16,A21,A06,qualifies,argument,P120,The author explicitly rejects treating the reported model agreement as independent confirmation.,proposed_by_assistant
+R17,A22,A16,specifies,argument,P108,The methodological clause specifies one element of the article's theological example.,proposed_by_assistant
+R18,A23,A16,illustrates_misapplication,argument,P108,The exhaustive metaphysical conclusion illustrates the proposed misapplication of an accurately recited distinction.,proposed_by_assistant
+R19,A24,A23,offers_alternative_to,argument,P108,The hypothetical learner could assess the metaphysical step while retaining the scientific finding.,proposed_by_assistant
+R20,A25,A05,returns_to,argument,P038,The author reports returning to the objection that AI can provide the same kind of feedback.,proposed_by_assistant
+R21,A25,A06,follows_acknowledgment_in_account,reported_sequence,P038,"Within the article's retrospective account, the objection resurfaces after the acknowledgment. This is a reported sequence, not an independently aligned chat chronology.",proposed_by_assistant

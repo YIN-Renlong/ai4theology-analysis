@@ -18,6 +18,7 @@ From the repository directory:
 
 ```bash
 python3 scripts/build_data.py
+python3 scripts/analyze_collaboration.py
 python3 scripts/build_edition.py
 python3 -m unittest discover -s tests -v
 python3 -m http.server 8000 --directory site
@@ -67,6 +68,31 @@ The source is a published article containing retrospective accounts, hypothetica
 
 The demo supports examining expressed reasoning and the development of an argument. It does not prove a learning effect, reconstruct private mental states, or assign a percentage of human or AI authorship. Citations represent the article’s engagement with sources; this exporter does not verify the cited publications themselves.
 
+## Reproduce the collaboration analysis
+
+Run `python3 scripts/analyze_collaboration.py` after rebuilding the base data. This is a deterministic Python standard-library pipeline; it needs no API key and sends no article text to an external model. The GitHub Pages workflow runs it on every deployment. The edition builder rejects analytical results whose input hashes no longer match the source data or coding files.
+
+The input codebook is `data/collaboration-codebook.json`. Selected episode interpretations are in `data/collaboration-episodes.json`. These are explicit assistant-proposed annotations for researcher review, not results automatically discovered by Python. Each pattern has an inclusion and exclusion rule. Episode changes distinguish the conclusion from its justification and allow `not_established`.
+
+The script computes:
+
+- Coverage of source body blocks by the selected annotations; relation-type distributions and evidence-basis counts. Candidate pattern prevalence counts the supplied episode assignments, with a clearly stated denominator.
+- Directed shortest paths through the current 25-node graph, and TF-IDF cosine similarity between nonadjacent body paragraphs. Paths record connectivity through assigned relations; they do not establish chronological or transitive inferential chains. Similarity identifies shared vocabulary for close reading; it is not a learning score or a semantic entailment test.
+
+The report records input SHA-256 hashes and the lexical retrieval settings. Reference-section blocks are excluded from body statistics. Hypothetical examples and later reading retain their evidence labels. No transition probability, learning-effect estimate, or authorship percentage is calculated from this article.
+
+| Output in `site/data/` | Purpose |
+| --- | --- |
+| `collaboration-analysis.json` | Complete computed results, selected episodes, graph paths and lexical matches |
+| `collaboration-codebook.json` | Public definitions and interpretation rules |
+| `collaboration-episodes.csv` | Inspectable episode coding and proposed changes |
+| `collaboration-relations.csv` | Existing directed relationships and their analytical families |
+| `collaboration-report.md` | Readable descriptive results and methodological limits |
+
+The website's **Patterns** section provides the episode-pattern matrix and passage-linked coverage display. Its language comparisons open the original paragraphs. Empty matrix cells mean that a pattern was not assigned in this selected coding; they do not prove that it is absent from the wider inquiry.
+
+Relevant methodological foundations include [Chi and Wylie's ICAP framework (2014)](https://education.asu.edu/sites/g/files/litvpz656/files/lcl/chiwylie2014icap_2.pdf), [Lawrence and Reed's argument-mining survey (2019)](https://aclanthology.org/J19-4006/), and [Shaffer and Ruis on epistemic network analysis (2017)](https://www.solaresearch.org/publications/hla-17/hla17-chapter15/). This implementation does not claim to implement or validate ICAP or ENA. It supplies an evidence-linked coding framework that could support later, appropriately designed analysis.
+
 ## Presentation and accessibility
 
 The public interface combines a guided scroll sequence with a chapter selector and focused relationship maps. Evidence panels preserve source passages; their labels may paraphrase them. A complete text search includes the reference section. All 25 annotations and 21 relationships are individually inspectable. Literal-term bars show counts by section, with matching passages alongside them.
@@ -75,7 +101,7 @@ The desktop reading keeps its graphic beside the text. On narrow screens, each c
 
 ## GitHub Pages
 
-The workflow in `.github/workflows/pages.yml` rebuilds the data and complete edition, runs the Python tests, and deploys the `site` directory using GitHub Pages. It runs on pushes to `main` or `master`, and can also be started manually.
+The workflow in `.github/workflows/pages.yml` rebuilds the data, runs the collaboration analysis, builds the complete edition, runs the Python tests, and deploys the `site` directory using GitHub Pages. It runs on pushes to `main` or `master`, and can also be started manually.
 
 The repository’s Pages publishing source must be **GitHub Actions**. The workflow uses the `github-pages` environment and the repository-provided `GITHUB_TOKEN`; no personal token is stored in the project. It publishes the public article data along with the website.
 

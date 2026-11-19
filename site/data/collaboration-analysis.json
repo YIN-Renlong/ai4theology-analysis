@@ -1,0 +1,2631 @@
+{
+  "schema_version": 1,
+  "analysis_version": "0.1.0",
+  "input_sha256": {
+    "analysis": "9a4d5a861bb89e6d85eea293a8f840abb95d8d0febca7a52502754ce7d2022d8",
+    "codebook": "a8c741448209a73be9cf08a91203be38df6a2fd05cf143d261147d20565fb4fb",
+    "episodes": "23d74ef1e050706f1d303ea8c8068144dd4320a99c0d809ba9edf691d054ed96"
+  },
+  "counts": {
+    "body_blocks": 118,
+    "annotated_body_blocks": 21,
+    "nodes": 25,
+    "relations": 21,
+    "relation_types": 14,
+    "episodes": 6,
+    "patterns": 5,
+    "unresolved_anchors": 0
+  },
+  "patterns": [
+    {
+      "id": "distinction",
+      "label": "Examining a distinction",
+      "definition": "A contribution separates concepts or activities, and the episode examines what follows from that separation.",
+      "inclusion": "Identify both sides of the distinction and a passage examining its use. For example, distinguish understanding an idea from originating it.",
+      "exclusion": "Do not code a list of different terms without an examined relationship, or infer understanding from repeating a definition.",
+      "pedagogical_question": "Can the writer explain what the distinction permits and what it leaves unanswered?",
+      "episode_ids": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05"
+      ],
+      "count": 5
+    },
+    {
+      "id": "question_repair",
+      "label": "Repairing the question",
+      "definition": "A participant identifies that a response has altered the intended comparison or question and attempts to restore it.",
+      "inclusion": "Identify the changed assumption and the intervention that addresses it. Preserve a repeated mismatch even after acknowledgment.",
+      "exclusion": "Ordinary disagreement about an answer is insufficient. Model agreement does not establish that the repair was correct or sustained.",
+      "pedagogical_question": "Can the writer explain why the response changed the case, and does the subsequent exchange address that correction?",
+      "episode_ids": [
+        "E02"
+      ],
+      "count": 1
+    },
+    {
+      "id": "scholarly_qualification",
+      "label": "Qualifying through scholarship",
+      "definition": "Engagement with a scholarly source changes the scope or grounds of an emerging criterion.",
+      "inclusion": "Link a specific source-based qualification to the claim or criterion it constrains. Identify later reading separately from the reported AI exchange.",
+      "exclusion": "A citation added without an explained bearing on the argument is insufficient. Source consultation alone is not a demonstrated learning outcome.",
+      "pedagogical_question": "Can the writer explain what the source changes, including the limits of that change?",
+      "episode_ids": [
+        "E03",
+        "E06"
+      ],
+      "count": 2
+    },
+    {
+      "id": "return_to_work",
+      "label": "Returning to preserved work",
+      "definition": "The writer revisits previously developed material and examines the relationship between earlier contribution and later understanding.",
+      "inclusion": "Identify preserved work and an explicit question or explanation about a later encounter with it.",
+      "exclusion": "Repeated vocabulary or a backward reference alone is insufficient. Later fluency does not establish independent authorship of earlier work.",
+      "pedagogical_question": "What could the writer explain at each encounter, and which parts of that comparison are actually recorded?",
+      "episode_ids": [
+        "E04"
+      ],
+      "count": 1
+    },
+    {
+      "id": "application_test",
+      "label": "Testing through application",
+      "definition": "A proposed distinction is examined through an application or counterexample that makes a particular inference assessable.",
+      "inclusion": "Identify the proposed application and the inference whose adequacy is being examined. Retain a hypothetical status when no observed learner response exists.",
+      "exclusion": "A topic mentioned as an example without an examined inference is insufficient. A hypothetical success or failure is not a learning observation.",
+      "pedagogical_question": "Can the writer assess the inference while distinguishing it from the premise or finding on which it draws?",
+      "episode_ids": [
+        "E05"
+      ],
+      "count": 1
+    }
+  ],
+  "episodes": [
+    {
+      "id": "E01",
+      "title": "Understanding and origination come apart",
+      "basis": "retrospective_account",
+      "node_ids": [
+        "A02",
+        "A03",
+        "A11"
+      ],
+      "pattern_ids": [
+        "distinction"
+      ],
+      "summary": "The assistant distinguishes the origin of an idea from understanding it. YIN Renlong accepts the usefulness of that distinction while maintaining that it does not answer why equivalent human and AI assistance should receive different treatment.",
+      "sequence_status": "reported_order",
+      "moves": [
+        {
+          "actor": "assistant",
+          "action": "Introduces a distinction between originating and understanding an idea.",
+          "node_ids": [
+            "A03"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Accepts the distinction while redirecting attention to intellectual development and work the writer can explain.",
+          "node_ids": [
+            "A11"
+          ]
+        }
+      ],
+      "change": {
+        "conclusion": "unresolved",
+        "justification": "elaborated",
+        "explanation": "The account adds distinctions to the question of what counts as the writer's own thinking, but expressly says the human–AI comparison remains unanswered. This records conceptual elaboration, not an established change in learning.",
+        "earlier_node_ids": [
+          "A02"
+        ],
+        "later_node_ids": [
+          "A03",
+          "A11"
+        ]
+      },
+      "pedagogical_question": "Can the writer explain how understanding can develop without claiming to have originated the idea?",
+      "limit": "The published paragraph reports acceptance and a remaining question. It does not supply an independent before-and-after test of understanding.",
+      "review_status": "proposed_by_assistant",
+      "source_ids": [
+        "P027",
+        "P032"
+      ]
+    },
+    {
+      "id": "E02",
+      "title": "An acknowledgment does not finish the repair",
+      "basis": "retrospective_account",
+      "node_ids": [
+        "A01",
+        "A04",
+        "A05",
+        "A06",
+        "A25",
+        "A08",
+        "A21"
+      ],
+      "pattern_ids": [
+        "question_repair",
+        "distinction"
+      ],
+      "summary": "The discussion shifts from comparable feedback to complete substitution. YIN Renlong identifies that mismatch. The assistant acknowledges it, but the qualification returns and the objection must be repeated. The account then develops the point that feedback can generate ideas.",
+      "sequence_status": "reported_order",
+      "moves": [
+        {
+          "actor": "assistant",
+          "action": "Qualifies permission for human feedback by contrasting it with complete proposal substitution.",
+          "node_ids": [
+            "A04"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Identifies the changed amount and function of assistance.",
+          "node_ids": [
+            "A05"
+          ]
+        },
+        {
+          "actor": "assistant",
+          "action": "Acknowledges that the earlier response did not address the comparison adequately.",
+          "node_ids": [
+            "A06"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Repeats the objection when the same qualification resurfaces.",
+          "node_ids": [
+            "A25"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Questions whether feedback and idea generation can be cleanly separated.",
+          "node_ids": [
+            "A08"
+          ]
+        }
+      ],
+      "change": {
+        "conclusion": "unresolved",
+        "justification": "repaired",
+        "explanation": "The repair concerns the comparison and its assumptions, not a settled verdict on permission. The published account explicitly moves from asking where a boundary is drawn to questioning whether feedback and idea generation can be separated in that way. Acknowledgment is followed by recurrence, so the repair cannot be counted as a single uncomplicated success.",
+        "earlier_node_ids": [
+          "A04",
+          "A05"
+        ],
+        "later_node_ids": [
+          "A06",
+          "A25",
+          "A08"
+        ]
+      },
+      "pedagogical_question": "Can the writer identify a changed assumption and examine whether the correction persists in the next responses?",
+      "limit": "Order is reported in the essay; the original chat has not been independently aligned. The model's eventual agreement does not establish that the criticism is correct.",
+      "review_status": "proposed_by_assistant",
+      "source_ids": [
+        "P004",
+        "P036",
+        "P037",
+        "P038",
+        "P042",
+        "P120"
+      ]
+    },
+    {
+      "id": "E03",
+      "title": "Hardwig qualifies the demand for self-sufficiency",
+      "basis": "later_literature",
+      "node_ids": [
+        "A11",
+        "A12"
+      ],
+      "pattern_ids": [
+        "scholarly_qualification",
+        "distinction"
+      ],
+      "summary": "Later engagement with Hardwig qualifies an emerging emphasis on explaining and defending everything. The article distinguishes justified reliance on specialist knowledge from the particular theological judgment an assessment asks the writer to demonstrate.",
+      "sequence_status": "analytical_grouping",
+      "moves": [
+        {
+          "actor": "author",
+          "action": "Articulates the aim of producing work the writer can explain and defend.",
+          "node_ids": [
+            "A11"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Uses Hardwig to qualify that emerging criterion and distinguish reliance from the assessed task.",
+          "node_ids": [
+            "A12"
+          ]
+        }
+      ],
+      "change": {
+        "conclusion": "not_established",
+        "justification": "qualified",
+        "explanation": "The article explicitly states that the later reading qualifies an emerging emphasis on explaining and defending everything. It does not record a completed before-and-after demonstration of the writer's theological competence or a definite change in the overarching conclusion.",
+        "earlier_node_ids": [
+          "A11"
+        ],
+        "later_node_ids": [
+          "A12"
+        ]
+      },
+      "pedagogical_question": "Which specialist claims may be responsibly accepted, and which theological inference must the writer explain directly?",
+      "limit": "This is the author's later interpretation of scholarship, not a recorded exchange with Hardwig or an observation of a student learning.",
+      "review_status": "proposed_by_assistant",
+      "source_ids": [
+        "P032",
+        "P050"
+      ]
+    },
+    {
+      "id": "E04",
+      "title": "The writer becomes a reader of preserved work",
+      "basis": "retrospective_account",
+      "node_ids": [
+        "A13",
+        "A17",
+        "A15"
+      ],
+      "pattern_ids": [
+        "return_to_work",
+        "distinction"
+      ],
+      "summary": "YIN Renlong describes returning to an AI-assisted blog post after publication. The article subsequently distinguishes later understanding from earlier contribution, while warning that the preserved work cannot capture all cognition.",
+      "sequence_status": "analytical_grouping",
+      "moves": [
+        {
+          "actor": "author",
+          "action": "Describes returning to a text developed through iterative AI conversation.",
+          "node_ids": [
+            "A13"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Separates a claim about later understanding from a claim about earlier origination.",
+          "node_ids": [
+            "A17"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Questions what the archive can establish about change over time.",
+          "node_ids": [
+            "A15"
+          ]
+        }
+      ],
+      "change": {
+        "conclusion": "not_established",
+        "justification": "elaborated",
+        "explanation": "The later formulation distinguishes the evidence required for learning from the evidence required for contribution. The source asks what can be explained at different times; it does not supply the paired performance evidence needed to establish an individual learning gain.",
+        "earlier_node_ids": [
+          "A13"
+        ],
+        "later_node_ids": [
+          "A17"
+        ]
+      },
+      "pedagogical_question": "How could earlier and later explanatory capacity be examined without rewriting the history of assistance?",
+      "limit": "This grouping links passages published in different sections. Their ordering on the page is not evidence that every associated thought occurred in that order.",
+      "review_status": "proposed_by_assistant",
+      "source_ids": [
+        "P056",
+        "P065",
+        "P126"
+      ]
+    },
+    {
+      "id": "E05",
+      "title": "A theological inference is tested in a hypothetical case",
+      "basis": "hypothetical_example",
+      "node_ids": [
+        "A07",
+        "A16",
+        "A22",
+        "A23",
+        "A24"
+      ],
+      "pattern_ids": [
+        "application_test",
+        "distinction"
+      ],
+      "summary": "An AI-supplied hypothetical question distinguishes methodological from metaphysical naturalism. A later teaching contrast shows how the distinction could be recited correctly but misapplied, or used to challenge a metaphysical inference without rejecting a scientific finding.",
+      "sequence_status": "hypothetical",
+      "moves": [
+        {
+          "actor": "assistant",
+          "action": "Supplies a hypothetical question about two senses of naturalism.",
+          "node_ids": [
+            "A07"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Specifies the restriction within scientific method.",
+          "node_ids": [
+            "A22"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Constructs an example of an unsupported exhaustive metaphysical inference.",
+          "node_ids": [
+            "A23"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Offers an alternative that challenges the inference while retaining the scientific finding.",
+          "node_ids": [
+            "A24"
+          ]
+        }
+      ],
+      "change": {
+        "conclusion": "not_established",
+        "justification": "not_established",
+        "explanation": "These are contrasting possible applications, explicitly presented as proposed tests rather than observations from a completed study. No learner is recorded moving from the mistaken inference to the alternative.",
+        "earlier_node_ids": [],
+        "later_node_ids": []
+      },
+      "pedagogical_question": "Can the learner locate the disputed metaphysical inference and explain why its assessment differs from rejecting the scientific finding?",
+      "limit": "The hypothetical branches provide a possible assessment task. They must not enter statistics as observed learner errors, corrections, or learning transitions.",
+      "review_status": "proposed_by_assistant",
+      "source_ids": [
+        "P040",
+        "P108"
+      ]
+    },
+    {
+      "id": "E06",
+      "title": "ICAP qualifies what conversation alone can show",
+      "basis": "later_literature",
+      "node_ids": [
+        "A13",
+        "A14",
+        "A15"
+      ],
+      "pattern_ids": [
+        "scholarly_qualification"
+      ],
+      "summary": "The article reports that closer reading of ICAP changed what the author could infer from dialogue format. Substantive contributions become the relevant focus, while alternating messages alone remains insufficient evidence of interactive learning.",
+      "sequence_status": "analytical_grouping",
+      "moves": [
+        {
+          "actor": "author",
+          "action": "Uses the described blogging practice as the object of examination.",
+          "node_ids": [
+            "A13"
+          ]
+        },
+        {
+          "actor": "source",
+          "action": "Supplies criteria for constructive and responsive interaction, as interpreted in the article.",
+          "node_ids": [
+            "A14"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Keeps the limits of observable records in view.",
+          "node_ids": [
+            "A15"
+          ]
+        }
+      ],
+      "change": {
+        "conclusion": "not_established",
+        "justification": "qualified",
+        "explanation": "The paragraph explicitly reports a qualification of what can be inferred from conversational format. No earlier coded passage establishes that the writer had asserted that all chatbot dialogue proves learning, so an earlier claim is left unassigned.",
+        "earlier_node_ids": [],
+        "later_node_ids": [
+          "A14"
+        ]
+      },
+      "pedagogical_question": "Which contribution shows substantive engagement, and what remains unobservable in the record?",
+      "limit": "The source actor denotes scholarly criteria reported by the author; it does not represent a participant in the original chat. The framework is not an independent measurement of this writer's learning.",
+      "review_status": "proposed_by_assistant",
+      "source_ids": [
+        "P056",
+        "P063",
+        "P065"
+      ]
+    }
+  ],
+  "relation_families": [
+    {
+      "id": "argument",
+      "label": "Argument and reference",
+      "count": 18,
+      "relation_ids": [
+        "R01",
+        "R02",
+        "R05",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R14",
+        "R15",
+        "R16",
+        "R17",
+        "R18",
+        "R19",
+        "R20"
+      ]
+    },
+    {
+      "id": "interaction",
+      "label": "Interaction responses",
+      "count": 2,
+      "relation_ids": [
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "id": "reported_sequence",
+      "label": "Reported sequence",
+      "count": 1,
+      "relation_ids": [
+        "R21"
+      ]
+    }
+  ],
+  "relation_types": [
+    {
+      "type": "acknowledges",
+      "family": "interaction",
+      "count": 1,
+      "relation_ids": [
+        "R04"
+      ]
+    },
+    {
+      "type": "contextualises",
+      "family": "argument",
+      "count": 2,
+      "relation_ids": [
+        "R02",
+        "R15"
+      ]
+    },
+    {
+      "type": "develops_example",
+      "family": "argument",
+      "count": 1,
+      "relation_ids": [
+        "R12"
+      ]
+    },
+    {
+      "type": "distinguishes",
+      "family": "argument",
+      "count": 2,
+      "relation_ids": [
+        "R01",
+        "R13"
+      ]
+    },
+    {
+      "type": "follows_acknowledgment_in_account",
+      "family": "reported_sequence",
+      "count": 1,
+      "relation_ids": [
+        "R21"
+      ]
+    },
+    {
+      "type": "illustrates",
+      "family": "argument",
+      "count": 2,
+      "relation_ids": [
+        "R05",
+        "R08"
+      ]
+    },
+    {
+      "type": "illustrates_misapplication",
+      "family": "argument",
+      "count": 1,
+      "relation_ids": [
+        "R18"
+      ]
+    },
+    {
+      "type": "offers_alternative_to",
+      "family": "argument",
+      "count": 1,
+      "relation_ids": [
+        "R19"
+      ]
+    },
+    {
+      "type": "qualifies",
+      "family": "argument",
+      "count": 4,
+      "relation_ids": [
+        "R09",
+        "R10",
+        "R11",
+        "R16"
+      ]
+    },
+    {
+      "type": "questions_relevance_of",
+      "family": "interaction",
+      "count": 1,
+      "relation_ids": [
+        "R03"
+      ]
+    },
+    {
+      "type": "reframes",
+      "family": "argument",
+      "count": 1,
+      "relation_ids": [
+        "R06"
+      ]
+    },
+    {
+      "type": "returns_to",
+      "family": "argument",
+      "count": 2,
+      "relation_ids": [
+        "R14",
+        "R20"
+      ]
+    },
+    {
+      "type": "specifies",
+      "family": "argument",
+      "count": 1,
+      "relation_ids": [
+        "R17"
+      ]
+    },
+    {
+      "type": "supports",
+      "family": "argument",
+      "count": 1,
+      "relation_ids": [
+        "R07"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "block_id": "P002",
+      "section": "Abstract",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P003",
+      "section": "Abstract",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P004",
+      "section": "Abstract",
+      "annotated": true,
+      "node_ids": [
+        "A01"
+      ],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P005",
+      "section": "Abstract",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P006",
+      "section": "Abstract",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P007",
+      "section": "Abstract",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P008",
+      "section": "Abstract",
+      "annotated": true,
+      "node_ids": [
+        "A19"
+      ],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P009",
+      "section": "Abstract",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P011",
+      "section": "What I hoped technical understanding could explain",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P012",
+      "section": "What I hoped technical understanding could explain",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P013",
+      "section": "What I hoped technical understanding could explain",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P014",
+      "section": "What I hoped technical understanding could explain",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P015",
+      "section": "What I hoped technical understanding could explain",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P016",
+      "section": "What I hoped technical understanding could explain",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P017",
+      "section": "What I hoped technical understanding could explain",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P018",
+      "section": "What I hoped technical understanding could explain",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P019",
+      "section": "What I hoped technical understanding could explain",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P021",
+      "section": "The boundary in the guidance",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P022",
+      "section": "The boundary in the guidance",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P023",
+      "section": "The boundary in the guidance",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P024",
+      "section": "The boundary in the guidance",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P025",
+      "section": "The boundary in the guidance",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P026",
+      "section": "The boundary in the guidance",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P027",
+      "section": "The boundary in the guidance",
+      "annotated": true,
+      "node_ids": [
+        "A02"
+      ],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P028",
+      "section": "The boundary in the guidance",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P029",
+      "section": "The boundary in the guidance",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P030",
+      "section": "The boundary in the guidance",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P031",
+      "section": "The boundary in the guidance",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P032",
+      "section": "The boundary in the guidance",
+      "annotated": true,
+      "node_ids": [
+        "A03",
+        "A11"
+      ],
+      "relation_ids": [
+        "R01"
+      ]
+    },
+    {
+      "block_id": "P033",
+      "section": "The boundary in the guidance",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P034",
+      "section": "The boundary in the guidance",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P036",
+      "section": "The comparison the conversation kept missing",
+      "annotated": true,
+      "node_ids": [
+        "A04"
+      ],
+      "relation_ids": [
+        "R02"
+      ]
+    },
+    {
+      "block_id": "P037",
+      "section": "The comparison the conversation kept missing",
+      "annotated": true,
+      "node_ids": [
+        "A05"
+      ],
+      "relation_ids": [
+        "R03"
+      ]
+    },
+    {
+      "block_id": "P038",
+      "section": "The comparison the conversation kept missing",
+      "annotated": true,
+      "node_ids": [
+        "A06",
+        "A25"
+      ],
+      "relation_ids": [
+        "R04",
+        "R20",
+        "R21"
+      ]
+    },
+    {
+      "block_id": "P039",
+      "section": "The comparison the conversation kept missing",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P040",
+      "section": "The comparison the conversation kept missing",
+      "annotated": true,
+      "node_ids": [
+        "A07"
+      ],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P041",
+      "section": "The comparison the conversation kept missing",
+      "annotated": true,
+      "node_ids": [],
+      "relation_ids": [
+        "R05"
+      ]
+    },
+    {
+      "block_id": "P042",
+      "section": "The comparison the conversation kept missing",
+      "annotated": true,
+      "node_ids": [
+        "A08"
+      ],
+      "relation_ids": [
+        "R06"
+      ]
+    },
+    {
+      "block_id": "P043",
+      "section": "The comparison the conversation kept missing",
+      "annotated": true,
+      "node_ids": [
+        "A09"
+      ],
+      "relation_ids": [
+        "R07"
+      ]
+    },
+    {
+      "block_id": "P044",
+      "section": "The comparison the conversation kept missing",
+      "annotated": true,
+      "node_ids": [
+        "A10"
+      ],
+      "relation_ids": [
+        "R08"
+      ]
+    },
+    {
+      "block_id": "P045",
+      "section": "The comparison the conversation kept missing",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P046",
+      "section": "The comparison the conversation kept missing",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P047",
+      "section": "The comparison the conversation kept missing",
+      "annotated": true,
+      "node_ids": [
+        "A20"
+      ],
+      "relation_ids": [
+        "R15"
+      ]
+    },
+    {
+      "block_id": "P048",
+      "section": "The comparison the conversation kept missing",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P049",
+      "section": "The comparison the conversation kept missing",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P050",
+      "section": "The comparison the conversation kept missing",
+      "annotated": true,
+      "node_ids": [
+        "A12"
+      ],
+      "relation_ids": [
+        "R09"
+      ]
+    },
+    {
+      "block_id": "P051",
+      "section": "The comparison the conversation kept missing",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P052",
+      "section": "The comparison the conversation kept missing",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P053",
+      "section": "The comparison the conversation kept missing",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P054",
+      "section": "The comparison the conversation kept missing",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P056",
+      "section": "Returning to something I helped produce",
+      "annotated": true,
+      "node_ids": [
+        "A13"
+      ],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P057",
+      "section": "Returning to something I helped produce",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P058",
+      "section": "Returning to something I helped produce",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P059",
+      "section": "Returning to something I helped produce",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P060",
+      "section": "Returning to something I helped produce",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P061",
+      "section": "Returning to something I helped produce",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P062",
+      "section": "Returning to something I helped produce",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P063",
+      "section": "Returning to something I helped produce",
+      "annotated": true,
+      "node_ids": [
+        "A14"
+      ],
+      "relation_ids": [
+        "R10"
+      ]
+    },
+    {
+      "block_id": "P064",
+      "section": "Returning to something I helped produce",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P065",
+      "section": "Returning to something I helped produce",
+      "annotated": true,
+      "node_ids": [
+        "A15"
+      ],
+      "relation_ids": [
+        "R11"
+      ]
+    },
+    {
+      "block_id": "P066",
+      "section": "Returning to something I helped produce",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P068",
+      "section": "What studies of learning add to the question",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P069",
+      "section": "What studies of learning add to the question",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P070",
+      "section": "What studies of learning add to the question",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P071",
+      "section": "What studies of learning add to the question",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P072",
+      "section": "What studies of learning add to the question",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P073",
+      "section": "What studies of learning add to the question",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P074",
+      "section": "What studies of learning add to the question",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P075",
+      "section": "What studies of learning add to the question",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P076",
+      "section": "What studies of learning add to the question",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P077",
+      "section": "What studies of learning add to the question",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P079",
+      "section": "What the evidence would have to show",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P080",
+      "section": "What the evidence would have to show",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P081",
+      "section": "What the evidence would have to show",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P082",
+      "section": "What the evidence would have to show",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P083",
+      "section": "What the evidence would have to show",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P084",
+      "section": "What the evidence would have to show",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P085",
+      "section": "What the evidence would have to show",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P086",
+      "section": "What the evidence would have to show",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P087",
+      "section": "What the evidence would have to show",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P088",
+      "section": "What the evidence would have to show",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P089",
+      "section": "What the evidence would have to show",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P090",
+      "section": "What the evidence would have to show",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P091",
+      "section": "What the evidence would have to show",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P092",
+      "section": "What the evidence would have to show",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P094",
+      "section": "When uncertainty becomes an institutional practice",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P095",
+      "section": "When uncertainty becomes an institutional practice",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P096",
+      "section": "When uncertainty becomes an institutional practice",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P097",
+      "section": "When uncertainty becomes an institutional practice",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P098",
+      "section": "When uncertainty becomes an institutional practice",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P099",
+      "section": "When uncertainty becomes an institutional practice",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P101",
+      "section": "Why I want to keep this question within theology",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P102",
+      "section": "Why I want to keep this question within theology",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P103",
+      "section": "Why I want to keep this question within theology",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P104",
+      "section": "Why I want to keep this question within theology",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P105",
+      "section": "Why I want to keep this question within theology",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P106",
+      "section": "Why I want to keep this question within theology",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P107",
+      "section": "Why I want to keep this question within theology",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P108",
+      "section": "Why I want to keep this question within theology",
+      "annotated": true,
+      "node_ids": [
+        "A16",
+        "A22",
+        "A23",
+        "A24"
+      ],
+      "relation_ids": [
+        "R12",
+        "R17",
+        "R18",
+        "R19"
+      ]
+    },
+    {
+      "block_id": "P109",
+      "section": "Why I want to keep this question within theology",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P110",
+      "section": "Why I want to keep this question within theology",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P111",
+      "section": "Why I want to keep this question within theology",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P112",
+      "section": "Why I want to keep this question within theology",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P113",
+      "section": "Why I want to keep this question within theology",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P114",
+      "section": "Why I want to keep this question within theology",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P115",
+      "section": "Why I want to keep this question within theology",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P116",
+      "section": "Why I want to keep this question within theology",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P118",
+      "section": "The conversation belongs inside the problem",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P119",
+      "section": "The conversation belongs inside the problem",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P120",
+      "section": "The conversation belongs inside the problem",
+      "annotated": true,
+      "node_ids": [
+        "A21"
+      ],
+      "relation_ids": [
+        "R16"
+      ]
+    },
+    {
+      "block_id": "P121",
+      "section": "The conversation belongs inside the problem",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P122",
+      "section": "The conversation belongs inside the problem",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P123",
+      "section": "The conversation belongs inside the problem",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P124",
+      "section": "The conversation belongs inside the problem",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P125",
+      "section": "The conversation belongs inside the problem",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P126",
+      "section": "The conversation belongs inside the problem",
+      "annotated": true,
+      "node_ids": [
+        "A17"
+      ],
+      "relation_ids": [
+        "R13"
+      ]
+    },
+    {
+      "block_id": "P127",
+      "section": "The conversation belongs inside the problem",
+      "annotated": false,
+      "node_ids": [],
+      "relation_ids": []
+    },
+    {
+      "block_id": "P128",
+      "section": "The conversation belongs inside the problem",
+      "annotated": true,
+      "node_ids": [
+        "A18"
+      ],
+      "relation_ids": [
+        "R14"
+      ]
+    }
+  ],
+  "evidence_basis": [
+    {
+      "basis": "hypothetical_example",
+      "count": 6,
+      "node_ids": [
+        "A07",
+        "A10",
+        "A16",
+        "A22",
+        "A23",
+        "A24"
+      ]
+    },
+    {
+      "basis": "later_literature",
+      "count": 4,
+      "node_ids": [
+        "A09",
+        "A12",
+        "A14",
+        "A20"
+      ]
+    },
+    {
+      "basis": "published_argument",
+      "count": 8,
+      "node_ids": [
+        "A01",
+        "A02",
+        "A08",
+        "A15",
+        "A17",
+        "A18",
+        "A19",
+        "A21"
+      ]
+    },
+    {
+      "basis": "retrospective_account",
+      "count": 7,
+      "node_ids": [
+        "A03",
+        "A04",
+        "A05",
+        "A06",
+        "A11",
+        "A13",
+        "A25"
+      ]
+    }
+  ],
+  "changes": [
+    {
+      "conclusion": "not_established",
+      "justification": "elaborated",
+      "count": 1,
+      "episode_ids": [
+        "E04"
+      ]
+    },
+    {
+      "conclusion": "not_established",
+      "justification": "not_established",
+      "count": 1,
+      "episode_ids": [
+        "E05"
+      ]
+    },
+    {
+      "conclusion": "not_established",
+      "justification": "qualified",
+      "count": 2,
+      "episode_ids": [
+        "E03",
+        "E06"
+      ]
+    },
+    {
+      "conclusion": "unresolved",
+      "justification": "elaborated",
+      "count": 1,
+      "episode_ids": [
+        "E01"
+      ]
+    },
+    {
+      "conclusion": "unresolved",
+      "justification": "repaired",
+      "count": 1,
+      "episode_ids": [
+        "E02"
+      ]
+    }
+  ],
+  "graph": {
+    "node_count": 25,
+    "edge_count": 21,
+    "paths": [
+      {
+        "source": "A03",
+        "target": "A02",
+        "node_ids": [
+          "A03",
+          "A02"
+        ],
+        "relation_ids": [
+          "R01"
+        ]
+      },
+      {
+        "source": "A04",
+        "target": "A01",
+        "node_ids": [
+          "A04",
+          "A01"
+        ],
+        "relation_ids": [
+          "R02"
+        ]
+      },
+      {
+        "source": "A05",
+        "target": "A04",
+        "node_ids": [
+          "A05",
+          "A04"
+        ],
+        "relation_ids": [
+          "R03"
+        ]
+      },
+      {
+        "source": "A05",
+        "target": "A01",
+        "node_ids": [
+          "A05",
+          "A04",
+          "A01"
+        ],
+        "relation_ids": [
+          "R03",
+          "R02"
+        ]
+      },
+      {
+        "source": "A06",
+        "target": "A05",
+        "node_ids": [
+          "A06",
+          "A05"
+        ],
+        "relation_ids": [
+          "R04"
+        ]
+      },
+      {
+        "source": "A06",
+        "target": "A04",
+        "node_ids": [
+          "A06",
+          "A05",
+          "A04"
+        ],
+        "relation_ids": [
+          "R04",
+          "R03"
+        ]
+      },
+      {
+        "source": "A06",
+        "target": "A01",
+        "node_ids": [
+          "A06",
+          "A05",
+          "A04",
+          "A01"
+        ],
+        "relation_ids": [
+          "R04",
+          "R03",
+          "R02"
+        ]
+      },
+      {
+        "source": "A07",
+        "target": "A08",
+        "node_ids": [
+          "A07",
+          "A08"
+        ],
+        "relation_ids": [
+          "R05"
+        ]
+      },
+      {
+        "source": "A07",
+        "target": "A01",
+        "node_ids": [
+          "A07",
+          "A08",
+          "A01"
+        ],
+        "relation_ids": [
+          "R05",
+          "R06"
+        ]
+      },
+      {
+        "source": "A08",
+        "target": "A01",
+        "node_ids": [
+          "A08",
+          "A01"
+        ],
+        "relation_ids": [
+          "R06"
+        ]
+      },
+      {
+        "source": "A09",
+        "target": "A08",
+        "node_ids": [
+          "A09",
+          "A08"
+        ],
+        "relation_ids": [
+          "R07"
+        ]
+      },
+      {
+        "source": "A09",
+        "target": "A01",
+        "node_ids": [
+          "A09",
+          "A08",
+          "A01"
+        ],
+        "relation_ids": [
+          "R07",
+          "R06"
+        ]
+      },
+      {
+        "source": "A10",
+        "target": "A01",
+        "node_ids": [
+          "A10",
+          "A01"
+        ],
+        "relation_ids": [
+          "R08"
+        ]
+      },
+      {
+        "source": "A12",
+        "target": "A11",
+        "node_ids": [
+          "A12",
+          "A11"
+        ],
+        "relation_ids": [
+          "R09"
+        ]
+      },
+      {
+        "source": "A14",
+        "target": "A13",
+        "node_ids": [
+          "A14",
+          "A13"
+        ],
+        "relation_ids": [
+          "R10"
+        ]
+      },
+      {
+        "source": "A15",
+        "target": "A13",
+        "node_ids": [
+          "A15",
+          "A13"
+        ],
+        "relation_ids": [
+          "R11"
+        ]
+      },
+      {
+        "source": "A16",
+        "target": "A07",
+        "node_ids": [
+          "A16",
+          "A07"
+        ],
+        "relation_ids": [
+          "R12"
+        ]
+      },
+      {
+        "source": "A16",
+        "target": "A08",
+        "node_ids": [
+          "A16",
+          "A07",
+          "A08"
+        ],
+        "relation_ids": [
+          "R12",
+          "R05"
+        ]
+      },
+      {
+        "source": "A16",
+        "target": "A01",
+        "node_ids": [
+          "A16",
+          "A07",
+          "A08",
+          "A01"
+        ],
+        "relation_ids": [
+          "R12",
+          "R05",
+          "R06"
+        ]
+      },
+      {
+        "source": "A17",
+        "target": "A13",
+        "node_ids": [
+          "A17",
+          "A13"
+        ],
+        "relation_ids": [
+          "R13"
+        ]
+      },
+      {
+        "source": "A18",
+        "target": "A01",
+        "node_ids": [
+          "A18",
+          "A01"
+        ],
+        "relation_ids": [
+          "R14"
+        ]
+      },
+      {
+        "source": "A20",
+        "target": "A05",
+        "node_ids": [
+          "A20",
+          "A05"
+        ],
+        "relation_ids": [
+          "R15"
+        ]
+      },
+      {
+        "source": "A20",
+        "target": "A04",
+        "node_ids": [
+          "A20",
+          "A05",
+          "A04"
+        ],
+        "relation_ids": [
+          "R15",
+          "R03"
+        ]
+      },
+      {
+        "source": "A20",
+        "target": "A01",
+        "node_ids": [
+          "A20",
+          "A05",
+          "A04",
+          "A01"
+        ],
+        "relation_ids": [
+          "R15",
+          "R03",
+          "R02"
+        ]
+      },
+      {
+        "source": "A21",
+        "target": "A06",
+        "node_ids": [
+          "A21",
+          "A06"
+        ],
+        "relation_ids": [
+          "R16"
+        ]
+      },
+      {
+        "source": "A21",
+        "target": "A05",
+        "node_ids": [
+          "A21",
+          "A06",
+          "A05"
+        ],
+        "relation_ids": [
+          "R16",
+          "R04"
+        ]
+      },
+      {
+        "source": "A21",
+        "target": "A04",
+        "node_ids": [
+          "A21",
+          "A06",
+          "A05",
+          "A04"
+        ],
+        "relation_ids": [
+          "R16",
+          "R04",
+          "R03"
+        ]
+      },
+      {
+        "source": "A21",
+        "target": "A01",
+        "node_ids": [
+          "A21",
+          "A06",
+          "A05",
+          "A04",
+          "A01"
+        ],
+        "relation_ids": [
+          "R16",
+          "R04",
+          "R03",
+          "R02"
+        ]
+      },
+      {
+        "source": "A22",
+        "target": "A16",
+        "node_ids": [
+          "A22",
+          "A16"
+        ],
+        "relation_ids": [
+          "R17"
+        ]
+      },
+      {
+        "source": "A22",
+        "target": "A07",
+        "node_ids": [
+          "A22",
+          "A16",
+          "A07"
+        ],
+        "relation_ids": [
+          "R17",
+          "R12"
+        ]
+      },
+      {
+        "source": "A22",
+        "target": "A08",
+        "node_ids": [
+          "A22",
+          "A16",
+          "A07",
+          "A08"
+        ],
+        "relation_ids": [
+          "R17",
+          "R12",
+          "R05"
+        ]
+      },
+      {
+        "source": "A22",
+        "target": "A01",
+        "node_ids": [
+          "A22",
+          "A16",
+          "A07",
+          "A08",
+          "A01"
+        ],
+        "relation_ids": [
+          "R17",
+          "R12",
+          "R05",
+          "R06"
+        ]
+      },
+      {
+        "source": "A23",
+        "target": "A16",
+        "node_ids": [
+          "A23",
+          "A16"
+        ],
+        "relation_ids": [
+          "R18"
+        ]
+      },
+      {
+        "source": "A23",
+        "target": "A07",
+        "node_ids": [
+          "A23",
+          "A16",
+          "A07"
+        ],
+        "relation_ids": [
+          "R18",
+          "R12"
+        ]
+      },
+      {
+        "source": "A23",
+        "target": "A08",
+        "node_ids": [
+          "A23",
+          "A16",
+          "A07",
+          "A08"
+        ],
+        "relation_ids": [
+          "R18",
+          "R12",
+          "R05"
+        ]
+      },
+      {
+        "source": "A23",
+        "target": "A01",
+        "node_ids": [
+          "A23",
+          "A16",
+          "A07",
+          "A08",
+          "A01"
+        ],
+        "relation_ids": [
+          "R18",
+          "R12",
+          "R05",
+          "R06"
+        ]
+      },
+      {
+        "source": "A24",
+        "target": "A23",
+        "node_ids": [
+          "A24",
+          "A23"
+        ],
+        "relation_ids": [
+          "R19"
+        ]
+      },
+      {
+        "source": "A24",
+        "target": "A16",
+        "node_ids": [
+          "A24",
+          "A23",
+          "A16"
+        ],
+        "relation_ids": [
+          "R19",
+          "R18"
+        ]
+      },
+      {
+        "source": "A24",
+        "target": "A07",
+        "node_ids": [
+          "A24",
+          "A23",
+          "A16",
+          "A07"
+        ],
+        "relation_ids": [
+          "R19",
+          "R18",
+          "R12"
+        ]
+      },
+      {
+        "source": "A24",
+        "target": "A08",
+        "node_ids": [
+          "A24",
+          "A23",
+          "A16",
+          "A07",
+          "A08"
+        ],
+        "relation_ids": [
+          "R19",
+          "R18",
+          "R12",
+          "R05"
+        ]
+      },
+      {
+        "source": "A24",
+        "target": "A01",
+        "node_ids": [
+          "A24",
+          "A23",
+          "A16",
+          "A07",
+          "A08",
+          "A01"
+        ],
+        "relation_ids": [
+          "R19",
+          "R18",
+          "R12",
+          "R05",
+          "R06"
+        ]
+      },
+      {
+        "source": "A25",
+        "target": "A05",
+        "node_ids": [
+          "A25",
+          "A05"
+        ],
+        "relation_ids": [
+          "R20"
+        ]
+      },
+      {
+        "source": "A25",
+        "target": "A06",
+        "node_ids": [
+          "A25",
+          "A06"
+        ],
+        "relation_ids": [
+          "R21"
+        ]
+      },
+      {
+        "source": "A25",
+        "target": "A04",
+        "node_ids": [
+          "A25",
+          "A05",
+          "A04"
+        ],
+        "relation_ids": [
+          "R20",
+          "R03"
+        ]
+      },
+      {
+        "source": "A25",
+        "target": "A01",
+        "node_ids": [
+          "A25",
+          "A05",
+          "A04",
+          "A01"
+        ],
+        "relation_ids": [
+          "R20",
+          "R03",
+          "R02"
+        ]
+      }
+    ],
+    "motifs": [
+      {
+        "id": "repair_recurrence",
+        "label": "An objection returns after acknowledgment",
+        "definition": "Four distinct retrospective nodes: an author questions a claim's relevance; an assistant acknowledges that challenge; an author returns to it; an explicit follows-acknowledgment edge connects that return to the acknowledgment.",
+        "matches": [
+          {
+            "node_ids": [
+              "A04",
+              "A05",
+              "A06",
+              "A25"
+            ],
+            "relation_ids": [
+              "R03",
+              "R04",
+              "R20",
+              "R21"
+            ]
+          }
+        ],
+        "count": 1,
+        "limitation": "The match depends on the article's reported sequence and the proposed coding. It does not establish sustained correction, an independently aligned conversation, or learning."
+      },
+      {
+        "id": "scholarly_qualification",
+        "label": "Later scholarship qualifies a claim",
+        "definition": "A qualifies edge begins at a node whose evidence basis is later_literature.",
+        "matches": [
+          {
+            "node_ids": [
+              "A11",
+              "A12"
+            ],
+            "relation_ids": [
+              "R09"
+            ]
+          },
+          {
+            "node_ids": [
+              "A13",
+              "A14"
+            ],
+            "relation_ids": [
+              "R10"
+            ]
+          }
+        ],
+        "count": 2,
+        "limitation": "This detects a coded qualification. It does not establish when the original conversation occurred or that the writer's understanding improved."
+      },
+      {
+        "id": "alternative_to_misapplication",
+        "label": "An alternative addresses a misapplication",
+        "definition": "An offers_alternative_to edge targets the source of an illustrates_misapplication edge; all three nodes must differ.",
+        "matches": [
+          {
+            "node_ids": [
+              "A16",
+              "A23",
+              "A24"
+            ],
+            "relation_ids": [
+              "R18",
+              "R19"
+            ]
+          }
+        ],
+        "count": 1,
+        "limitation": "The current match belongs to a hypothetical example. It is an argument configuration, not an observed learner outcome."
+      }
+    ],
+    "method": "Breadth-first search; one shortest directed path for each reachable ordered node pair; ties resolved by relationship ID.",
+    "limitations": "These paths follow annotated relationships. Their heterogeneous labels are not automatically transitive, chronological or causal."
+  },
+  "lexical_returns": {
+    "method": "Paragraph retrieval using logarithmic term frequency, smoothed inverse document frequency and cosine similarity.",
+    "limitations": "Earlier and later mean positions in the published article. Lexical similarity identifies candidate passages to inspect; it does not establish a return in the conversation, semantic agreement, or learning.",
+    "options": {
+      "min_paragraph_words": 25,
+      "min_body_index_distance": 3,
+      "top_pairs": 12,
+      "minimum_cosine": 0.1,
+      "shared_terms_limit": 8,
+      "token_pattern": "[a-z]+(?:'[a-z]+)?",
+      "normalization": "Unicode NFKC; lowercase; curly apostrophe to ASCII",
+      "minimum_token_length": 3,
+      "tf": "1 + ln(term count)",
+      "idf": "1 + ln((1 + document count) / (1 + document frequency))",
+      "stopwords": [
+        "a",
+        "about",
+        "above",
+        "after",
+        "again",
+        "against",
+        "all",
+        "also",
+        "although",
+        "am",
+        "an",
+        "and",
+        "any",
+        "are",
+        "as",
+        "at",
+        "be",
+        "because",
+        "been",
+        "before",
+        "being",
+        "below",
+        "between",
+        "both",
+        "but",
+        "by",
+        "can",
+        "cannot",
+        "could",
+        "did",
+        "do",
+        "does",
+        "doing",
+        "down",
+        "during",
+        "each",
+        "even",
+        "few",
+        "for",
+        "from",
+        "further",
+        "had",
+        "has",
+        "have",
+        "having",
+        "he",
+        "her",
+        "here",
+        "hers",
+        "herself",
+        "him",
+        "himself",
+        "his",
+        "how",
+        "however",
+        "i",
+        "if",
+        "in",
+        "indeed",
+        "into",
+        "is",
+        "it",
+        "its",
+        "itself",
+        "just",
+        "many",
+        "may",
+        "me",
+        "might",
+        "more",
+        "most",
+        "much",
+        "must",
+        "my",
+        "myself",
+        "no",
+        "nor",
+        "not",
+        "of",
+        "off",
+        "on",
+        "once",
+        "one",
+        "only",
+        "or",
+        "other",
+        "our",
+        "ours",
+        "ourselves",
+        "out",
+        "over",
+        "own",
+        "same",
+        "shall",
+        "she",
+        "should",
+        "so",
+        "some",
+        "such",
+        "than",
+        "that",
+        "the",
+        "their",
+        "theirs",
+        "them",
+        "themselves",
+        "then",
+        "there",
+        "therefore",
+        "these",
+        "they",
+        "this",
+        "those",
+        "through",
+        "thus",
+        "to",
+        "too",
+        "two",
+        "under",
+        "until",
+        "up",
+        "us",
+        "very",
+        "was",
+        "we",
+        "were",
+        "what",
+        "when",
+        "where",
+        "whether",
+        "which",
+        "while",
+        "who",
+        "whom",
+        "whose",
+        "why",
+        "will",
+        "with",
+        "within",
+        "without",
+        "would",
+        "you",
+        "your",
+        "yours",
+        "yourself",
+        "yourselves"
+      ],
+      "stemming": false
+    },
+    "eligible_paragraphs": 115,
+    "eligible_pairs_above_threshold": 138,
+    "pairs": [
+      {
+        "earlier_id": "P004",
+        "later_id": "P128",
+        "score": 0.282499,
+        "shared_terms": [
+          "rejecting",
+          "accepting",
+          "friend",
+          "justify",
+          "develop",
+          "suggestion",
+          "comparison",
+          "intellectual"
+        ]
+      },
+      {
+        "earlier_id": "P022",
+        "later_id": "P054",
+        "score": 0.215716,
+        "shared_terms": [
+          "guidance",
+          "application",
+          "permits",
+          "stated",
+          "process",
+          "assess",
+          "graduate",
+          "reasoning"
+        ]
+      },
+      {
+        "earlier_id": "P044",
+        "later_id": "P128",
+        "score": 0.189122,
+        "shared_terms": [
+          "suggestion",
+          "friend",
+          "develop",
+          "relevant",
+          "intellectual",
+          "policy",
+          "work"
+        ]
+      },
+      {
+        "earlier_id": "P004",
+        "later_id": "P044",
+        "score": 0.185776,
+        "shared_terms": [
+          "suggestion",
+          "friend",
+          "exactly",
+          "develop",
+          "first",
+          "intellectual",
+          "work",
+          "argument"
+        ]
+      },
+      {
+        "earlier_id": "P082",
+        "later_id": "P116",
+        "score": 0.175749,
+        "shared_terms": [
+          "assumptions",
+          "support",
+          "explicit",
+          "assessment",
+          "capacity",
+          "need",
+          "judgment",
+          "make"
+        ]
+      },
+      {
+        "earlier_id": "P023",
+        "later_id": "P042",
+        "score": 0.17135,
+        "shared_terms": [
+          "activities",
+          "changed",
+          "objection",
+          "way",
+          "asked",
+          "idea",
+          "wording",
+          "difficulty"
+        ]
+      },
+      {
+        "earlier_id": "P037",
+        "later_id": "P119",
+        "score": 0.168572,
+        "shared_terms": [
+          "correct",
+          "reply",
+          "complete",
+          "proposal",
+          "comparison",
+          "feedback",
+          "answer",
+          "part"
+        ]
+      },
+      {
+        "earlier_id": "P027",
+        "later_id": "P089",
+        "score": 0.16801,
+        "shared_terms": [
+          "sentence",
+          "revised",
+          "idea",
+          "reasoning",
+          "first",
+          "every",
+          "contribution"
+        ]
+      },
+      {
+        "earlier_id": "P072",
+        "later_id": "P075",
+        "score": 0.167882,
+        "shared_terms": [
+          "kestin",
+          "structured",
+          "teaching",
+          "results",
+          "colleagues",
+          "higher",
+          "students",
+          "original"
+        ]
+      },
+      {
+        "earlier_id": "P007",
+        "later_id": "P012",
+        "score": 0.165441,
+        "shared_terms": [
+          "wanted",
+          "produces",
+          "generate",
+          "precise",
+          "leave",
+          "open",
+          "uses",
+          "become"
+        ]
+      },
+      {
+        "earlier_id": "P026",
+        "later_id": "P054",
+        "score": 0.156924,
+        "shared_terms": [
+          "candidate's",
+          "document",
+          "supplies",
+          "reasoning",
+          "application",
+          "admissions",
+          "assessed",
+          "process"
+        ]
+      },
+      {
+        "earlier_id": "P005",
+        "later_id": "P116",
+        "score": 0.153968,
+        "shared_terms": [
+          "previous",
+          "assumptions",
+          "disclosure",
+          "interaction",
+          "work",
+          "assessment",
+          "inquiry",
+          "question"
+        ]
+      }
+    ]
+  },
+  "method": {
+    "scope": "One published article; selected provisional coding. The original chat has not been independently aligned.",
+    "pattern_counts": "Counts aggregate supplied episode codes; they are not automatically discovered collaboration types. An episode can have multiple codes, so counts can exceed the number of episodes.",
+    "changes": "Conclusion and justification states are assistant-proposed interpretations, not measured learning outcomes. Not established means the available episode does not demonstrate that change.",
+    "coverage": "A body block is a non-reference paragraph or quotation. Coverage counts blocks containing at least one node or relation anchor; unannotated blocks were not necessarily irrelevant.",
+    "evidence_basis": "Basis distributions count selected interpretation nodes, not people, authorship shares or independent observations.",
+    "sequence": "Reported order, hypothetical order and analytical grouping remain distinct. No conversational transition probabilities or durations are inferred from article order.",
+    "review_status": "proposed_by_assistant",
+    "computational_role": "Python validates text offsets, aggregates codes, traverses the directed graph and retrieves lexical similarities. The codebook and episode interpretations are supplied inputs."
+  }
+}

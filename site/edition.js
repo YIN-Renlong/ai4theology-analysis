@@ -1,6 +1,7 @@
 import {createMap} from './edition-maps.js';
 import {mountExplorer} from './edition-explorer.js';
-const {analysis:data,chapters}=JSON.parse(document.querySelector('#edition-data').textContent);
+import {mountAnalysis} from './edition-analysis.js';
+const {analysis:data,chapters,collaboration}=JSON.parse(document.querySelector('#edition-data').textContent);
 const blocks=new Map(data.article.blocks.map(b=>[b.id,b]));
 const episodes=[...document.querySelectorAll('.episode')];
 const nav=document.querySelector('.reader-nav');
@@ -67,6 +68,11 @@ document.querySelector('#close-evidence').addEventListener('click',()=>dialog.cl
 dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
 document.addEventListener('click',e=>{const source=e.target.closest('[data-paragraph],[data-nodes]');if(source)showEvidence(source.dataset.paragraph?{paragraphs:[source.dataset.paragraph]}:{nodes:source.dataset.nodes.split(',')});});
 mountExplorer(document.querySelector('#explorer'),data,showEvidence);
+mountAnalysis(document.querySelector('#analysis-explorer'),collaboration,{
+  openParagraph:id=>showEvidence({paragraphs:[id]}),
+  openNodes:ids=>showEvidence({nodes:ids}),
+  openRelations:ids=>showEvidence({relations:ids}),
+});
 const termSelect=document.querySelector('#term'),termBars=document.querySelector('#term-bars'),termPassages=document.querySelector('#term-passages');
 let sectionFilter='';
 function markedText(text,spans){const f=document.createDocumentFragment();let pos=0;for(const s of [...spans].sort((a,b)=>a.start-b.start)){f.append(document.createTextNode(text.slice(pos,s.start)),el('mark',text.slice(s.start,s.end)));pos=s.end;}f.append(document.createTextNode(text.slice(pos)));return f;}

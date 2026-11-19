@@ -1,0 +1,72 @@
+{
+  "version": "0.1.0",
+  "status": "proposed_by_assistant",
+  "scope": "A provisional coding framework for six selected episodes in one published article. Pattern assignments are interpretations; the Python pipeline counts and validates those assignments.",
+  "patterns": [
+    {
+      "id": "distinction",
+      "label": "Examining a distinction",
+      "definition": "A contribution separates concepts or activities, and the episode examines what follows from that separation.",
+      "inclusion": "Identify both sides of the distinction and a passage examining its use. For example, distinguish understanding an idea from originating it.",
+      "exclusion": "Do not code a list of different terms without an examined relationship, or infer understanding from repeating a definition.",
+      "pedagogical_question": "Can the writer explain what the distinction permits and what it leaves unanswered?"
+    },
+    {
+      "id": "question_repair",
+      "label": "Repairing the question",
+      "definition": "A participant identifies that a response has altered the intended comparison or question and attempts to restore it.",
+      "inclusion": "Identify the changed assumption and the intervention that addresses it. Preserve a repeated mismatch even after acknowledgment.",
+      "exclusion": "Ordinary disagreement about an answer is insufficient. Model agreement does not establish that the repair was correct or sustained.",
+      "pedagogical_question": "Can the writer explain why the response changed the case, and does the subsequent exchange address that correction?"
+    },
+    {
+      "id": "scholarly_qualification",
+      "label": "Qualifying through scholarship",
+      "definition": "Engagement with a scholarly source changes the scope or grounds of an emerging criterion.",
+      "inclusion": "Link a specific source-based qualification to the claim or criterion it constrains. Identify later reading separately from the reported AI exchange.",
+      "exclusion": "A citation added without an explained bearing on the argument is insufficient. Source consultation alone is not a demonstrated learning outcome.",
+      "pedagogical_question": "Can the writer explain what the source changes, including the limits of that change?"
+    },
+    {
+      "id": "return_to_work",
+      "label": "Returning to preserved work",
+      "definition": "The writer revisits previously developed material and examines the relationship between earlier contribution and later understanding.",
+      "inclusion": "Identify preserved work and an explicit question or explanation about a later encounter with it.",
+      "exclusion": "Repeated vocabulary or a backward reference alone is insufficient. Later fluency does not establish independent authorship of earlier work.",
+      "pedagogical_question": "What could the writer explain at each encounter, and which parts of that comparison are actually recorded?"
+    },
+    {
+      "id": "application_test",
+      "label": "Testing through application",
+      "definition": "A proposed distinction is examined through an application or counterexample that makes a particular inference assessable.",
+      "inclusion": "Identify the proposed application and the inference whose adequacy is being examined. Retain a hypothetical status when no observed learner response exists.",
+      "exclusion": "A topic mentioned as an example without an examined inference is insufficient. A hypothetical success or failure is not a learning observation.",
+      "pedagogical_question": "Can the writer assess the inference while distinguishing it from the premise or finding on which it draws?"
+    }
+  ],
+  "relation_families": {
+    "argument": [
+      "contextualises",
+      "develops_example",
+      "distinguishes",
+      "illustrates",
+      "illustrates_misapplication",
+      "offers_alternative_to",
+      "qualifies",
+      "reframes",
+      "returns_to",
+      "specifies",
+      "supports"
+    ],
+    "interaction": [
+      "acknowledges",
+      "questions_relevance_of"
+    ],
+    "reported_sequence": [
+      "follows_acknowledgment_in_account"
+    ]
+  },
+  "relation_family_note": "This partition is a proposed analytical interpretation of the existing labels. An argument link describes a relation between propositions; it does not by itself establish event order. In particular, returns_to remains a referential link. The explicit follows_acknowledgment_in_account label records order reported in the essay, not an independently aligned chat history.",
+  "coding_note": "An episode may receive more than one pattern. Counts use the six selected episodes as their denominator and do not estimate all collaboration in the article or all cognition. Unknown change states are retained rather than inferred from publication order.",
+  "change_note": "Conclusion and justification are coded separately. A coded change concerns expressed reasoning in this source; it does not demonstrate an independently measured increase in understanding. Earlier and later references identify the passages supporting a proposed comparison, not reconstructed timestamps."
+}

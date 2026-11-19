@@ -103,8 +103,9 @@ def main(argv=None):
     # Prepare and verify all material before the first remote mutation.
     print("Checking the demo locally…", flush=True)
     run([sys.executable, "scripts/build_data.py"], cwd=ROOT)
-    run([sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"], cwd=ROOT)
+    run([sys.executable, "scripts/analyze_collaboration.py"], cwd=ROOT)
     run([sys.executable, "scripts/build_edition.py"], cwd=ROOT)
+    run([sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"], cwd=ROOT)
     files = package_files()
     if existing is None:
         print("Creating public repository " + repository + "…", flush=True)

@@ -138,7 +138,7 @@ def main(argv=None):
         validate_origin(run([git, "remote", "get-url", "--push", "origin"], cwd=checkout))
         overlay(files, checkout)
         print("Rebuilding and checking the complete edition…", flush=True)
-        for script in ("scripts/build_data.py", "scripts/build_edition.py"):
+        for script in ("scripts/build_data.py", "scripts/analyze_collaboration.py", "scripts/build_edition.py"):
             output = run([sys.executable, script], cwd=checkout)
             if output:
                 print(output, flush=True)

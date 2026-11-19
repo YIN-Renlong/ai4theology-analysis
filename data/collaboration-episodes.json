@@ -1,0 +1,333 @@
+{
+  "version": "0.1.0",
+  "status": "proposed_by_assistant",
+  "selection_note": "Six purposefully selected analytical episodes drawn from the published account. They can share passages and are not independent observations or a complete partition of the article.",
+  "episodes": [
+    {
+      "id": "E01",
+      "title": "Understanding and origination come apart",
+      "basis": "retrospective_account",
+      "node_ids": [
+        "A02",
+        "A03",
+        "A11"
+      ],
+      "pattern_ids": [
+        "distinction"
+      ],
+      "summary": "The assistant distinguishes the origin of an idea from understanding it. YIN Renlong accepts the usefulness of that distinction while maintaining that it does not answer why equivalent human and AI assistance should receive different treatment.",
+      "sequence_status": "reported_order",
+      "moves": [
+        {
+          "actor": "assistant",
+          "action": "Introduces a distinction between originating and understanding an idea.",
+          "node_ids": [
+            "A03"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Accepts the distinction while redirecting attention to intellectual development and work the writer can explain.",
+          "node_ids": [
+            "A11"
+          ]
+        }
+      ],
+      "change": {
+        "conclusion": "unresolved",
+        "justification": "elaborated",
+        "explanation": "The account adds distinctions to the question of what counts as the writer's own thinking, but expressly says the human–AI comparison remains unanswered. This records conceptual elaboration, not an established change in learning.",
+        "earlier_node_ids": [
+          "A02"
+        ],
+        "later_node_ids": [
+          "A03",
+          "A11"
+        ]
+      },
+      "pedagogical_question": "Can the writer explain how understanding can develop without claiming to have originated the idea?",
+      "limit": "The published paragraph reports acceptance and a remaining question. It does not supply an independent before-and-after test of understanding.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "E02",
+      "title": "An acknowledgment does not finish the repair",
+      "basis": "retrospective_account",
+      "node_ids": [
+        "A01",
+        "A04",
+        "A05",
+        "A06",
+        "A25",
+        "A08",
+        "A21"
+      ],
+      "pattern_ids": [
+        "question_repair",
+        "distinction"
+      ],
+      "summary": "The discussion shifts from comparable feedback to complete substitution. YIN Renlong identifies that mismatch. The assistant acknowledges it, but the qualification returns and the objection must be repeated. The account then develops the point that feedback can generate ideas.",
+      "sequence_status": "reported_order",
+      "moves": [
+        {
+          "actor": "assistant",
+          "action": "Qualifies permission for human feedback by contrasting it with complete proposal substitution.",
+          "node_ids": [
+            "A04"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Identifies the changed amount and function of assistance.",
+          "node_ids": [
+            "A05"
+          ]
+        },
+        {
+          "actor": "assistant",
+          "action": "Acknowledges that the earlier response did not address the comparison adequately.",
+          "node_ids": [
+            "A06"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Repeats the objection when the same qualification resurfaces.",
+          "node_ids": [
+            "A25"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Questions whether feedback and idea generation can be cleanly separated.",
+          "node_ids": [
+            "A08"
+          ]
+        }
+      ],
+      "change": {
+        "conclusion": "unresolved",
+        "justification": "repaired",
+        "explanation": "The repair concerns the comparison and its assumptions, not a settled verdict on permission. The published account explicitly moves from asking where a boundary is drawn to questioning whether feedback and idea generation can be separated in that way. Acknowledgment is followed by recurrence, so the repair cannot be counted as a single uncomplicated success.",
+        "earlier_node_ids": [
+          "A04",
+          "A05"
+        ],
+        "later_node_ids": [
+          "A06",
+          "A25",
+          "A08"
+        ]
+      },
+      "pedagogical_question": "Can the writer identify a changed assumption and examine whether the correction persists in the next responses?",
+      "limit": "Order is reported in the essay; the original chat has not been independently aligned. The model's eventual agreement does not establish that the criticism is correct.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "E03",
+      "title": "Hardwig qualifies the demand for self-sufficiency",
+      "basis": "later_literature",
+      "node_ids": [
+        "A11",
+        "A12"
+      ],
+      "pattern_ids": [
+        "scholarly_qualification",
+        "distinction"
+      ],
+      "summary": "Later engagement with Hardwig qualifies an emerging emphasis on explaining and defending everything. The article distinguishes justified reliance on specialist knowledge from the particular theological judgment an assessment asks the writer to demonstrate.",
+      "sequence_status": "analytical_grouping",
+      "moves": [
+        {
+          "actor": "author",
+          "action": "Articulates the aim of producing work the writer can explain and defend.",
+          "node_ids": [
+            "A11"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Uses Hardwig to qualify that emerging criterion and distinguish reliance from the assessed task.",
+          "node_ids": [
+            "A12"
+          ]
+        }
+      ],
+      "change": {
+        "conclusion": "not_established",
+        "justification": "qualified",
+        "explanation": "The article explicitly states that the later reading qualifies an emerging emphasis on explaining and defending everything. It does not record a completed before-and-after demonstration of the writer's theological competence or a definite change in the overarching conclusion.",
+        "earlier_node_ids": [
+          "A11"
+        ],
+        "later_node_ids": [
+          "A12"
+        ]
+      },
+      "pedagogical_question": "Which specialist claims may be responsibly accepted, and which theological inference must the writer explain directly?",
+      "limit": "This is the author's later interpretation of scholarship, not a recorded exchange with Hardwig or an observation of a student learning.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "E04",
+      "title": "The writer becomes a reader of preserved work",
+      "basis": "retrospective_account",
+      "node_ids": [
+        "A13",
+        "A17",
+        "A15"
+      ],
+      "pattern_ids": [
+        "return_to_work",
+        "distinction"
+      ],
+      "summary": "YIN Renlong describes returning to an AI-assisted blog post after publication. The article subsequently distinguishes later understanding from earlier contribution, while warning that the preserved work cannot capture all cognition.",
+      "sequence_status": "analytical_grouping",
+      "moves": [
+        {
+          "actor": "author",
+          "action": "Describes returning to a text developed through iterative AI conversation.",
+          "node_ids": [
+            "A13"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Separates a claim about later understanding from a claim about earlier origination.",
+          "node_ids": [
+            "A17"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Questions what the archive can establish about change over time.",
+          "node_ids": [
+            "A15"
+          ]
+        }
+      ],
+      "change": {
+        "conclusion": "not_established",
+        "justification": "elaborated",
+        "explanation": "The later formulation distinguishes the evidence required for learning from the evidence required for contribution. The source asks what can be explained at different times; it does not supply the paired performance evidence needed to establish an individual learning gain.",
+        "earlier_node_ids": [
+          "A13"
+        ],
+        "later_node_ids": [
+          "A17"
+        ]
+      },
+      "pedagogical_question": "How could earlier and later explanatory capacity be examined without rewriting the history of assistance?",
+      "limit": "This grouping links passages published in different sections. Their ordering on the page is not evidence that every associated thought occurred in that order.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "E05",
+      "title": "A theological inference is tested in a hypothetical case",
+      "basis": "hypothetical_example",
+      "node_ids": [
+        "A07",
+        "A16",
+        "A22",
+        "A23",
+        "A24"
+      ],
+      "pattern_ids": [
+        "application_test",
+        "distinction"
+      ],
+      "summary": "An AI-supplied hypothetical question distinguishes methodological from metaphysical naturalism. A later teaching contrast shows how the distinction could be recited correctly but misapplied, or used to challenge a metaphysical inference without rejecting a scientific finding.",
+      "sequence_status": "hypothetical",
+      "moves": [
+        {
+          "actor": "assistant",
+          "action": "Supplies a hypothetical question about two senses of naturalism.",
+          "node_ids": [
+            "A07"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Specifies the restriction within scientific method.",
+          "node_ids": [
+            "A22"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Constructs an example of an unsupported exhaustive metaphysical inference.",
+          "node_ids": [
+            "A23"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Offers an alternative that challenges the inference while retaining the scientific finding.",
+          "node_ids": [
+            "A24"
+          ]
+        }
+      ],
+      "change": {
+        "conclusion": "not_established",
+        "justification": "not_established",
+        "explanation": "These are contrasting possible applications, explicitly presented as proposed tests rather than observations from a completed study. No learner is recorded moving from the mistaken inference to the alternative.",
+        "earlier_node_ids": [],
+        "later_node_ids": []
+      },
+      "pedagogical_question": "Can the learner locate the disputed metaphysical inference and explain why its assessment differs from rejecting the scientific finding?",
+      "limit": "The hypothetical branches provide a possible assessment task. They must not enter statistics as observed learner errors, corrections, or learning transitions.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "E06",
+      "title": "ICAP qualifies what conversation alone can show",
+      "basis": "later_literature",
+      "node_ids": [
+        "A13",
+        "A14",
+        "A15"
+      ],
+      "pattern_ids": [
+        "scholarly_qualification"
+      ],
+      "summary": "The article reports that closer reading of ICAP changed what the author could infer from dialogue format. Substantive contributions become the relevant focus, while alternating messages alone remains insufficient evidence of interactive learning.",
+      "sequence_status": "analytical_grouping",
+      "moves": [
+        {
+          "actor": "author",
+          "action": "Uses the described blogging practice as the object of examination.",
+          "node_ids": [
+            "A13"
+          ]
+        },
+        {
+          "actor": "source",
+          "action": "Supplies criteria for constructive and responsive interaction, as interpreted in the article.",
+          "node_ids": [
+            "A14"
+          ]
+        },
+        {
+          "actor": "author",
+          "action": "Keeps the limits of observable records in view.",
+          "node_ids": [
+            "A15"
+          ]
+        }
+      ],
+      "change": {
+        "conclusion": "not_established",
+        "justification": "qualified",
+        "explanation": "The paragraph explicitly reports a qualification of what can be inferred from conversational format. No earlier coded passage establishes that the writer had asserted that all chatbot dialogue proves learning, so an earlier claim is left unassigned.",
+        "earlier_node_ids": [],
+        "later_node_ids": [
+          "A14"
+        ]
+      },
+      "pedagogical_question": "Which contribution shows substantive engagement, and what remains unobservable in the record?",
+      "limit": "The source actor denotes scholarly criteria reported by the author; it does not represent a participant in the original chat. The framework is not an independent measurement of this writer's learning.",
+      "review_status": "proposed_by_assistant"
+    }
+  ]
+}

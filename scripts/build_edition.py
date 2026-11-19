@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build the complete static reading from verified analysis and editorial chapters."""
 import html
+import hashlib
 import json
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
@@ -14,6 +15,14 @@ def e(value):
 
 def build():
     data = json.loads((SITE / 'data/analysis.json').read_text())
+    report = json.loads((SITE / 'data/collaboration-analysis.json').read_text())
+    for key, path in {
+        'analysis': SITE / 'data/analysis.json',
+        'codebook': ROOT / 'data/collaboration-codebook.json',
+        'episodes': ROOT / 'data/collaboration-episodes.json',
+    }.items():
+        if report['input_sha256'][key] != hashlib.sha256(path.read_bytes()).hexdigest():
+            raise ValueError('Stale collaboration analysis: rerun scripts/analyze_collaboration.py')
     chapters = json.loads((ROOT / 'data/edition-chapters.json').read_text())
     blocks = {b['id']: b for b in data['article']['blocks']}
     nodes = {n['id'] for n in data['nodes']}
@@ -58,9 +67,12 @@ def build():
         current.append(f'<div class="full-paragraph" id="text-{e(b["id"])}"><a class="para-ref" href="#text-{e(b["id"])}">{e(b["id"])}</a><span class="paragraph-text">{e(b["text"])}</span>'+ (f'<div class="article-links">{"".join(links)}</div>' if links else '')+'</div>')
     close_section()
     terms=''.join(f'<option value="{e(k)}">{e(k.capitalize())} · {v} matches</option>' for k,v in data['summary']['literal_term_occurrences'].items())
-    payload={'analysis':data,'chapters':chapters}
+    payload={'analysis':data,'chapters':chapters,'collaboration':report}
     values={'OPTIONS':''.join(options),'CHAPTERS':''.join(articles),'ARTICLE':''.join(section_html),'ARTICLE_URL':ARTICLE_URL,'TERM_OPTIONS':terms,'DATA':json.dumps(payload,ensure_ascii=False).replace('<','\\u003c'),'NODE_COUNT':str(len(nodes)),'EDGE_COUNT':str(len(data['relations']))}
     page=(SITE/'edition-template.html').read_text()
+    count = report['counts']
+    summary = '<p class="note">'+e(f"{count['episodes']} selected episodes · {count['patterns']} candidate patterns · {count['annotated_body_blocks']} of {count['body_blocks']} body blocks contain analytical anchors. Pattern assignments remain proposed interpretations.")+'</p>'
+    page = page.replace('__ANALYSIS_SUMMARY__', summary)
     for key,value in values.items():page=page.replace('__'+key+'__',value)
     (SITE/'index.html').write_text(page)
     (SITE/'data/edition-chapters.json').write_text(json.dumps(chapters,ensure_ascii=False,indent=2)+'\n')
