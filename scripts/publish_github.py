@@ -53,7 +53,7 @@ def repository_is_empty(gh, repository):
 
 def package_files():
     required = ["README.md", ".gitignore", "Start Demo.command", ".github/workflows/pages.yml",
-                "data/analysis-to-share.zip"]
+                "data/analysis-to-share.zip", "data/edition-chapters.json"]
     files = [ROOT / name for name in required]
     for directory in ("site", "scripts", "tests"):
         for path in sorted((ROOT / directory).rglob("*")):
@@ -79,14 +79,14 @@ def validate_repository_name(value):
         value = OWNER + "/" + value
     owner, separator, name = value.partition("/")
     if owner != OWNER or not separator or name in {".", ".."} or not re.fullmatch(r"[A-Za-z0-9_.-]{1,100}", name):
-        raise PublishError("Choose a repository under YIN-Renlong, for example YIN-Renlong/ai4theology.")
+        raise PublishError("Choose a repository under YIN-Renlong, for example YIN-Renlong/ai4theology-analysis.")
     return value
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--repo", default=OWNER + "/ai4theology",
-                        help="Repository explicitly chosen by the user; defaults to YIN-Renlong/ai4theology")
+    parser.add_argument("--repo", default=OWNER + "/ai4theology-analysis",
+                        help="Repository explicitly chosen by the user; defaults to YIN-Renlong/ai4theology-analysis")
     args = parser.parse_args(argv)
     repository = validate_repository_name(args.repo)
     gh, git = shutil.which("gh"), shutil.which("git")
@@ -104,6 +104,7 @@ def main(argv=None):
     print("Checking the demo locally…", flush=True)
     run([sys.executable, "scripts/build_data.py"], cwd=ROOT)
     run([sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"], cwd=ROOT)
+    run([sys.executable, "scripts/build_edition.py"], cwd=ROOT)
     files = package_files()
     if existing is None:
         print("Creating public repository " + repository + "…", flush=True)

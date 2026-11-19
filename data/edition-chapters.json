@@ -1,0 +1,428 @@
+[
+  {
+    "id": "comparison",
+    "title": "The same intellectual work.",
+    "kicker": "The opening question",
+    "paragraphs": [
+      "Yin starts with a controlled comparison. A friend and an AI supply equivalent assistance, and the writer undertakes the same work of examining sources and developing an argument. The unresolved question concerns what would justify judging those processes differently.",
+      "The distinction between a good argument and its author’s understanding motivates the inquiry. Technical explanations of how a model generates a response can inform educational judgment. They still leave the learner’s activity to be examined."
+    ],
+    "left": {
+      "title": "A friend",
+      "text": "A friend offers a distinction. The writer examines the sources and develops the argument."
+    },
+    "right": {
+      "title": "An AI system",
+      "text": "An AI offers equivalent assistance. The writer examines the sources and develops the argument."
+    },
+    "source_ids": [
+      "P004",
+      "P011",
+      "P018",
+      "P019"
+    ],
+    "node_ids": [
+      "A01"
+    ],
+    "map_kind": "comparison",
+    "quote": {
+      "text": "An AI system offers the same kind of assistance, and I undertake the same intellectual work.",
+      "source_id": "P004"
+    },
+    "record_bases": [
+      "published_argument"
+    ]
+  },
+  {
+    "id": "changed-case",
+    "title": "A change of case.",
+    "kicker": "A qualification enters",
+    "paragraphs": [
+      "The assistant consults guidance that encourages feedback from supervisors and friends. A qualification follows. Allowing a friend to offer advice does not authorise that friend to devise the entire proposal.",
+      "Yin accepts the caution and questions its relevance. Substituting complete proposal production for equivalent advice changes the amount and function of assistance. The reply has introduced a different case."
+    ],
+    "left": {
+      "title": "Giving feedback",
+      "text": "The writer receives a suggestion and develops the proposal."
+    },
+    "right": {
+      "title": "Devising the whole proposal",
+      "text": "The substituted example changes what the adviser supplies. The writer’s remaining activity is unspecified."
+    },
+    "source_ids": [
+      "P036",
+      "P037"
+    ],
+    "node_ids": [
+      "A04",
+      "A05"
+    ],
+    "map_kind": "detour",
+    "quote": {
+      "text": "Encouraging human feedback does not amount to authorising a friend to devise an entire proposal on the applicant's behalf.",
+      "source_id": "P036"
+    },
+    "record_bases": [
+      "retrospective_account"
+    ]
+  },
+  {
+    "id": "return",
+    "title": "Back to the question.",
+    "kicker": "A correction has to recur",
+    "paragraphs": [
+      "Yin reports that the assistant acknowledges the mismatch. The qualification subsequently resurfaces, and he again asks the assistant to hold the learner’s activity constant while comparing the sources of help.",
+      "The account contains a return after apparent agreement. A diagram that stopped at acknowledgment would lose this further intervention and the difficulty of keeping the original comparison in view."
+    ],
+    "left": {
+      "title": "Acknowledgment",
+      "text": "The assistant accepts that equivalent assistance needs a further justification for different treatment."
+    },
+    "right": {
+      "title": "The objection returns",
+      "text": "When the qualification resurfaces, Yin restores the comparison of equivalent feedback."
+    },
+    "source_ids": [
+      "P037",
+      "P038"
+    ],
+    "node_ids": [
+      "A05",
+      "A06",
+      "A25"
+    ],
+    "map_kind": "return",
+    "quote": {
+      "text": "Yet the qualification about human feedback and AI-generated arguments resurfaced, and I again objected that AI could supply the same kind of feedback.",
+      "source_id": "P038"
+    },
+    "record_bases": [
+      "retrospective_account"
+    ]
+  },
+  {
+    "id": "whose-understanding",
+    "title": "What becomes my own?",
+    "kicker": "A distinction within the account",
+    "paragraphs": [
+      "Earlier in the exchange, the assistant distinguishes originating an idea from understanding and developing it. Yin accepts that understanding an idea cannot establish sole origination. He continues asking how an external contribution can enter work he can explain and defend.",
+      "The separate claims require separate evidence. Writing every sentence, feeling ownership of the result and being able to justify its reasoning can diverge. The article’s later discussion of authorship research makes that divergence more concrete."
+    ],
+    "left": {
+      "title": "Origination",
+      "text": "Who first supplied the idea, and what did each participant contribute to its development?"
+    },
+    "right": {
+      "title": "Understanding",
+      "text": "What can the learner explain and defend after working with the idea?"
+    },
+    "source_ids": [
+      "P027",
+      "P028",
+      "P029",
+      "P031",
+      "P032"
+    ],
+    "node_ids": [
+      "A02",
+      "A03",
+      "A11"
+    ],
+    "map_kind": "understanding",
+    "quote": {
+      "text": "The phrase “my own thinking” can refer to several different achievements.",
+      "source_id": "P027"
+    },
+    "record_bases": [
+      "published_argument",
+      "retrospective_account"
+    ]
+  },
+  {
+    "id": "naturalism",
+    "title": "A question can introduce an idea.",
+    "kicker": "The theological example",
+    "paragraphs": [
+      "The assistant supplies a hypothetical question about methodological and metaphysical naturalism. Investigating that distinction could change the premises of a theological argument. Feedback could thereby help generate the idea around which the argument develops.",
+      "The article later proposes examining the inference itself. A restriction within scientific method does not by itself establish a claim about everything that exists. Challenging that metaphysical step can preserve the scientific finding. These are teaching contrasts proposed in the essay."
+    ],
+    "left": {
+      "title": "Within scientific method",
+      "text": "A method restricts the explanations it admits for a particular investigation."
+    },
+    "right": {
+      "title": "About everything that exists",
+      "text": "Moving to an exhaustive metaphysical claim requires a further argument."
+    },
+    "source_ids": [
+      "P039",
+      "P040",
+      "P041",
+      "P042",
+      "P101",
+      "P103",
+      "P108"
+    ],
+    "node_ids": [
+      "A07",
+      "A08",
+      "A16",
+      "A22",
+      "A23",
+      "A24"
+    ],
+    "map_kind": "naturalism",
+    "quote": {
+      "text": "Does your argument distinguish methodological naturalism from metaphysical naturalism?",
+      "source_id": "P040"
+    },
+    "record_bases": [
+      "hypothetical_example",
+      "published_argument"
+    ]
+  },
+  {
+    "id": "intermediary",
+    "title": "What does the intermediary add?",
+    "kicker": "A thought experiment",
+    "paragraphs": [
+      "Yin imagines a friend passing on an AI suggestion unchanged. If the writer develops it in the same way, routing the suggestion through a person does not itself improve the argument or increase the writer’s contribution.",
+      "Evaluation or contextualisation by the friend would add intellectual work. Later reading also complicates counts of interventions. Accepting a sound suggestion can require judgment, while a correction can introduce an error."
+    ],
+    "left": {
+      "title": "An unchanged relay",
+      "text": "The suggestion passes through a friend while its content and the learner’s subsequent work stay constant."
+    },
+    "right": {
+      "title": "A substantive contribution",
+      "text": "The friend checks, corrects or contextualises the suggestion before passing it on."
+    },
+    "source_ids": [
+      "P044",
+      "P045",
+      "P046",
+      "P047"
+    ],
+    "node_ids": [
+      "A10",
+      "A20"
+    ],
+    "map_kind": "mediation",
+    "quote": {
+      "text": "An unchanged relay does not add that work.",
+      "source_id": "P044"
+    },
+    "record_bases": [
+      "hypothetical_example",
+      "later_literature"
+    ]
+  },
+  {
+    "id": "dependence",
+    "title": "How much must I understand directly?",
+    "kicker": "Responsibility in interdisciplinary inquiry",
+    "paragraphs": [
+      "Yin’s reading of Hardwig qualifies the emerging requirement to explain and defend everything. Scholarship often relies on specialist knowledge that one person cannot reproduce. That makes the grounds for reliance part of the inquiry.",
+      "A Science and Religion student might rely on specialist physics while scrutinising a theological inference. Whether that reliance meets an assessment’s purpose depends on the capacity being assessed. An account of responsible dependence must identify that capacity."
+    ],
+    "left": {
+      "title": "Reliance on expertise",
+      "text": "What grounds justify accepting a specialist claim that I cannot fully reproduce?"
+    },
+    "right": {
+      "title": "The task being assessed",
+      "text": "Which inference or interpretive judgment must I demonstrate myself?"
+    },
+    "source_ids": [
+      "P049",
+      "P050",
+      "P051",
+      "P054",
+      "P084",
+      "P104"
+    ],
+    "node_ids": [
+      "A11",
+      "A12"
+    ],
+    "map_kind": "dependence",
+    "quote": {
+      "text": "This qualifies my emerging emphasis on being able to explain and defend everything.",
+      "source_id": "P050"
+    },
+    "record_bases": [
+      "later_literature",
+      "retrospective_account"
+    ]
+  },
+  {
+    "id": "returning-reader",
+    "title": "The writer returns as a reader.",
+    "kicker": "Learning through the preserved work",
+    "paragraphs": [
+      "Yin describes developing a blog post through AI conversation and returning to study it later. The return raises a temporal question. What becomes understandable during this later encounter, and how could that development be demonstrated?",
+      "His reading of ICAP challenges a simple inference from conversation to learning. Alternating messages alone does not establish constructive engagement. The archive records expressed exchanges while leaving some reading and reflection outside its view."
+    ],
+    "left": {
+      "title": "During composition",
+      "text": "A person helps develop a text whose ideas they may understand only partly."
+    },
+    "right": {
+      "title": "During the return",
+      "text": "The same person studies the preserved text and may develop further understanding."
+    },
+    "source_ids": [
+      "P056",
+      "P057",
+      "P058",
+      "P061",
+      "P063",
+      "P065",
+      "P066"
+    ],
+    "node_ids": [
+      "A13",
+      "A14",
+      "A15"
+    ],
+    "map_kind": "reading",
+    "quote": {
+      "text": "Can a text that I helped produce become material from which I subsequently learn?",
+      "source_id": "P056"
+    },
+    "record_bases": [
+      "later_literature",
+      "published_argument",
+      "retrospective_account"
+    ]
+  },
+  {
+    "id": "later-reading",
+    "title": "The literature changes the questions.",
+    "kicker": "A later stage of the inquiry",
+    "paragraphs": [
+      "The essay explicitly places its literature review after the original exchange. Feedback literacy directs attention to what a learner does with a comment. Studies in mathematics and physics further distinguish assisted performance from learning demonstrated under particular conditions.",
+      "Their results concern different educational arrangements. The article also examines policy research and Value Sensitive Design to question how evidence is collected and interpreted. Transfer into theological education remains a task for disciplinary investigation."
+    ],
+    "left": {
+      "title": "Assisted performance",
+      "text": "How well does a learner complete the task while the particular form of help is available?"
+    },
+    "right": {
+      "title": "Subsequent capacity",
+      "text": "What can the learner explain or apply later, and under which conditions?"
+    },
+    "source_ids": [
+      "P008",
+      "P043",
+      "P068",
+      "P070",
+      "P071",
+      "P072",
+      "P073",
+      "P075",
+      "P094",
+      "P096",
+      "P098",
+      "P111",
+      "P112"
+    ],
+    "node_ids": [
+      "A09",
+      "A19"
+    ],
+    "map_kind": "evidence",
+    "quote": {
+      "text": "The further reading incorporated here belongs to a later stage of that inquiry.",
+      "source_id": "P008"
+    },
+    "record_bases": [
+      "later_literature",
+      "published_argument"
+    ]
+  },
+  {
+    "id": "evidence",
+    "title": "What does the record establish?",
+    "kicker": "From visible work to educational judgment",
+    "paragraphs": [
+      "The article uses assessment scholarship to examine the inference from a written product to its author’s capacities. Quality of prose, present understanding and independent origination each require an appropriate account of the evidence.",
+      "A complete interaction record would still need interpretation. Rejection may express understanding or a mistake. Acceptance may follow careful evaluation or simple reassurance. Computational organisation can expose the relevant passages and assumptions while leaving these judgments open to examination."
+    ],
+    "left": {
+      "title": "What is observable",
+      "text": "A passage, an intervention or a later explanation can be preserved for inspection."
+    },
+    "right": {
+      "title": "What is inferred",
+      "text": "Claims about understanding and responsibility need reasons connecting the record to the educational purpose."
+    },
+    "source_ids": [
+      "P079",
+      "P082",
+      "P083",
+      "P089",
+      "P090",
+      "P107",
+      "P109",
+      "P114",
+      "P115"
+    ],
+    "node_ids": [
+      "A15",
+      "A16",
+      "A20"
+    ],
+    "map_kind": "evidence",
+    "quote": {
+      "text": "We would still have to interpret what those alterations demonstrated.",
+      "source_id": "P090"
+    },
+    "record_bases": [
+      "hypothetical_example",
+      "later_literature",
+      "published_argument"
+    ]
+  },
+  {
+    "id": "open-question",
+    "title": "An open question, more precisely asked.",
+    "kicker": "Understanding develops over time",
+    "paragraphs": [
+      "Yin ends by keeping the comparison open. The model’s agreement does not independently confirm the criticism. The reasons and supporting evidence still need to bear the argument, including any relevant difference the comparison may have overlooked.",
+      "The temporal distinction has become sharper. Learning from an assisted text, demonstrating a capacity now and claiming credit for an earlier idea may become warranted at different times. An enduring conclusion can therefore accompany substantial development in its justification."
+    ],
+    "left": {
+      "title": "The earlier contribution",
+      "text": "The history records which suggestions and interventions helped form the argument."
+    },
+    "right": {
+      "title": "Understanding now",
+      "text": "A later explanation supplies evidence about the capacity demonstrated at that later moment."
+    },
+    "source_ids": [
+      "P118",
+      "P119",
+      "P120",
+      "P123",
+      "P124",
+      "P125",
+      "P126",
+      "P127",
+      "P128"
+    ],
+    "node_ids": [
+      "A17",
+      "A18",
+      "A21"
+    ],
+    "map_kind": "question",
+    "quote": {
+      "text": "Later understanding does not erase earlier assistance; earlier assistance does not settle what I can subsequently learn.",
+      "source_id": "P126"
+    },
+    "record_bases": [
+      "published_argument"
+    ]
+  }
+]

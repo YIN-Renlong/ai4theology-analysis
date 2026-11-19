@@ -2,7 +2,9 @@
 
 An explorable research edition of YIN Renlong’s [“Whose Thinking Is Being Assessed? The Unsettled Boundary Between Assistance and Authorship in AI-Assisted Education”](https://www.yin.roma.it/2026/10/whose-thinking-is-being-assessed-the-unsettled-boundary-between-assistance-and-authorship-in-ai-assisted-education/).
 
-The demo follows the development of a question about equivalent human and AI assistance. Scroll-controlled text transformations make selected relationships visible. A comparison view exposes changed assumptions; an interactive map connects interpretations to their source passages.
+The complete reader combines the Synoptic Edition’s typography and parallel readings with the Itinerary’s changing argument maps. Eleven chapters follow the opening comparison through theological examples and questions about later understanding. An evidence explorer exposes every proposed relationship, and the language view links descriptive counts to the passages behind them. The full extracted article and its reference section remain available below the guided reading.
+
+Live edition: https://yin-renlong.github.io/ai4theology-analysis/
 
 ## Run locally
 
@@ -16,11 +18,12 @@ From the repository directory:
 
 ```bash
 python3 scripts/build_data.py
+python3 scripts/build_edition.py
 python3 -m unittest discover -s tests -v
 python3 -m http.server 8000 --directory site
 ```
 
-Open `http://localhost:8000`. Keep the terminal running while viewing the site; press Control+C to stop it. A local HTTP server is needed because the page loads its JSON data through `fetch`.
+Open `http://localhost:8000`. Keep the terminal running while viewing the site; press Control+C to stop it. A local HTTP server is needed to load the JavaScript modules. The reading and full article are rendered into the HTML at build time, with the verified data embedded for the interactive views.
 
 The generated site is static. GSAP and ScrollTrigger are included locally under `site/vendor`, so those animations do not depend on a CDN request.
 
@@ -46,6 +49,9 @@ The public outputs are:
 | --- | --- |
 | `site/data/analysis.json` | Enriched records used by the visualisation, source passages, comparisons, and descriptive counts |
 | `site/data/research-record.json` | Original analysis, source audit, and the changes made for the visual edition |
+| `site/data/edition-chapters.json` | Eleven editorial reading chapters, with source anchors and map assignments |
+
+`data/edition-chapters.json` is the editable reading sequence. After changing it, run `python3 scripts/build_edition.py`. The builder checks quotation anchors and coverage of all analytical records before writing `site/index.html`. The template is `site/edition-template.html`; presentation code is in the `site/edition*` files. Older demo assets remain in the repository for continuity but are not loaded by the new reader.
 
 ## What the counts mean
 
@@ -63,24 +69,32 @@ The demo supports examining expressed reasoning and the development of an argume
 
 ## Presentation and accessibility
 
-The public interface combines a guided scroll sequence with step buttons and a focused relationship map. Evidence panels preserve the source passages. Diagram labels may paraphrase those passages. Reduced-motion controls preserve complete readable states, and the map also has selection controls for accessing its evidence.
+The public interface combines a guided scroll sequence with a chapter selector and focused relationship maps. Evidence panels preserve source passages; their labels may paraphrase them. A complete text search includes the reference section. All 25 annotations and 21 relationships are individually inspectable. Literal-term bars show counts by section, with matching passages alongside them.
+
+The desktop reading keeps its graphic beside the text. On narrow screens, each chapter contains its own graphic. Reduced-motion controls and the operating-system preference preserve complete readable states. The relationship map has an equivalent text list and keyboard-operable controls. The static reading and full article remain available without JavaScript. Map coordinates are editorial arrangements, not measured cognitive distance or learning scores.
 
 ## GitHub Pages
 
-The workflow in `.github/workflows/pages.yml` rebuilds the data, runs the Python tests, and deploys the `site` directory using GitHub Pages. It runs on pushes to `main` or `master`, and can also be started manually.
+The workflow in `.github/workflows/pages.yml` rebuilds the data and complete edition, runs the Python tests, and deploys the `site` directory using GitHub Pages. It runs on pushes to `main` or `master`, and can also be started manually.
 
 The repository’s Pages publishing source must be **GitHub Actions**. The workflow uses the `github-pages` environment and the repository-provided `GITHUB_TOKEN`; no personal token is stored in the project. It publishes the public article data along with the website.
 
-### Publish from your Mac
+### Update the existing repository
+
+If you downloaded this complete package, double-click **Update GitHub.command** on your Mac, or run `python3 scripts/update_github.py`. It checks that GitHub CLI is signed in as **YIN-Renlong**, prepares the update in a temporary clone of **YIN-Renlong/ai4theology-analysis**, rebuilds and tests it, then pushes without force. It waits for the Pages deployment for that exact commit and opens the published URL on success. Your existing local project is not overwritten. Use `--prepare-only` to check the prepared update without pushing. Git and GitHub CLI are required; `gh auth login` signs in when needed.
+
+In a checkout of `YIN-Renlong/ai4theology-analysis`, rebuild and test using the commands above, then commit and push the changes. The push triggers Pages deployment. Check the Actions result before sharing a new version. `scripts/publish_github.py` is an initial-publication helper; it intentionally refuses to overwrite an already populated repository.
+
+### Initial publication to an empty repository
 
 The fallback publisher requires Git and the [GitHub CLI](https://cli.github.com/). Authenticate the CLI as **YIN-Renlong** first:
 
 ```bash
 gh auth login
-python3 scripts/publish_github.py
+python3 scripts/publish_github.py --repo YIN-Renlong/ai4theology-analysis
 ```
 
-It verifies the authenticated account before making changes. The default target is `YIN-Renlong/ai4theology`. If that repository does not exist, the script creates it as public. It uploads only to an absent or empty repository, enables GitHub Pages, and starts the workflow. A populated repository is left untouched so its existing site can be inspected before integration.
+It verifies the authenticated account before making changes. The default target is `YIN-Renlong/ai4theology-analysis`. If that repository does not exist, the script creates it as public. It uploads only to an absent or empty repository, enables GitHub Pages, and starts the workflow. A populated repository is left untouched so its existing site can be inspected before integration.
 
 The script works through a temporary checkout and preserves the current local project. It never force-pushes or writes credentials to files. An optional `--repo YIN-Renlong/NAME` argument supports a different repository explicitly chosen by you. A started workflow is not a verified live deployment; check its Actions result before sharing the Pages URL.
 

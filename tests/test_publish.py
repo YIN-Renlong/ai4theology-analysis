@@ -22,11 +22,12 @@ class PublisherSafetyTests(unittest.TestCase):
 
     def test_populated_repo_stops_before_build_or_write(self):
         with patch.object(PUBLISH.shutil, "which", return_value="tool"), \
-             patch.object(PUBLISH, "api", side_effect=[{"login": "YIN-Renlong"}, {"default_branch": "main"}]), \
+             patch.object(PUBLISH, "api", side_effect=[{"login": "YIN-Renlong"}, {"default_branch": "main"}]) as api, \
              patch.object(PUBLISH, "repository_is_empty", return_value=False), \
              patch.object(PUBLISH, "run") as run:
             with self.assertRaisesRegex(PUBLISH.PublishError, "already contains commits"):
                 PUBLISH.main([])
+            self.assertEqual(api.call_args_list[1].args, ("tool", "repos/YIN-Renlong/ai4theology-analysis"))
             run.assert_not_called()
 
     def test_repository_is_owner_scoped(self):

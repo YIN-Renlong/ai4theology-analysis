@@ -22,6 +22,8 @@ jobs:
         uses: actions/checkout@v6
       - name: Rebuild public analysis data
         run: python3 scripts/build_data.py
+      - name: Build the complete synoptic edition
+        run: python3 scripts/build_edition.py
       - name: Verify the analysis export
         run: python3 -m unittest discover -s tests -v
       - name: Configure GitHub Pages

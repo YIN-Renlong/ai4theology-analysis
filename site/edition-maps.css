@@ -1,0 +1,18 @@
+.inquiry-map{--map-paper:#f2f3f6;--map-ink:#171819;--map-blue:#193ab1;margin:0;min-width:0;color:var(--map-ink)}
+.inquiry-map svg{display:block;width:100%;height:auto;background:var(--map-paper);border:1px solid #b0b5c1;overflow:hidden}
+.inquiry-map .map-terrain path{fill:none;stroke:#75849c;stroke-width:1;opacity:.3}
+.inquiry-map .map-grid{fill:none;stroke:#8290a8;stroke-width:.8;stroke-dasharray:1 4;opacity:.3}
+.inquiry-map .map-name{font:600 25px 'STIX Two Text',Georgia,serif;letter-spacing:-.035em;fill:var(--map-ink)}
+.inquiry-map .map-small{font:400 21px 'STIX Two Text',Georgia,serif;fill:#304268}
+.inquiry-map .map-fine{font:400 20px 'STIX Two Text',Georgia,serif;fill:#304268}
+.inquiry-map text{paint-order:stroke;stroke:var(--map-paper);stroke-width:5px;stroke-linejoin:round}
+.inquiry-map .map-route,.inquiry-map .map-detour,.inquiry-map .map-return{fill:none;stroke:#536587;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.inquiry-map .map-detour{stroke:#30343c;stroke-dasharray:6 6}
+.inquiry-map .map-return{stroke:var(--map-blue);stroke-width:3.8}
+.inquiry-map .map-station{fill:var(--map-paper);stroke:#304775;stroke-width:2.8}
+.inquiry-map .map-diamond{fill:#30343c;stroke:var(--map-paper);stroke-width:2}
+.inquiry-map .map-arrow{fill:var(--map-blue)}
+.inquiry-map .map-question{font:italic 400 42px Georgia,serif;fill:var(--map-blue)}
+.inquiry-map .map-question-large{font-size:82px}
+.inquiry-map figcaption{margin-top:10px;color:#363d49;font:400 clamp(15px,1.2vw,18px)/1.4 'STIX Two Text',Georgia,serif}
+@media(prefers-reduced-motion:reduce){.inquiry-map [data-trace]{animation:none!important;transition:none!important}}
