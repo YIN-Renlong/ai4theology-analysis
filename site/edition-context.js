@@ -162,11 +162,10 @@ function mountSimilarity(container, matrix, data, callbacks, options = {}) {
   const ids = matrix.block_ids, values = matrix.values, n = ids.length;
   const blocks = new Map((data.article?.blocks || []).map(item => [item.id, item]));
   const section = el('section', 'ct-similarity');
-  section.append(head('Where passages resemble one another', 'Compare the vocabulary of passages across the essay. The matrix shows every pair; the connections view draws selected strong matches across publication order. Both lead to the same passages for close reading.'));
+  section.append(head('Where passages resemble one another', 'Compare the vocabulary of passages across the essay. Each square in the matrix compares two passages. Select a pair to read its source text, then continue to the connections diagram below.'));
   const eligibility = options.min_paragraph_words ? `eligible passages (at least ${options.min_paragraph_words} words)` : 'eligible passages';
   section.append(el('p', 'ct-note', `${matrix.metric} · ${n} ${eligibility} · ${n*(n-1)/2} distinct pairs. Passages are arranged in publication order.`));
   const layout = el('div', 'ct-similarity-layout');
-  const visual = el('div', 'ct-comparison-visual');
   const figure = el('figure', 'ct-similarity-figure');
   const axis = el('div', 'ct-matrix-axis'); axis.append(el('span', '', ids[0]), el('span', '', 'Passages in publication order'), el('span', '', ids[n-1]));
   const canvas = el('canvas', 'ct-similarity-canvas'); canvas.tabIndex = 0;
@@ -176,22 +175,23 @@ function mountSimilarity(container, matrix, data, callbacks, options = {}) {
   const caption = el('figcaption', 'ct-note', matrix.note || 'Similarity concerns the words in the passages. It does not establish agreement, influence or learning.');
   const legend = el('div', 'ct-heat-legend ct-similarity-legend'); legend.append(el('span', '', '0 · Less similar'), el('i'), el('span', '', '1 · More similar'));
   figure.append(axis, canvas, hover, legend, caption);
-  const detail = el('div', 'ct-pair-detail');
   const uid = ++mountId;
-  const one = labelSelect('First passage', 'ct-first-'+uid), two = labelSelect('Compare with', 'ct-second-'+uid);
-  ids.forEach((id, i) => one.select.append(option(id, i)));
-  const tools = el('div', 'ct-pair-controls'); tools.append(one.wrap, two.wrap);
-  const result = el('div', 'ct-pair-result'); result.setAttribute('aria-live', 'polite');
-  result.id = 'ct-comparison-result-'+uid;
-  const viewButtons = el('div', 'ct-view-switch'); viewButtons.setAttribute('role', 'group'); viewButtons.setAttribute('aria-label', 'Passage comparison view');
-  const arcPanel = el('section', 'ct-arc-panel'); arcPanel.hidden = true;
-  figure.id = 'ct-matrix-view-'+uid; arcPanel.id = 'ct-arc-view-'+uid;
-  const matrixButton = button('Similarity matrix', 'ct-view-button', () => switchView(false));
-  const arcButton = button('Connections across the essay', 'ct-view-button', () => switchView(true));
-  matrixButton.setAttribute('aria-controls', figure.id); arcButton.setAttribute('aria-controls', arcPanel.id);
-  matrixButton.setAttribute('aria-pressed', 'true'); arcButton.setAttribute('aria-pressed', 'false');
-  viewButtons.append(matrixButton, arcButton); visual.append(viewButtons, figure, arcPanel);
-  detail.append(tools, result); layout.append(visual, detail); section.append(layout);
+  function comparisonPanel(suffix) {
+    const detail = el('div', 'ct-pair-detail');
+    const one = labelSelect('First passage', 'ct-first-'+uid+'-'+suffix), two = labelSelect('Compare with', 'ct-second-'+uid+'-'+suffix);
+    ids.forEach((id,i)=>one.select.append(option(id,i)));
+    const tools=el('div','ct-pair-controls');tools.append(one.wrap,two.wrap);
+    const result=el('div','ct-pair-result');result.id='ct-comparison-result-'+uid+'-'+suffix;
+    detail.append(tools,result);return {detail,one,two,result};
+  }
+  const panels=[comparisonPanel('matrix'),comparisonPanel('connections')];
+  layout.append(figure,panels[0].detail);section.append(layout);
+  const arcSection=el('section','ct-connections-section');
+  arcSection.append(head('Connections across the essay', 'An arc joins passages with shared weighted vocabulary. Its span follows their distance in the published essay. Select a connection to read both passages alongside the diagram. The selection stays aligned with the matrix above.'));
+  const arcLayout=el('div','ct-similarity-layout ct-connections-layout');
+  const arcPanel=el('div','ct-arc-panel');
+  arcLayout.append(arcPanel,panels[1].detail);arcSection.append(arcLayout);section.append(arcSection);
+  const announcement=el('p','only-sr');announcement.setAttribute('role','status');section.append(announcement);
   container.append(section);
   let row = 0, col = 1;
   // Begin with a strong separated pair, retaining all pairs in the graphic.
@@ -200,10 +200,10 @@ function mountSimilarity(container, matrix, data, callbacks, options = {}) {
     if (Number(values[i]?.[j]) > best) {best = Number(values[i][j]);row=i;col=j;}
   }
   function score(i,j) {return Number(values[i]?.[j]) || 0;}
-  function setSecondOptions() {
-    two.select.replaceChildren();
-    ids.forEach((id,i) => {if(i!==row)two.select.append(option(id,i));});
-    two.select.value=String(col);
+  function setSecondOptions(panel) {
+    panel.two.select.replaceChildren();
+    ids.forEach((id,i) => {if(i!==row)panel.two.select.append(option(id,i));});
+    panel.two.select.value=String(col);
   }
   function draw() {
     const cssSize = canvas.getBoundingClientRect().width;
@@ -227,21 +227,19 @@ function mountSimilarity(container, matrix, data, callbacks, options = {}) {
     ctx.beginPath();ctx.moveTo(0,(row+.5)*cell);ctx.lineTo(size,(row+.5)*cell);ctx.moveTo((col+.5)*cell,0);ctx.lineTo((col+.5)*cell,size);ctx.stroke();
   }
   let arcView;
-  function switchView(arcs) {
-    figure.hidden = arcs; arcPanel.hidden = !arcs;
-    matrixButton.setAttribute('aria-pressed', String(!arcs)); arcButton.setAttribute('aria-pressed', String(arcs));
-    if (!arcs) requestAnimationFrame(draw);
-  }
   function update(i,j) {
     row=Math.max(0,Math.min(n-1,i));col=Math.max(0,Math.min(n-1,j));
     if(row===col)col=(row+1)%n;
-    one.select.value=String(row);setSecondOptions();
-    result.replaceChildren(el('p','ct-kicker','Selected comparison'),el('h4','',`${ids[row]} and ${ids[col]}`));
-    const metric=el('p','ct-pair-score');metric.append(el('strong','',score(row,col).toFixed(3)),el('span','','Lexical similarity · 0–1'));result.append(metric);
-    for(const index of [row,col]){
-      const block=blocks.get(ids[index]);const passage=el('section','ct-pair-passage');
-      passage.append(el('h5','',ids[index]),el('p','ct-note',block?.section||''),el('p','',block?.text||'Passage unavailable.'),paragraphLinks([ids[index]],callbacks));result.append(passage);
+    for(const panel of panels){
+      panel.one.select.value=String(row);setSecondOptions(panel);
+      panel.result.replaceChildren(el('p','ct-kicker','Selected comparison'),el('h4','',`${ids[row]} and ${ids[col]}`));
+      const metric=el('p','ct-pair-score');metric.append(el('strong','',score(row,col).toFixed(3)),el('span','','Lexical similarity · 0–1'));panel.result.append(metric);
+      for(const index of [row,col]){
+        const block=blocks.get(ids[index]);const passage=el('section','ct-pair-passage');
+        passage.append(el('h5','',ids[index]),el('p','ct-note',block?.section||''),el('p','',block?.text||'Passage unavailable.'),paragraphLinks([ids[index]],callbacks));panel.result.append(passage);
+      }
     }
+    announcement.textContent=`Both diagrams compare ${ids[row]} and ${ids[col]}, lexical similarity ${score(row,col).toFixed(3)}.`;
     hover.textContent=`Selected ${ids[row]} × ${ids[col]} · ${score(row,col).toFixed(3)}`;
     canvas.setAttribute('aria-label',`Passage similarity matrix. Selected ${ids[row]} and ${ids[col]}, score ${score(row,col).toFixed(3)}. Use arrow keys to move; self comparisons are skipped.`);
     draw();
@@ -260,11 +258,13 @@ function mountSimilarity(container, matrix, data, callbacks, options = {}) {
     if(i===j){i+=delta[0];j+=delta[1];}
     if(i>=0&&i<n&&j>=0&&j<n)update(i,j);
   });
-  one.select.addEventListener('change',()=>update(Number(one.select.value),col));
-  two.select.addEventListener('change',()=>update(row,Number(two.select.value)));
+  for(const panel of panels){
+    panel.one.select.addEventListener('change',()=>update(Number(panel.one.select.value),col));
+    panel.two.select.addEventListener('change',()=>update(row,Number(panel.two.select.value)));
+  }
   if(window.ResizeObserver){const observer=new ResizeObserver(draw);observer.observe(canvas);}
   else window.addEventListener('resize',draw,{passive:true});
-  arcView = mountLexicalConnections(arcPanel, matrix, data.article?.blocks || [], options, update, result.id, uid);
+  arcView = mountLexicalConnections(arcPanel, matrix, data.article?.blocks || [], options, update, panels[1].result.id, uid);
   update(row,col);
 }
 
@@ -283,7 +283,6 @@ function mountLexicalConnections(container, matrix, blocks, options, choose, res
     for (const [key, value] of Object.entries(attributes)) element.setAttribute(key, String(value));
     return element;
   }
-  container.append(el('p', 'ct-note ct-arc-intro', 'An arc joins two passages with shared weighted vocabulary. Its span follows their distance in the published essay. Select a connection to read both passages.'));
   const limitControl = labelSelect('Show the strongest matches', 'ct-arc-limit-'+uid);
   for (const count of [8, 18, 30]) limitControl.select.append(option('Up to '+count+' pairs', count));
   limitControl.select.value = '18';
