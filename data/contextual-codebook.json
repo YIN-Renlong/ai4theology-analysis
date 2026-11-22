@@ -1,0 +1,392 @@
+{
+  "version": 1,
+  "method": "Selected passages are interpreted in context through an assistant-proposed codebook. Each record identifies the subject and the argumentative role of an exact source passage. Python validates the quotations and aggregates the proposed classifications; it does not infer these meanings from keyword occurrences.",
+  "limitation": "This is selected close-reading coverage of one article, not exhaustive semantic classification. A paragraph may receive more than one concept code. An unclassified cell means no passage was selected for that code, not that the concept is absent. Reported experience, conceptual arguments and hypothetical contrasts support different claims. All interpretations await researcher review and no count measures learning or authorship share.",
+  "codebook": [
+    {
+      "id": "learner_understanding",
+      "label": "The learner’s understanding",
+      "definition": "Claims about what a person can explain, apply or justify after engaging with an idea. Distinguish a suggested indicator or possibility from an observed demonstration."
+    },
+    {
+      "id": "model_capability",
+      "label": "The model’s capacities",
+      "definition": "Discussion of model mechanisms and linguistic performance, including the limits of inferring understanding or intellectual contribution from those mechanisms."
+    },
+    {
+      "id": "authorship_contribution",
+      "label": "Authorship and contribution",
+      "definition": "Claims about the origin or development of ideas and the intellectual work attributed to participants. Contribution, expression and felt ownership are not assumed to coincide."
+    },
+    {
+      "id": "assessment_judgment",
+      "label": "Evidence and assessment",
+      "definition": "Arguments about what a record or submitted work supports an assessor in concluding, and how that inference depends on the educational task."
+    },
+    {
+      "id": "epistemic_dependence",
+      "label": "Reliance and responsibility",
+      "definition": "Arguments about receiving claims from sources or specialists and the grounds on which that dependence can be justified, qualified or refused."
+    },
+    {
+      "id": "return_learning",
+      "label": "Returning and learning",
+      "definition": "Accounts and arguments about revisiting preserved work, with attention to the distinction between earlier contribution and understanding expressed at a later encounter."
+    }
+  ],
+  "subjects": {
+    "learner": "The learner",
+    "model": "The AI system",
+    "scholarly_practice": "Scholarly practice",
+    "assessment": "Assessment and its evidence"
+  },
+  "modes": {
+    "conceptual_argument": "Conceptual argument",
+    "reported_experience": "Reported experience",
+    "hypothetical": "Hypothetical contrast",
+    "scholarly_argument": "Argument through scholarship",
+    "open_question": "Open question"
+  },
+  "records": [
+    {
+      "id": "C01",
+      "block_id": "P005",
+      "concept_id": "return_learning",
+      "subject": "learner",
+      "mode": "reported_experience",
+      "quote": "I was also trying to understand my own practice of developing ideas through conversation with AI, publishing some of that work on my blog, and returning to it later as a reader.",
+      "interpretation": "The author reports a recurring practice of composition and later reading. The passage identifies an object of inquiry; it does not establish how much was learned during a particular return.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C02",
+      "block_id": "P011",
+      "concept_id": "learner_understanding",
+      "subject": "learner",
+      "mode": "conceptual_argument",
+      "quote": "A valuable argument may exceed its author's understanding; a student may acquire profound understanding without producing an original scholarly result.",
+      "interpretation": "Understanding is distinguished from the quality and novelty of an output. The possibilities are stated in both directions, so a polished result cannot function as a complete measure of the learner’s capacity.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C03",
+      "block_id": "P013",
+      "concept_id": "model_capability",
+      "subject": "model",
+      "mode": "scholarly_argument",
+      "quote": "In the GPT-3 study, for example, tasks and demonstrations were supplied through text without further gradient updates to the model. That is a different process from changing its parameters through training (Brown et al., 2020).",
+      "interpretation": "The passage uses a cited study to distinguish prompted performance from parameter training. The word learning therefore concerns a model-specific process here; it is not evidence of the student’s intellectual development.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C04",
+      "block_id": "P014",
+      "concept_id": "model_capability",
+      "subject": "model",
+      "mode": "scholarly_argument",
+      "quote": "Nor does a conversation's improving coherence show that the model and the learner have undergone the same kind of change.",
+      "interpretation": "The author rejects an equivalence between two kinds of development. An increasingly coherent exchange does not establish that the participant and model changed in the same way.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C05",
+      "block_id": "P015",
+      "concept_id": "model_capability",
+      "subject": "model",
+      "mode": "scholarly_argument",
+      "quote": "Their findings concern particular models and mechanisms; they do not settle whether an AI possesses knowledge in a philosophical sense (Geva et al., 2021).",
+      "interpretation": "A technical finding is confined to the studied mechanism. The passage keeps philosophical knowledge attribution open rather than treating a functional description as its proof.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C06",
+      "block_id": "P017",
+      "concept_id": "model_capability",
+      "subject": "model",
+      "mode": "scholarly_argument",
+      "quote": "Their position paper challenges the inference from success in processing language to understanding grounded in communicative intentions and the world (Bender and Koller, 2020). This is an argument about what training on form alone can establish, not a settled verdict on every subsequent multimodal or interactive system.",
+      "interpretation": "Understanding refers to the disputed capacities of a language system. The author also limits the scope of the cited argument, so this passage should not be coded as a universal denial of machine understanding.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C07",
+      "block_id": "P019",
+      "concept_id": "model_capability",
+      "subject": "model",
+      "mode": "conceptual_argument",
+      "quote": "In a technical description, a language model generates linguistic output. In an authorship judgment, saying that AI generated an idea attributes an intellectual contribution within a larger process. The first description does not settle the second.",
+      "interpretation": "The same verb, generate, performs different work in a mechanism description and a contribution judgment. The passage requires analysis of the interaction before attributing an intellectual role.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C08",
+      "block_id": "P023",
+      "concept_id": "return_learning",
+      "subject": "learner",
+      "mode": "reported_experience",
+      "quote": "A response led to a question; the question sent me to a source; the source changed my objection; the objection changed what I asked the model next.",
+      "interpretation": "The published account describes a return through questioning and reading. It challenges a fixed sequence of research followed by thinking, but does not supply timestamps or independently measure learning.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C09",
+      "block_id": "P026",
+      "concept_id": "assessment_judgment",
+      "subject": "assessment",
+      "mode": "conceptual_argument",
+      "quote": "If someone else supplies the reasoning, research design and expression that are being assessed, a polished document can misrepresent the candidate's capacities.",
+      "interpretation": "The concern is conditional on the capacities a task intends to assess. Polished prose is treated as potentially misleading evidence, not as proof that every assisted submission misrepresents its author.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C10",
+      "block_id": "P027",
+      "concept_id": "authorship_contribution",
+      "subject": "learner",
+      "mode": "conceptual_argument",
+      "quote": "I might also have written every sentence myself while making little substantive contribution to the reasoning.",
+      "interpretation": "Producing the wording and contributing to the reasoning are separated. This is a conceptual possibility, not an admission that the author made little contribution to this article.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C11",
+      "block_id": "P031",
+      "concept_id": "authorship_contribution",
+      "subject": "scholarly_practice",
+      "mode": "conceptual_argument",
+      "quote": "Rewriting something myself, for example, would not establish that I originated its argument; acknowledging a contribution would not by itself establish that the contribution was permitted.",
+      "interpretation": "Re-expression, origination and permission answer different questions. Neither rewriting nor disclosure is presented as a sufficient condition for the other judgments.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C12",
+      "block_id": "P032",
+      "concept_id": "learner_understanding",
+      "subject": "learner",
+      "mode": "open_question",
+      "quote": "I was asking how an external contribution might enter an authentic process of intellectual development, including a process that eventually produces work I can explain and defend.",
+      "interpretation": "The author specifies the capacity at issue through explanation and defence. It remains a question about a possible developmental process; the sentence does not report a completed demonstration of that capacity.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C13",
+      "block_id": "P032",
+      "concept_id": "authorship_contribution",
+      "subject": "learner",
+      "mode": "conceptual_argument",
+      "quote": "It also cautioned that understanding an idea does not retrospectively make me its sole originator. I could accept that distinction without accepting that it answered my question.",
+      "interpretation": "The published account accepts a distinction between understanding and origination while preserving the unresolved comparison. Acceptance of that distinction should not be read as agreement with every implication of the assistant’s answer.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C14",
+      "block_id": "P042",
+      "concept_id": "authorship_contribution",
+      "subject": "scholarly_practice",
+      "mode": "conceptual_argument",
+      "quote": "Feedback can introduce the distinction around which a later argument is organised. A question can suggest a possibility. An objection can make a different research problem visible.",
+      "interpretation": "A contribution may be carried by feedback or a question even when no finished argument is supplied. The relevant unit is the intervention’s role in developing the idea, not only the amount of text produced.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C15",
+      "block_id": "P049",
+      "concept_id": "epistemic_dependence",
+      "subject": "scholarly_practice",
+      "mode": "scholarly_argument",
+      "quote": "This does not give an AI system the authority of a trustworthy expert. It makes the grounds for reliance a substantive question.",
+      "interpretation": "The appeal to epistemic dependence opens an inquiry into warranted reliance. It does not transfer expert authority to AI simply because dependence is normal in scholarship.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C16",
+      "block_id": "P050",
+      "concept_id": "epistemic_dependence",
+      "subject": "scholarly_practice",
+      "mode": "scholarly_argument",
+      "quote": "What must be understood directly, and what may be responsibly taken on trust, depends on the educational claim. Reliance can be epistemically justified while leaving a particular learning objective unfulfilled; an assessment must specify which objective it is testing.",
+      "interpretation": "The passage qualifies a demand for complete self-sufficiency while preserving task-specific responsibility. Justified reliance and fulfilment of a learning objective are treated as separate judgments.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C17",
+      "block_id": "P056",
+      "concept_id": "return_learning",
+      "subject": "learner",
+      "mode": "open_question",
+      "quote": "Can a text that I helped produce become material from which I subsequently learn?",
+      "interpretation": "The return is formulated as a research question. It proposes a possible educational role for the preserved text without assuming that publication or rereading has already demonstrated learning.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C18",
+      "block_id": "P057",
+      "concept_id": "return_learning",
+      "subject": "learner",
+      "mode": "conceptual_argument",
+      "quote": "A later demonstration of understanding cannot by itself establish independent production of an earlier text; neither does the production history exhaust what can happen during later study.",
+      "interpretation": "The argument separates evidence about an earlier production process from evidence about a later capacity. It leaves room for new learning while refusing to project later competence backward.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C19",
+      "block_id": "P061",
+      "concept_id": "learner_understanding",
+      "subject": "learner",
+      "mode": "conceptual_argument",
+      "quote": "Conversely, identifying an unsupported premise, explaining why a distinction matters, or recognising how a new objection changes an argument may give better evidence of intellectual development. These are candidate indicators, rather than an infallible test or a description of something I have already established empirically about my own practice.",
+      "interpretation": "The proposed indicators concern work with reasons. Their explicit candidate status prevents this passage from being counted as an observed improvement in the author’s understanding.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C20",
+      "block_id": "P064",
+      "concept_id": "learner_understanding",
+      "subject": "learner",
+      "mode": "conceptual_argument",
+      "quote": "But the reverse inference is equally inadequate: learning cannot be ruled out simply because AI participated in producing the material studied.",
+      "interpretation": "The passage challenges an inference from AI involvement to the impossibility of learning. It does not replace that inference with a claim that every AI-assisted encounter produces learning.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C21",
+      "block_id": "P069",
+      "concept_id": "return_learning",
+      "subject": "learner",
+      "mode": "scholarly_argument",
+      "quote": "Retrieval practice can itself change subsequent retention; asking someone to recall and explain may be another learning event (Soderstrom and Bjork, 2015, pp. 185–187).",
+      "interpretation": "The cited research motivates treating later explanation as a possible intervention as well as evidence. Its application to this theological case remains a proposal to investigate, not a measured effect established here.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C22",
+      "block_id": "P082",
+      "concept_id": "assessment_judgment",
+      "subject": "assessment",
+      "mode": "scholarly_argument",
+      "quote": "Applied here, a sound theological paragraph might support a judgment about the paragraph's quality. Inferring the student's understanding, their capacity to produce a similar argument independently, or their readiness for research each adds a further claim.",
+      "interpretation": "The passage separates evaluation of a text from inferences about its author. Each additional educational claim needs its own evidential justification, even when the paragraph is judged sound.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C23",
+      "block_id": "P084",
+      "concept_id": "assessment_judgment",
+      "subject": "assessment",
+      "mode": "hypothetical",
+      "quote": "Receiving a central idea from a friend could compromise evidence of independent formulation. Critically examining an externally supplied idea could, in another task, demonstrate the capacity being assessed.",
+      "interpretation": "The same kind of assistance is compared under different assessment purposes. The two possibilities are hypothetical contrasts; neither describes a measured outcome for a participant in this study.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C24",
+      "block_id": "P090",
+      "concept_id": "assessment_judgment",
+      "subject": "assessment",
+      "mode": "hypothetical",
+      "quote": "A visible rejection might show informed judgment, or it might rest on a misunderstanding. An accepted suggestion might have been carefully examined, or adopted because it sounded convincing.",
+      "interpretation": "The thought experiment gives the same observable action contrasting possible meanings. A count of acceptance or rejection would therefore leave the educational interpretation unresolved.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C25",
+      "block_id": "P103",
+      "concept_id": "learner_understanding",
+      "subject": "learner",
+      "mode": "conceptual_argument",
+      "quote": "I would want to know whether the student can identify the premises, explain why the distinction matters and assess an objection from another position.",
+      "interpretation": "Understanding is specified through disciplinary reasoning without using the word in this selected sentence. These are proposed questions for examining a learner, not observations about another student.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C26",
+      "block_id": "P104",
+      "concept_id": "epistemic_dependence",
+      "subject": "scholarly_practice",
+      "mode": "conceptual_argument",
+      "quote": "Studying it involves sustained engagement with texts, traditions, teachers and arguments whose claims I did not originate.",
+      "interpretation": "The author locates dependence within theological study itself. Receiving claims from others is part of the educational setting, while the surrounding paragraph retains the need to justify their authority.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C27",
+      "block_id": "P104",
+      "concept_id": "assessment_judgment",
+      "subject": "scholarly_practice",
+      "mode": "conceptual_argument",
+      "quote": "My contribution can include learning to interpret those claims responsibly and to understand the grounds on which they should be accepted, qualified or rejected.",
+      "interpretation": "The theological task concerns responsible interpretation of received claims. The modal can identifies a possible contribution; it does not certify that every acceptance or rejection is adequately justified.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C28",
+      "block_id": "P108",
+      "concept_id": "learner_understanding",
+      "subject": "learner",
+      "mode": "hypothetical",
+      "quote": "A learner might explain that a scientific method restricts certain kinds of explanation, then mistakenly treat that methodological restriction as a proof about everything that exists.",
+      "interpretation": "The hypothetical error distinguishes stating a distinction from applying it adequately. It shows why the content of an inference matters, without recording an error made by the author or an observed student.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C29",
+      "block_id": "P109",
+      "concept_id": "assessment_judgment",
+      "subject": "assessment",
+      "mode": "conceptual_argument",
+      "quote": "My immediate question concerns the student's interpretive and argumentative judgment; it does not presume that agreement with a theological conclusion demonstrates understanding, or that an assessor can infer a person's faith from polished prose.",
+      "interpretation": "The target is interpretive and argumentative judgment. Agreement and polished expression are explicitly excluded as sufficient evidence for understanding or personal faith.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C30",
+      "block_id": "P118",
+      "concept_id": "authorship_contribution",
+      "subject": "learner",
+      "mode": "reported_experience",
+      "quote": "Those interventions were intellectual actions even when they consisted of a short question or a request to reconsider an answer. The archive records more polished formulations supplied by AI alongside the objections that made those formulations change.",
+      "interpretation": "The author attributes a role to brief human interventions alongside substantial AI formulations. This retrospective account identifies contributions that a word-count allocation would obscure; it does not assign percentage shares of authorship.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C31",
+      "block_id": "P123",
+      "concept_id": "authorship_contribution",
+      "subject": "scholarly_practice",
+      "mode": "reported_experience",
+      "quote": "AI participated in the formulation of that criticism, including its expression here. That participation is part of the authorship question the article examines.",
+      "interpretation": "The account explicitly attributes substantive formulation and expression to AI. Treating the article as collaborative therefore requires preserving that contribution alongside the author’s interventions.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C32",
+      "block_id": "P125",
+      "concept_id": "epistemic_dependence",
+      "subject": "scholarly_practice",
+      "mode": "scholarly_argument",
+      "quote": "It challenges an ideal of thinking without intellectual dependence, provides evidence that assistance can either support or undermine the acquisition of skills, and documents institutional uncertainty.",
+      "interpretation": "The author’s synthesis of later reading challenges self-sufficiency while retaining divergent educational possibilities. It supports investigating the conditions of reliance, not a blanket endorsement of assistance.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C33",
+      "block_id": "P126",
+      "concept_id": "return_learning",
+      "subject": "learner",
+      "mode": "conceptual_argument",
+      "quote": "Later understanding does not erase earlier assistance; earlier assistance does not settle what I can subsequently learn.",
+      "interpretation": "The temporal distinction preserves the production history and leaves subsequent development open. The passage makes a conceptual claim about the evidence required at different times, not a measured before-and-after gain.",
+      "review_status": "proposed_by_assistant"
+    },
+    {
+      "id": "C34",
+      "block_id": "P126",
+      "concept_id": "authorship_contribution",
+      "subject": "learner",
+      "mode": "conceptual_argument",
+      "quote": "A claim that I learned from an AI-assisted text, a claim that I can now exercise a capacity independently, and a claim that I deserve credit for originating its argument require different histories and evidence.",
+      "interpretation": "Learning, present independent performance and origination are separated as claims requiring different support. A later demonstration cannot automatically settle attribution of the earlier argument.",
+      "review_status": "proposed_by_assistant"
+    }
+  ]
+}

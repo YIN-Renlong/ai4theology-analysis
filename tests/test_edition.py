@@ -84,7 +84,7 @@ class EditionTests(unittest.TestCase):
         self.site = self.root / 'site'
         (self.site / 'data').mkdir(parents=True)
         (self.root / 'data').mkdir()
-        for name in ('collaboration-codebook.json', 'collaboration-episodes.json', 'inquiry-sources.json'):
+        for name in ('collaboration-codebook.json', 'collaboration-episodes.json', 'inquiry-sources.json', 'contextual-codebook.json'):
             shutil.copy2(ROOT / 'data' / name, self.root / 'data' / name)
         (self.site / 'edition-template.html').write_text(self.template)
         self.root_patch = patch.object(BUILD, 'ROOT', self.root)
@@ -118,6 +118,9 @@ class EditionTests(unittest.TestCase):
         self.assertEqual(payload['chapters'], self.chapters)
         self.assertEqual(payload['collaboration']['counts']['nodes'], 25)
         self.assertEqual(payload['collaboration']['counts']['relations'], 21)
+        self.assertEqual(payload['collaboration']['contextual']['coverage']['records'], 34)
+        self.assertEqual(payload['collaboration']['contextual']['coverage']['classified_blocks'], 31)
+        self.assertEqual(len(payload['collaboration']['lexical_returns']['matrix']['block_ids']), 115)
         self.assertEqual(len(payload['inquiry']['excerpts']), 10)
         expected_nodes = {n['id'] for n in self.analysis['nodes']}
         self.assertEqual(len(expected_nodes), 25)
@@ -187,6 +190,17 @@ class EditionTests(unittest.TestCase):
         path.write_text(json.dumps(record))
         (self.site / 'index.html').write_text('previous verified page')
         with self.assertRaisesRegex(ValueError, 'Excerpt does not match'):
+            self.build()
+        self.assertEqual((self.site / 'index.html').read_text(), 'previous verified page')
+
+    def test_stale_contextual_readings_cannot_be_embedded(self):
+        self.write_inputs()
+        path = self.root / 'data/contextual-codebook.json'
+        coding = json.loads(path.read_text())
+        coding['records'][0]['interpretation'] = 'A revised interpretation.'
+        path.write_text(json.dumps(coding))
+        (self.site / 'index.html').write_text('previous verified page')
+        with self.assertRaisesRegex(ValueError, 'Stale collaboration analysis'):
             self.build()
         self.assertEqual((self.site / 'index.html').read_text(), 'previous verified page')
 

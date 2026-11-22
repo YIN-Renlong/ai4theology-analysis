@@ -133,6 +133,17 @@ class CollaborationTests(unittest.TestCase):
                                            "shared_terms": ["theological", "inference", "reasoning"]}])
         self.assertFalse(result["options"]["stemming"])
         self.assertEqual(result["options"]["min_body_index_distance"], 3)
+        matrix = result['matrix']
+        self.assertEqual(matrix['block_ids'], ['p1', 'p2', 'p3', 'p4'])
+        # Adjacent matches are retained in the full matrix, while excluded above.
+        self.assertEqual(matrix['values'][0][1], 1.0)
+        self.assertEqual(matrix['values'][0][2], 0.0)
+        for i, row in enumerate(matrix['values']):
+            self.assertEqual(row[i], 1.0)
+            for j, value in enumerate(row):
+                self.assertGreaterEqual(value, 0.0)
+                self.assertLessEqual(value, 1.0)
+                self.assertEqual(value, matrix['values'][j][i])
 
     def test_csv_neutralizes_spreadsheet_formula_cells(self):
         for value in ("=SUM(1,2)", " +cmd", "-2+3", "@formula", "\tcommand", "\rvalue", "\nvalue"):
@@ -144,7 +155,8 @@ class CollaborationTests(unittest.TestCase):
             root = Path(temporary)
             (root / "data").mkdir()
             (root / "site/data").mkdir(parents=True)
-            pairs = [("site/data/analysis.json", self.data), ("data/collaboration-codebook.json", self.codebook), ("data/collaboration-episodes.json", self.episodes)]
+            contextual = json.loads((ROOT / 'data/contextual-codebook.json').read_text())
+            pairs = [("site/data/analysis.json", self.data), ("data/collaboration-codebook.json", self.codebook), ("data/collaboration-episodes.json", self.episodes), ('data/contextual-codebook.json', contextual)]
             for name, data in pairs:
                 (root / name).write_text(json.dumps(data))
             result = analysis.export(root)

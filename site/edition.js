@@ -1,6 +1,7 @@
 import {createMap} from './edition-maps.js';
 import {mountExplorer} from './edition-explorer.js';
 import {mountAnalysis} from './edition-analysis.js';
+import {mountContextual,mountReasoningChanges} from './edition-context.js';
 const {analysis:data,chapters,collaboration,inquiry}=JSON.parse(document.querySelector('#edition-data').textContent);
 const sourceExcerpts=inquiry?.excerpts||[];
 const blocks=new Map(data.article.blocks.map(b=>[b.id,b]));
@@ -97,7 +98,10 @@ function showEvidence(selection){
 document.querySelector('#close-evidence').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
 document.addEventListener('click',e=>{const alignment=e.target.closest('[data-alignment]');if(alignment){showAlignment(alignment.dataset.alignment.split(','));return;}const source=e.target.closest('[data-paragraph],[data-nodes]');if(source)showEvidence(source.dataset.paragraph?{paragraphs:[source.dataset.paragraph]}:{nodes:source.dataset.nodes.split(',')});});
-mountExplorer(document.querySelector('#explorer'),data,showEvidence);
+mountExplorer(document.querySelector('#explorer'),data,showEvidence,collaboration);
+const analysisCallbacks={openParagraph:id=>showEvidence({paragraphs:[id]}),openNodes:ids=>showEvidence({nodes:ids})};
+mountContextual(document.querySelector('#contextual-analysis'),collaboration,data,analysisCallbacks);
+mountReasoningChanges(document.querySelector('#reasoning-changes'),collaboration,analysisCallbacks);
 mountAnalysis(document.querySelector('#analysis-explorer'),collaboration,{
   openParagraph:id=>showEvidence({paragraphs:[id]}),
   openNodes:ids=>showEvidence({nodes:ids}),

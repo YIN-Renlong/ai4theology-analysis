@@ -24,6 +24,7 @@ def build():
         'analysis': SITE / 'data/analysis.json',
         'codebook': ROOT / 'data/collaboration-codebook.json',
         'episodes': ROOT / 'data/collaboration-episodes.json',
+        'contextual': ROOT / 'data/contextual-codebook.json',
     }.items():
         if report['input_sha256'][key] != hashlib.sha256(path.read_bytes()).hexdigest():
             raise ValueError('Stale collaboration analysis: rerun scripts/analyze_collaboration.py')
@@ -96,6 +97,14 @@ def build():
     count = report['counts']
     summary = '<p class="note">'+e(f"{count['episodes']} selected episodes · {count['patterns']} candidate patterns · {count['annotated_body_blocks']} of {count['body_blocks']} body blocks contain analytical anchors. Pattern assignments remain proposed interpretations.")+'</p>'
     page = page.replace('__ANALYSIS_SUMMARY__', summary)
+    context = report['contextual']
+    coverage = context['coverage']
+    context_summary = '<p class="note">' + e(f"{coverage['records']} selected contextual readings across {coverage['classified_blocks']} of {coverage['body_blocks']} body passages. Classifications remain proposed interpretations.") + '</p><table><thead><tr><th>Concept in context</th><th>Selected passages</th></tr></thead><tbody>'
+    for concept in context['codebook']:
+        total = sum(cell['count'] for cell in context['cells'] if cell['concept_id'] == concept['id'])
+        context_summary += '<tr><th>' + e(concept['label']) + '</th><td>' + str(total) + '</td></tr>'
+    context_summary += '</tbody></table><p><a href="data/contextual-readings.csv">Read the contextual interpretations and source excerpts</a></p>'
+    page = page.replace('__CONTEXT_SUMMARY__', context_summary)
     # A readable evidence appendix remains available without JavaScript.
     appendix = ['<details class="source-archive"><summary>Read the selected original exchanges</summary><p class="note">' + e(inquiry['source']['chronology_note']) + '</p>']
     for item in inquiry['excerpts']:

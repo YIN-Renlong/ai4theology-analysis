@@ -1,6 +1,6 @@
 # Collaboration analysis
 
-Generated reproducibly by `scripts/analyze_collaboration.py` (0.1.0).
+Generated reproducibly by `scripts/analyze_collaboration.py` (0.2.0).
 
 This is a descriptive analysis of selected assistant-proposed annotations in one published article. It is not a measurement of learning or a complete conversation history.
 
@@ -159,8 +159,26 @@ Earlier and later mean positions in the published article. Lexical similarity id
 | P026 | P054 | 0.156924 | candidate's, document, supplies, reasoning, application, admissions, assessed, process |
 | P005 | P116 | 0.153968 | previous, assumptions, disclosure, interaction, work, assessment, inquiry, question |
 
+## Concepts in context
+
+Selected passages are interpreted in context through an assistant-proposed codebook. Each record identifies the subject and the argumentative role of an exact source passage. Python validates the quotations and aggregates the proposed classifications; it does not infer these meanings from keyword occurrences.
+
+This is selected close-reading coverage of one article, not exhaustive semantic classification. A paragraph may receive more than one concept code. An unclassified cell means no passage was selected for that code, not that the concept is absent. Reported experience, conceptual arguments and hypothetical contrasts support different claims. All interpretations await researcher review and no count measures learning or authorship share.
+
+34 contextual readings across 31 of 118 body blocks.
+
+| Concept | Selected passages |
+| --- | ---: |
+| The learner’s understanding | 6 |
+| The model’s capacities | 5 |
+| Authorship and contribution | 7 |
+| Evidence and assessment | 6 |
+| Reliance and responsibility | 4 |
+| Returning and learning | 6 |
+
 ## Input SHA-256
 
 - `analysis`: `064de58bc78dde32e375287dc0c5a0b1f825f4053bf6615996a45ed4339f25b1`
 - `codebook`: `ac2343437498e2460f96c8fd8340820a975c69ba17a23dfff7138d5687144e53`
 - `episodes`: `567f0fa51bb242c575cba456a5fb836088c39200bfa9f19e323a4578614c567e`
+- `contextual`: `afe1278bab60b8992040ca472beb8813a401b2b48d4c2e71594ce885f4144164`

@@ -17,9 +17,10 @@ from pathlib import Path
 import re
 import tempfile
 import unicodedata
+from contextual_analysis import contextual_analysis
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 BASIS = {"retrospective_account", "later_literature", "hypothetical_example", "published_argument"}
 CONCLUSIONS = {"retained", "revised", "unresolved", "not_established"}
 JUSTIFICATIONS = {"elaborated", "qualified", "repaired", "not_established"}
@@ -246,13 +247,18 @@ def lexical_returns(blocks, options=None):
         norm = math.sqrt(sum(weight * weight for weight in vector.values()))
         doc["vector"] = {term: weight / norm for term, weight in vector.items()}
     pairs = []
+    matrix = [[0.0 for _ in documents] for _ in documents]
+    for i, doc in enumerate(documents):
+        matrix[i][i] = 1.0 if doc['vector'] else 0.0
     for i, first in enumerate(documents):
-        for second in documents[i + 1:]:
-            if second["position"] - first["position"] < options["min_body_index_distance"]:
-                continue
+        for j in range(i + 1, len(documents)):
+            second = documents[j]
             common = set(first["vector"]) & set(second["vector"])
             products = {term: first["vector"][term] * second["vector"][term] for term in sorted(common)}
             score = min(1.0, max(0.0, sum(products.values())))
+            matrix[i][j] = matrix[j][i] = round(score, 6)
+            if second["position"] - first["position"] < options["min_body_index_distance"]:
+                continue
             if score < options["minimum_cosine"]:
                 continue
             shared = sorted(products, key=lambda term: (-products[term], term))[:options["shared_terms_limit"]]
@@ -264,6 +270,9 @@ def lexical_returns(blocks, options=None):
             "options": {**options, "token_pattern": TOKEN_PATTERN.pattern, "normalization": "Unicode NFKC; lowercase; curly apostrophe to ASCII", "minimum_token_length": 3,
                         "tf": "1 + ln(term count)", "idf": "1 + ln((1 + document count) / (1 + document frequency))", "stopwords": sorted(STOPWORDS), "stemming": False},
             "eligible_paragraphs": n, "eligible_pairs_above_threshold": len(pairs),
+            "matrix": {"block_ids": [doc['block_id'] for doc in documents], "values": matrix,
+                       "metric": "TF–IDF cosine similarity",
+                       "note": "The matrix includes all eligible passage pairs, including neighbours. The diagonal is self-comparison. Axes follow published-text order. Scores describe shared weighted vocabulary; they do not establish agreement, semantic equivalence or learning."},
             "pairs": pairs[:options["top_pairs"]]}
 
 
@@ -363,6 +372,14 @@ def render_report(result):
         lines.append("")
     lines += ["## Lexical retrieval", "", result["lexical_returns"]["method"], "", result["lexical_returns"]["limitations"], "", "| Earlier article block | Later article block | Cosine | Shared terms |", "| --- | --- | ---: | --- |"]
     lines.extend("| " + pair["earlier_id"] + " | " + pair["later_id"] + " | " + str(pair["score"]) + " | " + ", ".join(pair["shared_terms"]) + " |" for pair in result["lexical_returns"]["pairs"])
+    if result.get('contextual'):
+        contextual = result['contextual']
+        lines += ["", "## Concepts in context", "", contextual['method'], "", contextual['limitation'], "",
+                  str(contextual['coverage']['records']) + " contextual readings across " + str(contextual['coverage']['classified_blocks']) + " of " + str(contextual['coverage']['body_blocks']) + " body blocks.", ""]
+        lines += ["| Concept | Selected passages |", "| --- | ---: |"]
+        for concept in contextual['codebook']:
+            count = sum(cell['count'] for cell in contextual['cells'] if cell['concept_id'] == concept['id'])
+            lines.append('| ' + concept['label'] + ' | ' + str(count) + ' |')
     lines += ["", "## Input SHA-256", ""]
     lines.extend("- `" + name + "`: `" + digest + "`" for name, digest in result["input_sha256"].items())
     return "\n".join(lines) + "\n"
@@ -371,10 +388,11 @@ def render_report(result):
 def export(root=ROOT, output=None):
     root = Path(root)
     output = Path(output) if output is not None else root / "site/data"
-    paths = {"analysis": root / "site/data/analysis.json", "codebook": root / "data/collaboration-codebook.json", "episodes": root / "data/collaboration-episodes.json"}
+    paths = {"analysis": root / "site/data/analysis.json", "codebook": root / "data/collaboration-codebook.json", "episodes": root / "data/collaboration-episodes.json", "contextual": root / "data/contextual-codebook.json"}
     raw = {name: path.read_bytes() for name, path in paths.items()}
     data = {name: json.loads(payload) for name, payload in raw.items()}
     result = analyze(data["analysis"], data["codebook"], data["episodes"], {name: sha256(payload) for name, payload in raw.items()})
+    result['contextual'] = contextual_analysis(data['analysis']['article']['blocks'], data['contextual'])
     episode_rows = [{"episode_id": episode["id"], "title": episode["title"], "basis": episode["basis"], "sequence_status": episode["sequence_status"],
                      "patterns": ";".join(episode["pattern_ids"]), "conclusion": episode["change"]["conclusion"], "justification": episode["change"]["justification"],
                      "source_ids": ";".join(episode["source_ids"]), "explanation": episode["change"]["explanation"], "review_status": episode["review_status"]} for episode in result["episodes"]]
@@ -384,6 +402,9 @@ def export(root=ROOT, output=None):
                       "rationale": relation["rationale"], "review_status": relation["review_status"]} for relation in data["analysis"]["relations"]]
     dumps = lambda value: json.dumps(value, ensure_ascii=False, indent=2) + "\n"
     files = {"collaboration-analysis.json": dumps(result), "collaboration-codebook.json": dumps(data["codebook"]),
+             "contextual-codebook.json": dumps(data['contextual']),
+             "contextual-readings.csv": csv_text(['id', 'block_id', 'concept_id', 'subject', 'mode', 'interpretation', 'review_status', 'quote', 'start', 'end'],
+                                                  [{**item, **item['evidence']} for item in result['contextual']['records']]),
              "collaboration-episodes.csv": csv_text(["episode_id", "title", "basis", "sequence_status", "patterns", "conclusion", "justification", "source_ids", "explanation", "review_status"], episode_rows),
              "collaboration-relations.csv": csv_text(["relation_id", "source", "target", "type", "family", "source_ids", "rationale", "review_status"], relation_rows),
              "collaboration-report.md": render_report(result)}

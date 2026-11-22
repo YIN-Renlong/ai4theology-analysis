@@ -101,7 +101,7 @@ The input codebook is `data/collaboration-codebook.json`. Selected episode inter
 The script computes:
 
 - Coverage of source body blocks by the selected annotations; relation-type distributions and evidence-basis counts. Candidate pattern prevalence counts the supplied episode assignments, with a clearly stated denominator.
-- Directed shortest paths through the current 25-node graph, and TF-IDF cosine similarity between nonadjacent body paragraphs. Paths record connectivity through assigned relations; they do not establish chronological or transitive inferential chains. Similarity identifies shared vocabulary for close reading; it is not a learning score or a semantic entailment test.
+- Directed shortest paths through the current 25-node graph, and a complete TF–IDF cosine similarity matrix for eligible body paragraphs, with a separate shortlist of nonadjacent matches. Paths record connectivity through assigned relations; they do not establish chronological or transitive inferential chains. Similarity identifies shared vocabulary for close reading; it is not a learning score or a semantic entailment test.
 
 The report records input SHA-256 hashes and the lexical retrieval settings. Reference-section blocks are excluded from body statistics. Hypothetical examples and later reading retain their evidence labels. No transition probability, learning-effect estimate, or authorship percentage is calculated from this article.
 
@@ -117,9 +117,21 @@ The website's **Patterns** section provides the episode-pattern matrix and passa
 
 Relevant methodological foundations include [Chi and Wylie's ICAP framework (2014)](https://education.asu.edu/sites/g/files/litvpz656/files/lcl/chiwylie2014icap_2.pdf), [Lawrence and Reed's argument-mining survey (2019)](https://aclanthology.org/J19-4006/), and [Shaffer and Ruis on epistemic network analysis (2017)](https://www.solaresearch.org/publications/hla-17/hla17-chapter15/). This implementation does not claim to implement or validate ICAP or ENA. It supplies an evidence-linked coding framework that could support later, appropriately designed analysis.
 
+## Contextual analysis and whole-episode views
+
+`data/contextual-codebook.json` supplies 34 proposed contextual readings across 31 of the 118 body passages. Each reading distinguishes the subject of a claim from its argumentative use and includes an exact source quotation. These are selected close readings, not exhaustive automated semantic classification. The same paragraph can carry several concept codes; an empty cell means no reading was assigned in this selection.
+
+`scripts/contextual_analysis.py` verifies unique quotation matches, rejects duplicate concept–passage assignments, and computes the concept-by-section counts. The edition embeds only results whose input hashes match the current coding files. Its contextual heatmap opens the proposed interpretation and source passage. Public outputs include `site/data/contextual-codebook.json` and `site/data/contextual-readings.csv`.
+
+The lexical graphic compares all 115 eligible body passages (at least 25 words), giving 6,555 distinct non-self pairs. The matrix is symmetric and uses TF–IDF cosine similarity on a 0–1 scale; adjacent passages are included here. Both axes follow publication order. This detects shared vocabulary, without claiming semantic agreement or historical influence. Passage menus and keyboard controls provide an alternative to selecting a square. No embeddings or language-model classification calls are involved.
+
+The conclusion–justification matrix counts the six selected episode classifications, with an evidence-basis filter. It retains unresolved and not-established states and labels the hypothetical case. Counts do not establish gains in understanding.
+
+**Whole episode** shows every recorded relationship whose endpoints belong to the chosen episode. It adds no reverse arrows or inferred links. The initial E02 view includes the renewed objection after acknowledgment. Curves distinguish argument relations from interaction responses and reported order; each relationship has an evidence control and equivalent text entry. **Nearby connections** remains available for examining an individual annotation.
+
 ## Presentation and accessibility
 
-The public interface combines a guided scroll sequence with a chapter selector and focused relationship maps. Evidence panels preserve source passages; their labels may paraphrase them. A complete text search includes the reference section. All 25 annotations and 21 relationships are individually inspectable. Literal-term bars show counts by section, with matching passages alongside them.
+The public interface combines a guided scroll sequence with a chapter selector and focused relationship maps. Evidence panels preserve source passages; their labels may paraphrase them. A complete text search includes the reference section. All 25 annotations and 21 relationships are individually inspectable. Contextual readings show concept-by-section counts and exact supporting passages. The word concordance remains available as a separate literal index.
 
 The desktop reading keeps its graphic beside the text. On narrow screens, each chapter contains its own graphic. Reduced-motion controls and the operating-system preference preserve complete readable states. The relationship map has an equivalent text list and keyboard-operable controls. The static reading and full article remain available without JavaScript. Map coordinates are editorial arrangements, not measured cognitive distance or learning scores.
 
