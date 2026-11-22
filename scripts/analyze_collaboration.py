@@ -211,7 +211,7 @@ def graph_motifs(nodes, relations):
     specifications = [
         ("repair_recurrence", "An objection returns after acknowledgment", recurrence,
          "Four distinct retrospective nodes: an author questions a claim's relevance; an assistant acknowledges that challenge; an author returns to it; an explicit follows-acknowledgment edge connects that return to the acknowledgment.",
-         "The match depends on the article's reported sequence and the proposed coding. It does not establish sustained correction, an independently aligned conversation, or learning."),
+         "The match depends on the article's reported sequence and the proposed coding. The rule does not itself establish sustained correction or learning; the separately aligned original excerpts must be inspected alongside it."),
         ("scholarly_qualification", "Later scholarship qualifies a claim", qualification,
          "A qualifies edge begins at a node whose evidence basis is later_literature.",
          "This detects a coded qualification. It does not establish when the original conversation occurred or that the writer's understanding improved."),
@@ -317,7 +317,7 @@ def analyze(analysis, codebook, episode_data, hashes=None):
                       "method": "Breadth-first search; one shortest directed path for each reachable ordered node pair; ties resolved by relationship ID.",
                       "limitations": "These paths follow annotated relationships. Their heterogeneous labels are not automatically transitive, chronological or causal."},
             "lexical_returns": lexical_returns(list(blocks.values())),
-            "method": {"scope": "One published article; selected provisional coding. The original chat has not been independently aligned.",
+            "method": {"scope": "One published article; selected provisional coding. Scoped original exchanges are aligned separately in the reader; these counts and graph queries still describe the article-based coding.",
                        "pattern_counts": "Counts aggregate supplied episode codes; they are not automatically discovered collaboration types. An episode can have multiple codes, so counts can exceed the number of episodes.",
                        "changes": "Conclusion and justification states are assistant-proposed interpretations, not measured learning outcomes. Not established means the available episode does not demonstrate that change.",
                        "coverage": "A body block is a non-reference paragraph or quotation. Coverage counts blocks containing at least one node or relation anchor; unannotated blocks were not necessarily irrelevant.",

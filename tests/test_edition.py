@@ -84,7 +84,7 @@ class EditionTests(unittest.TestCase):
         self.site = self.root / 'site'
         (self.site / 'data').mkdir(parents=True)
         (self.root / 'data').mkdir()
-        for name in ('collaboration-codebook.json', 'collaboration-episodes.json'):
+        for name in ('collaboration-codebook.json', 'collaboration-episodes.json', 'inquiry-sources.json'):
             shutil.copy2(ROOT / 'data' / name, self.root / 'data' / name)
         (self.site / 'edition-template.html').write_text(self.template)
         self.root_patch = patch.object(BUILD, 'ROOT', self.root)
@@ -118,6 +118,7 @@ class EditionTests(unittest.TestCase):
         self.assertEqual(payload['chapters'], self.chapters)
         self.assertEqual(payload['collaboration']['counts']['nodes'], 25)
         self.assertEqual(payload['collaboration']['counts']['relations'], 21)
+        self.assertEqual(len(payload['inquiry']['excerpts']), 10)
         expected_nodes = {n['id'] for n in self.analysis['nodes']}
         self.assertEqual(len(expected_nodes), 25)
         self.assertEqual({n for c in payload['chapters'] for n in c['node_ids']}, expected_nodes)
@@ -177,6 +178,31 @@ class EditionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Stale collaboration analysis'):
             self.build()
         self.assertEqual((self.site / 'index.html').read_text(), 'previous verified page')
+
+    def test_corrupt_original_excerpt_cannot_replace_the_published_page(self):
+        self.write_inputs()
+        path = self.root / 'data/inquiry-sources.json'
+        record = json.loads(path.read_text())
+        record['excerpts'][0]['text'] += 'An invented addition.'
+        path.write_text(json.dumps(record))
+        (self.site / 'index.html').write_text('previous verified page')
+        with self.assertRaisesRegex(ValueError, 'Excerpt does not match'):
+            self.build()
+        self.assertEqual((self.site / 'index.html').read_text(), 'previous verified page')
+
+    def test_original_exchange_and_display_text_are_escaped(self):
+        self.write_inputs()
+        path = self.root / 'data/inquiry-sources.json'
+        record = json.loads(path.read_text())
+        attack = '</script><img data-injected="yes" src=x onerror=alert(1)>'
+        record['excerpts'][0]['display_text'] = attack
+        path.write_text(json.dumps(record))
+        page = self.build()
+        self.assertEqual(json.loads(page.payload)['inquiry']['excerpts'][0]['display_text'], attack)
+        self.assertFalse(any('data-injected' in attrs for _, attrs in page.tags))
+        html = (self.site / 'index.html').read_text()
+        self.assertTrue('Original wording' in html, 'Static source appendix is missing')
+        self.assertTrue('source-M57-E1' in html, 'Source excerpt anchor is missing')
 
 
 if __name__ == '__main__':

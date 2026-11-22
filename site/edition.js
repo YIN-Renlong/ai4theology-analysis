@@ -1,7 +1,8 @@
 import {createMap} from './edition-maps.js';
 import {mountExplorer} from './edition-explorer.js';
 import {mountAnalysis} from './edition-analysis.js';
-const {analysis:data,chapters,collaboration}=JSON.parse(document.querySelector('#edition-data').textContent);
+const {analysis:data,chapters,collaboration,inquiry}=JSON.parse(document.querySelector('#edition-data').textContent);
+const sourceExcerpts=inquiry?.excerpts||[];
 const blocks=new Map(data.article.blocks.map(b=>[b.id,b]));
 const episodes=[...document.querySelectorAll('.episode')];
 const nav=document.querySelector('.reader-nav');
@@ -36,6 +37,11 @@ function activate(i){
       gsap.from(episodes[i].querySelectorAll('[data-ink]'),{y:6,opacity:.5,duration:.45,stagger:.06,clearProps:'opacity,transform'});
       const fig=small.matches?episodes[i].querySelector('.mobile-map'):holder;
       gsap.from(fig.querySelectorAll('[data-trace]'),{opacity:.2,duration:.65,stagger:.08,clearProps:'opacity'});
+      for(const path of fig.querySelectorAll('.map-route[data-trace],.map-return[data-trace]')){
+        if(typeof path.getTotalLength!=='function')continue;
+        const length=path.getTotalLength();
+        gsap.fromTo(path,{strokeDasharray:length,strokeDashoffset:length},{strokeDashoffset:0,duration:.8,ease:'power1.out',clearProps:'strokeDasharray,strokeDashoffset'});
+      }
     });
   }
 }
@@ -48,19 +54,49 @@ select.addEventListener('change',()=>{const target=document.getElementById(selec
 window.addEventListener('hashchange',()=>{revealHash();schedule();});
 function el(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;}
 const dialog=document.querySelector('#evidence-dialog'),body=document.querySelector('#evidence-body');
+const evidenceTitle=document.querySelector('#evidence-title');
 function paragraphDetails(id){const b=blocks.get(id);if(!b)return el('p','Source paragraph unavailable.');const details=el('details');details.append(el('summary','Read the complete paragraph '+id),el('p',b.text));return details;}
+function alignmentButton(ids){
+  if(!sourceExcerpts.some(item=>item.paragraph_ids.some(id=>ids.includes(id))))return null;
+  const button=el('button','Read the original exchange');button.type='button';button.dataset.alignment=ids.join(',');return button;
+}
+function appendAlignmentLink(parent,ids){const button=alignmentButton(ids);if(button)parent.append(button);}
+function openDialog(){if(!dialog.open)dialog.showModal();dialog.scrollTop=0;}
+function showAlignment(ids){
+  evidenceTitle.textContent='Exchange and published account';
+  body.replaceChildren(el('p','Selected contributions appear in their recorded order. Each is linked to the relevant account in the published essay.','note'));
+  const context=el('details',undefined,'alignment-context');
+  context.append(el('summary','About this record'),el('p',inquiry.source.chronology_note,'note'));
+  body.append(context);
+  const selected=sourceExcerpts.filter(item=>item.paragraph_ids.some(id=>ids.includes(id)));
+  if(!selected.length)body.append(el('p','No original excerpt is aligned to this passage.'));
+  for(const item of selected){
+    const sec=el('section',undefined,'alignment-source');
+    sec.append(el('p',item.id+' · Original exchange','analysis-status'),el('h3',item.actor==='human'?'YIN Renlong':'AI assistant'),el('p',item.display_text||item.text,'alignment-quotation'));
+    const original=el('details');
+    original.append(el('summary','Original wording'),el('p',item.text));
+    sec.append(original,el('p',item.alignment_note,'note'));
+    const published=el('div',undefined,'alignment-published');
+    published.append(el('h4','In the published article'));
+    for(const id of item.paragraph_ids)published.append(paragraphDetails(id));
+    sec.append(published,el('p','Article alignment: '+item.review_status.replaceAll('_',' '),'analysis-status'));
+    body.append(sec);
+  }
+  openDialog();
+}
 function showEvidence(selection){
+  evidenceTitle.textContent='Source evidence';
   body.replaceChildren();
   const records=[...(selection.nodes||[]).map(id=>data.nodes.find(n=>n.id===id)),...(selection.relations||[]).map(id=>data.relations.find(n=>n.id===id))].filter(Boolean);
   for(const r of records){const sec=el('section',undefined,'evidence-section');sec.append(el('h3',r.label||r.type.replaceAll('_',' ')),el('p',r.interpretation||r.rationale),el('p',r.id+' · '+r.review_status.replaceAll('_',' '),'note'));
-    for(const span of r.evidence.spans){sec.append(el('blockquote',span.quote),paragraphDetails(span.block_id));}body.append(sec);
+    for(const span of r.evidence.spans){sec.append(el('blockquote',span.quote),paragraphDetails(span.block_id));}appendAlignmentLink(sec,r.evidence.spans.map(span=>span.block_id));body.append(sec);
   }
-  for(const id of selection.paragraphs||[]){const b=blocks.get(id);if(b){const sec=el('section',undefined,'evidence-section');sec.append(el('h3',id+' · '+b.section),el('p',b.text));const a=el('a','Read in the full text');a.href='#text-'+id;a.addEventListener('click',()=>dialog.close());sec.append(a);body.append(sec);}}
-  if(!dialog.open)dialog.showModal();
+  for(const id of selection.paragraphs||[]){const b=blocks.get(id);if(b){const sec=el('section',undefined,'evidence-section');sec.append(el('h3',id+' · '+b.section),el('p',b.text));const a=el('a','Read in the full text');a.href='#text-'+id;a.addEventListener('click',()=>dialog.close());sec.append(a);appendAlignmentLink(sec,[id]);body.append(sec);}}
+  openDialog();
 }
 document.querySelector('#close-evidence').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
-document.addEventListener('click',e=>{const source=e.target.closest('[data-paragraph],[data-nodes]');if(source)showEvidence(source.dataset.paragraph?{paragraphs:[source.dataset.paragraph]}:{nodes:source.dataset.nodes.split(',')});});
+document.addEventListener('click',e=>{const alignment=e.target.closest('[data-alignment]');if(alignment){showAlignment(alignment.dataset.alignment.split(','));return;}const source=e.target.closest('[data-paragraph],[data-nodes]');if(source)showEvidence(source.dataset.paragraph?{paragraphs:[source.dataset.paragraph]}:{nodes:source.dataset.nodes.split(',')});});
 mountExplorer(document.querySelector('#explorer'),data,showEvidence);
 mountAnalysis(document.querySelector('#analysis-explorer'),collaboration,{
   openParagraph:id=>showEvidence({paragraphs:[id]}),

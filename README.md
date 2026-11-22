@@ -2,7 +2,7 @@
 
 An explorable research edition of YIN Renlong’s [“Whose Thinking Is Being Assessed? The Unsettled Boundary Between Assistance and Authorship in AI-Assisted Education”](https://www.yin.roma.it/2026/10/whose-thinking-is-being-assessed-the-unsettled-boundary-between-assistance-and-authorship-in-ai-assisted-education/).
 
-The complete reader combines the Synoptic Edition’s typography and parallel readings with the Itinerary’s changing argument maps. Eleven chapters follow the opening comparison through theological examples and questions about later understanding. An evidence explorer exposes every proposed relationship, and the language view links descriptive counts to the passages behind them. The full extracted article and its reference section remain available below the guided reading.
+The complete reader combines the Synoptic Edition’s typography and parallel readings with the Itinerary’s changing argument maps. Eleven chapters follow the opening comparison through theological examples and questions about later understanding. Two featured episodes foreground the repair of the original question and responsibility for an argument developed through assistance. An evidence explorer exposes every proposed relationship, and the language view links descriptive counts to the passages behind them. The full extracted article and its reference section remain available below the guided reading.
 
 Live edition: https://yin-renlong.github.io/ai4theology-analysis/
 
@@ -64,9 +64,33 @@ The original **118 content blocks, 29 reference-section blocks, and 53 body hype
 
 All analytical annotations remain `proposed_by_assistant`. An exact text match establishes where a proposed interpretation is anchored; it does not establish that the interpretation is correct or approved by the researcher.
 
-The source is a published article containing retrospective accounts, hypothetical examples, and later scholarly reading. The original conversation has not been independently aligned here. The guided visual order is an editorial reading sequence. Relationship arrows have explicit analytical meanings and are not automatically chronological or causal connections.
+The source is a published article containing retrospective accounts, hypothetical examples, and later scholarly reading. Ten selected original excerpts from messages M57–M62 are now aligned to the published account. The full private conversation is not included. Message labels establish export order, not dates; article alignments remain proposed interpretations. The guided visual order is an editorial reading sequence. Relationship arrows have explicit analytical meanings and are not automatically chronological or causal connections.
 
 The demo supports examining expressed reasoning and the development of an argument. It does not prove a learning effect, reconstruct private mental states, or assign a percentage of human or AI authorship. Citations represent the article’s engagement with sources; this exporter does not verify the cited publications themselves.
+
+## Prova3: original exchanges and the research question
+
+The reading now foregrounds the authorship case and its pedagogical question. A revised recurrence graphic accompanies the original question, its substitution, the assistant’s acknowledgment and the renewed objection. Close-reading panels expose the existing conclusion/justification coding within the article’s reading sequence.
+
+`data/inquiry-sources.json` contains ten scoped excerpts from the preserved original conversation, with readable display text and exact original wording. Each has Unicode character offsets and SHA-256 fingerprints. The evidence panel connects these excerpts to published paragraphs. The method section also contains a readable source appendix for visitors without JavaScript. No unrelated conversations or complete private export are published.
+
+The source audit establishes a detail that the earlier reconstruction left less precise: the acknowledgment and recurring qualification both occur in M60, followed by the renewed question in M61. Their educational significance remains an interpretive question. These records do not yet contain a separately dated post-article explanation; the later return described in the essay retains its status as a published account.
+
+Validate the public selection:
+
+```bash
+python3 scripts/inquiry_sources.py
+```
+
+If you have the original UTF-8 export, verify every selected excerpt against it locally:
+
+```bash
+python3 scripts/inquiry_sources.py --source /absolute/path/to/original-chat-export.txt
+```
+
+The optional verifier reads that export without copying or uploading it. The build checks excerpt integrity and valid paragraph references, then embeds only the selected public records. Fingerprint checks establish source consistency; they do not approve the interpretation or the readability edits. Alignments remain `proposed_by_assistant` until an actual review is recorded.
+
+The descriptive report still concerns the six article-based episode interpretations. Adding the original excerpt selection does not inflate episode frequencies, create a new learner sample, or turn the graph into a causal learning model.
 
 ## Reproduce the collaboration analysis
 

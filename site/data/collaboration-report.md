@@ -53,7 +53,7 @@ The repair concerns the comparison and its assumptions, not a settled verdict on
 
 Evidence: P004, P036, P037, P038, P042, P120.
 
-Limit: Order is reported in the essay; the original chat has not been independently aligned. The model's eventual agreement does not establish that the criticism is correct.
+Limit: The pattern coding follows the published account. Selected original excerpts M58–M62 are now aligned separately in the reader; they preserve acknowledgment and the recurring qualification within M60, followed by the renewed question in M61. Agreement by the model does not establish that a criticism is correct or that learning occurred.
 
 ### E03 · Hardwig qualifies the demand for self-sufficiency
 
@@ -117,7 +117,7 @@ These rules search the supplied interpreted graph; they do not independently cla
 
 Four distinct retrospective nodes: an author questions a claim's relevance; an assistant acknowledges that challenge; an author returns to it; an explicit follows-acknowledgment edge connects that return to the acknowledgment.
 
-Matches: 1. The match depends on the article's reported sequence and the proposed coding. It does not establish sustained correction, an independently aligned conversation, or learning.
+Matches: 1. The match depends on the article's reported sequence and the proposed coding. The rule does not itself establish sustained correction or learning; the separately aligned original excerpts must be inspected alongside it.
 
 - Nodes A04, A05, A06, A25; relations R03, R04, R20, R21.
 
@@ -161,6 +161,6 @@ Earlier and later mean positions in the published article. Lexical similarity id
 
 ## Input SHA-256
 
-- `analysis`: `9a4d5a861bb89e6d85eea293a8f840abb95d8d0febca7a52502754ce7d2022d8`
-- `codebook`: `a8c741448209a73be9cf08a91203be38df6a2fd05cf143d261147d20565fb4fb`
-- `episodes`: `23d74ef1e050706f1d303ea8c8068144dd4320a99c0d809ba9edf691d054ed96`
+- `analysis`: `064de58bc78dde32e375287dc0c5a0b1f825f4053bf6615996a45ed4339f25b1`
+- `codebook`: `ac2343437498e2460f96c8fd8340820a975c69ba17a23dfff7138d5687144e53`
+- `episodes`: `567f0fa51bb242c575cba456a5fb836088c39200bfa9f19e323a4578614c567e`

@@ -19,4 +19,4 @@ R17,A22,A16,specifies,argument,P108,The methodological clause specifies one elem
 R18,A23,A16,illustrates_misapplication,argument,P108,The exhaustive metaphysical conclusion illustrates the proposed misapplication of an accurately recited distinction.,proposed_by_assistant
 R19,A24,A23,offers_alternative_to,argument,P108,The hypothetical learner could assess the metaphysical step while retaining the scientific finding.,proposed_by_assistant
 R20,A25,A05,returns_to,argument,P038,The author reports returning to the objection that AI can provide the same kind of feedback.,proposed_by_assistant
-R21,A25,A06,follows_acknowledgment_in_account,reported_sequence,P038,"Within the article's retrospective account, the objection resurfaces after the acknowledgment. This is a reported sequence, not an independently aligned chat chronology.",proposed_by_assistant
+R21,A25,A06,follows_acknowledgment_in_account,reported_sequence,P038,"Within the article's retrospective account, the objection resurfaces after the acknowledgment. This edge records the article's reported order; the selected original exchanges and their alignments are provided separately.",proposed_by_assistant

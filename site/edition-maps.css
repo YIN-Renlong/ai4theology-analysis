@@ -14,5 +14,7 @@
 .inquiry-map .map-arrow{fill:var(--map-blue)}
 .inquiry-map .map-question{font:italic 400 42px Georgia,serif;fill:var(--map-blue)}
 .inquiry-map .map-question-large{font-size:82px}
+.inquiry-map .map-episode-name{font:600 24px 'STIX Two Text',Georgia,serif;letter-spacing:-.025em;fill:var(--map-ink)}
+.inquiry-map .map-episode-note{font:400 24px 'STIX Two Text',Georgia,serif;fill:#304268}
 .inquiry-map figcaption{margin-top:10px;color:#363d49;font:400 clamp(15px,1.2vw,18px)/1.4 'STIX Two Text',Georgia,serif}
 @media(prefers-reduced-motion:reduce){.inquiry-map [data-trace]{animation:none!important;transition:none!important}}

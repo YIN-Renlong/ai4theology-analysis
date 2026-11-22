@@ -2,9 +2,9 @@
   "schema_version": 1,
   "analysis_version": "0.1.0",
   "input_sha256": {
-    "analysis": "9a4d5a861bb89e6d85eea293a8f840abb95d8d0febca7a52502754ce7d2022d8",
-    "codebook": "a8c741448209a73be9cf08a91203be38df6a2fd05cf143d261147d20565fb4fb",
-    "episodes": "23d74ef1e050706f1d303ea8c8068144dd4320a99c0d809ba9edf691d054ed96"
+    "analysis": "064de58bc78dde32e375287dc0c5a0b1f825f4053bf6615996a45ed4339f25b1",
+    "codebook": "ac2343437498e2460f96c8fd8340820a975c69ba17a23dfff7138d5687144e53",
+    "episodes": "567f0fa51bb242c575cba456a5fb836088c39200bfa9f19e323a4578614c567e"
   },
   "counts": {
     "body_blocks": 118,
@@ -205,7 +205,7 @@
         ]
       },
       "pedagogical_question": "Can the writer identify a changed assumption and examine whether the correction persists in the next responses?",
-      "limit": "Order is reported in the essay; the original chat has not been independently aligned. The model's eventual agreement does not establish that the criticism is correct.",
+      "limit": "The pattern coding follows the published account. Selected original excerpts M58–M62 are now aligned separately in the reader; they preserve acknowledgment and the recurring qualification within M60, followed by the renewed question in M61. Agreement by the model does not establish that a criticism is correct or that learning occurred.",
       "review_status": "proposed_by_assistant",
       "source_ids": [
         "P004",
@@ -2218,7 +2218,7 @@
           }
         ],
         "count": 1,
-        "limitation": "The match depends on the article's reported sequence and the proposed coding. It does not establish sustained correction, an independently aligned conversation, or learning."
+        "limitation": "The match depends on the article's reported sequence and the proposed coding. The rule does not itself establish sustained correction or learning; the separately aligned original excerpts must be inspected alongside it."
       },
       {
         "id": "scholarly_qualification",
@@ -2619,7 +2619,7 @@
     ]
   },
   "method": {
-    "scope": "One published article; selected provisional coding. The original chat has not been independently aligned.",
+    "scope": "One published article; selected provisional coding. Scoped original exchanges are aligned separately in the reader; these counts and graph queries still describe the article-based coding.",
     "pattern_counts": "Counts aggregate supplied episode codes; they are not automatically discovered collaboration types. An episode can have multiple codes, so counts can exceed the number of episodes.",
     "changes": "Conclusion and justification states are assistant-proposed interpretations, not measured learning outcomes. Not established means the available episode does not demonstrate that change.",
     "coverage": "A body block is a non-reference paragraph or quotation. Coverage counts blocks containing at least one node or relation anchor; unannotated blocks were not necessarily irrelevant.",

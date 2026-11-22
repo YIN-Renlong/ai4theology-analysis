@@ -120,7 +120,7 @@
         ]
       },
       "pedagogical_question": "Can the writer identify a changed assumption and examine whether the correction persists in the next responses?",
-      "limit": "Order is reported in the essay; the original chat has not been independently aligned. The model's eventual agreement does not establish that the criticism is correct.",
+      "limit": "The pattern coding follows the published account. Selected original excerpts M58–M62 are now aligned separately in the reader; they preserve acknowledgment and the recurring qualification within M60, followed by the renewed question in M61. Agreement by the model does not establish that a criticism is correct or that learning occurred.",
       "review_status": "proposed_by_assistant"
     },
     {

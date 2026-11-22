@@ -115,7 +115,7 @@ def build_dataset(original, audit):
          "category": "theological_inference", "record_basis": "hypothetical_example", "actor_as_reported": "author"},
         {"id": "A25", "label": "The objection has to return",
          "anchor": "Yet the qualification about human feedback and AI-generated arguments resurfaced, and I again objected that AI could supply the same kind of feedback.",
-         "interpretation": "The published account reports a recurrence after the assistant's acknowledgment. This preserves an iteration compressed by the earlier coding; the original chat has not been imported.",
+         "interpretation": "The published account reports a recurrence after the assistant's acknowledgment. This annotation preserves an iteration compressed by the earlier coding. Selected original exchanges are aligned separately in the reader; this annotation remains grounded in the article.",
          "category": "iteration", "record_basis": "retrospective_account", "actor_as_reported": "author"},
     ]
     for node in additions:
@@ -135,7 +135,7 @@ def build_dataset(original, audit):
         ("R20", "A25", "A05", "returns_to", additions[3]["anchor"],
          "The author reports returning to the objection that AI can provide the same kind of feedback."),
         ("R21", "A25", "A06", "follows_acknowledgment_in_account", additions[3]["anchor"],
-         "Within the article's retrospective account, the objection resurfaces after the acknowledgment. This is a reported sequence, not an independently aligned chat chronology."),
+         "Within the article's retrospective account, the objection resurfaces after the acknowledgment. This edge records the article's reported order; the selected original exchanges and their alignments are provided separately."),
     ]
     for identifier, source, target, kind, anchor, rationale in added_relations:
         relation = {"id": identifier, "source": source, "target": target, "type": kind,

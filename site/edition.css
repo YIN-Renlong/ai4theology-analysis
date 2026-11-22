@@ -92,3 +92,55 @@
 }
 
 @media(max-width:600px){.reader-nav{grid-template-columns:repeat(3,auto)}.reader-nav #motion{grid-column:auto;align-self:center;justify-self:end;padding:8px 0;white-space:normal;max-width:70px}.reader-nav a{min-height:40px}}
+
+/* Prova3: two close readings within the established synoptic edition. */
+.research-purpose{min-width:0}
+.edition .research-purpose .sy-label{font-size:14px;margin:0 0 9px}
+.research-purpose>p:not(.sy-label):not(.note){font-size:clamp(19px,1.7vw,24px);line-height:1.42}
+.edition .research-purpose .note{font-size:16px;margin-top:12px;line-height:1.5}
+.case-focus{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,5vw,70px);border-top:1px solid var(--hair);padding:22px 0 29px}
+.case-focus>a{display:block;min-width:0;text-decoration:none;padding:2px 0 5px}
+.focus-label{display:block;color:var(--ink);font:400 clamp(22px,2vw,29px)/1.14 var(--serif);letter-spacing:-.025em;margin-bottom:10px;text-wrap:balance}
+.focus-description{display:block;color:#4f5561;font:400 16px/1.45 var(--serif);max-width:47ch}
+.case-focus>a:hover .focus-label{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em;color:var(--blue)}
+.chapter-analysis{border-top:1px solid var(--hair);margin:24px 0 0;padding:19px 0 0}
+.edition .chapter-analysis h3{font:400 clamp(21px,1.8vw,27px)/1.2 var(--serif);letter-spacing:-.025em;margin:0 0 11px}
+.edition .chapter-analysis p{font-size:17px;line-height:1.5;margin:0 0 11px}
+.edition .chapter-analysis .analysis-status,.edition .analysis-status{font:400 14px/1.5 var(--mono);color:#555d69;letter-spacing:0}
+.chapter-analysis [data-alignment],.source-list [data-alignment]{font-size:14px;min-height:44px;text-align:left}
+.chapter-analysis a{font-size:16px}
+.alignment-source{padding:19px 0 0;min-width:0}
+.alignment-source+.alignment-source{border-top:1px solid var(--hair);margin-top:21px}
+#evidence-body .alignment-source h4{font:400 22px/1.25 var(--serif);margin:0 0 12px}
+#evidence-body .alignment-source p{overflow-wrap:anywhere}
+#evidence-body .alignment-source .note,#evidence-body .alignment-source .analysis-status{font-size:14px;line-height:1.5}
+.alignment-source details{border-top:1px solid var(--hair);padding-top:12px;margin:16px 0}
+.alignment-source summary{font-size:16px;line-height:1.4;cursor:pointer;color:var(--blue);padding:4px 0}
+.alignment-source .original-text{white-space:pre-wrap;overflow-wrap:anywhere}
+.alignment-source a,.alignment-source button{font-size:16px;line-height:1.4}
+.alignment-source .source-meta{font:400 14px/1.5 var(--mono);color:#555d69}
+@media(max-width:810px){
+  .case-focus{grid-template-columns:1fr;gap:19px;padding:20px 0 23px}
+  .case-focus>a+a{border-top:1px solid var(--hair);padding-top:19px}
+  .focus-label{font-size:25px}
+  .focus-description{max-width:56ch}
+  .chapter-analysis{margin-top:21px;padding-top:16px}
+}
+@media print{.case-focus{display:none}.chapter-analysis{break-inside:avoid}}
+
+.chapter-change{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin:0 0 16px;padding:0}
+.chapter-change>div{min-width:0}
+.chapter-change dt{font:400 14px/1.4 var(--mono);color:#555d69;margin-bottom:5px}
+.chapter-change dd{font:400 19px/1.35 var(--serif);margin:0;overflow-wrap:anywhere}
+.edition .chapter-analysis .pedagogical-question{border-left:2px solid var(--blue);padding-left:14px;margin-top:16px;font-size:17px}
+.pedagogical-question strong{display:block;font:400 14px/1.5 var(--mono);color:var(--blue);margin-bottom:5px}
+.source-archive{border-block:1px solid var(--hair);margin:25px 0;padding:16px 0}
+.source-archive>summary{font:400 21px/1.35 var(--serif);color:var(--blue);cursor:pointer;padding:4px 0}
+.source-archive>.note{font-size:16px;line-height:1.5;max-width:74ch;margin:14px 0}
+.source-archive .alignment-source{max-width:78ch;margin-inline:auto}
+.source-archive .alignment-source h3{font:400 23px/1.25 var(--serif);margin:0 0 12px}
+.source-archive .alignment-source p{font-size:17px;line-height:1.55;margin:10px 0}
+.source-archive .alignment-source .analysis-status{font-size:14px}
+.alignment-source .alignment-quotation,.alignment-source details p,.source-archive .alignment-source h3+p{white-space:pre-wrap;overflow-wrap:anywhere}
+.alignment-source .alignment-quotation{line-height:1.55}
+@media(max-width:810px){.chapter-change{gap:10px 18px}.chapter-change dt{font-size:14px}.chapter-change dd{font-size:18px}.source-archive>summary{font-size:20px}}

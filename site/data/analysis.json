@@ -2219,7 +2219,7 @@
       "id": "A25",
       "label": "The objection has to return",
       "anchor": "Yet the qualification about human feedback and AI-generated arguments resurfaced, and I again objected that AI could supply the same kind of feedback.",
-      "interpretation": "The published account reports a recurrence after the assistant's acknowledgment. This preserves an iteration compressed by the earlier coding; the original chat has not been imported.",
+      "interpretation": "The published account reports a recurrence after the assistant's acknowledgment. This annotation preserves an iteration compressed by the earlier coding. Selected original exchanges are aligned separately in the reader; this annotation remains grounded in the article.",
       "category": "iteration",
       "record_basis": "retrospective_account",
       "actor_as_reported": "author",
@@ -2664,7 +2664,7 @@
       "target": "A06",
       "type": "follows_acknowledgment_in_account",
       "anchor": "Yet the qualification about human feedback and AI-generated arguments resurfaced, and I again objected that AI could supply the same kind of feedback.",
-      "rationale": "Within the article's retrospective account, the objection resurfaces after the acknowledgment. This is a reported sequence, not an independently aligned chat chronology.",
+      "rationale": "Within the article's retrospective account, the objection resurfaces after the acknowledgment. This edge records the article's reported order; the selected original exchanges and their alignments are provided separately.",
       "review_status": "proposed_by_assistant",
       "eligible_for_graph": true,
       "evidence": {
@@ -4844,7 +4844,7 @@
     {
       "id": "A25",
       "change": "source_anchored_node_added",
-      "reason": "The published account reports a recurrence after the assistant's acknowledgment. This preserves an iteration compressed by the earlier coding; the original chat has not been imported."
+      "reason": "The published account reports a recurrence after the assistant's acknowledgment. This annotation preserves an iteration compressed by the earlier coding. Selected original exchanges are aligned separately in the reader; this annotation remains grounded in the article."
     },
     {
       "id": "R17",
@@ -4869,7 +4869,7 @@
     {
       "id": "R21",
       "change": "source_anchored_relation_added",
-      "reason": "Within the article's retrospective account, the objection resurfaces after the acknowledgment. This is a reported sequence, not an independently aligned chat chronology."
+      "reason": "Within the article's retrospective account, the objection resurfaces after the acknowledgment. This edge records the article's reported order; the selected original exchanges and their alignments are provided separately."
     }
   ],
   "method_note": "Descriptive counts refer to the selected coding, not the entire conversation or a learning score. Relationships remain assistant-proposed interpretations linked to article passages.",

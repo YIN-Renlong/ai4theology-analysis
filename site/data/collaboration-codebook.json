@@ -66,7 +66,7 @@
       "follows_acknowledgment_in_account"
     ]
   },
-  "relation_family_note": "This partition is a proposed analytical interpretation of the existing labels. An argument link describes a relation between propositions; it does not by itself establish event order. In particular, returns_to remains a referential link. The explicit follows_acknowledgment_in_account label records order reported in the essay, not an independently aligned chat history.",
+  "relation_family_note": "This partition is a proposed analytical interpretation of the existing labels. An argument link describes a relation between propositions; it does not by itself establish event order. In particular, returns_to remains a referential link. The explicit follows_acknowledgment_in_account label records order reported in the essay; selected original exchanges and their alignments are provided separately.",
   "coding_note": "An episode may receive more than one pattern. Counts use the six selected episodes as their denominator and do not estimate all collaboration in the article or all cognition. Unknown change states are retained rather than inferred from publication order.",
   "change_note": "Conclusion and justification are coded separately. A coded change concerns expressed reasoning in this source; it does not demonstrate an independently measured increase in understanding. Earlier and later references identify the passages supporting a proposed comparison, not reconstructed timestamps."
 }

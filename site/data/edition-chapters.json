@@ -71,8 +71,8 @@
     "title": "Back to the question.",
     "kicker": "A correction has to recur",
     "paragraphs": [
-      "YIN Renlong reports that the assistant acknowledges the mismatch. The qualification subsequently resurfaces, and he again asks the assistant to hold the learner’s activity constant while comparing the sources of help.",
-      "The account contains a return after apparent agreement. A diagram that stopped at acknowledgment would lose this further intervention and the difficulty of keeping the original comparison in view."
+      "The preserved exchange makes the recurrence precise. At the start of M60, the assistant acknowledges that its earlier answer did not address the comparison directly enough. Later in that same response, it reintroduces a qualification about human feedback. In M61, YIN Renlong quotes that qualification and asks again whether AI can provide the same assistance.",
+      "M62 then states that feedback can itself generate ideas. The published article gathers these moves into its account of the recurring objection. The sequence establishes what was expressed; whether it demonstrates a more adequate understanding depends on how those contributions are interpreted."
     ],
     "left": {
       "title": "Acknowledgment",
@@ -91,13 +91,16 @@
       "A06",
       "A25"
     ],
-    "map_kind": "return",
+    "map_kind": "recurrence",
     "quote": {
       "text": "Yet the qualification about human feedback and AI-generated arguments resurfaced, and I again objected that AI could supply the same kind of feedback.",
       "source_id": "P038"
     },
     "record_bases": [
       "retrospective_account"
+    ],
+    "analysis_episode_ids": [
+      "E02"
     ]
   },
   {
@@ -105,7 +108,7 @@
     "title": "What becomes my own?",
     "kicker": "A distinction within the account",
     "paragraphs": [
-      "Earlier in the exchange, the assistant distinguishes originating an idea from understanding and developing it. YIN Renlong accepts that understanding an idea cannot establish sole origination. He continues asking how an external contribution can enter work he can explain and defend.",
+      "In M58, the assistant distinguishes originating an idea from understanding and developing it. The published article later describes accepting that distinction while continuing to question unequal treatment of equivalent assistance. The original response and the later account of accepting it provide different kinds of evidence.",
       "The separate claims require separate evidence. Writing every sentence, feeling ownership of the result and being able to justify its reasoning can diverge. The article’s later discussion of authorship research makes that divergence more concrete."
     ],
     "left": {
@@ -136,12 +139,15 @@
     "record_bases": [
       "published_argument",
       "retrospective_account"
+    ],
+    "analysis_episode_ids": [
+      "E01"
     ]
   },
   {
     "id": "naturalism",
     "title": "A question can introduce an idea.",
-    "kicker": "The theological example",
+    "kicker": "A supporting hypothetical example",
     "paragraphs": [
       "The assistant supplies a hypothetical question about methodological and metaphysical naturalism. Investigating that distinction could change the premises of a theological argument. Feedback could thereby help generate the idea around which the argument develops.",
       "The article later proposes examining the inference itself. A restriction within scientific method does not by itself establish a claim about everything that exists. Challenging that metaphysical step can preserve the scientific finding. These are teaching contrasts proposed in the essay."
@@ -253,6 +259,9 @@
     "record_bases": [
       "later_literature",
       "retrospective_account"
+    ],
+    "analysis_episode_ids": [
+      "E03"
     ]
   },
   {
@@ -261,7 +270,8 @@
     "kicker": "Learning through the preserved work",
     "paragraphs": [
       "YIN Renlong describes developing a blog post through AI conversation and returning to study it later. The return raises a temporal question. What becomes understandable during this later encounter, and how could that development be demonstrated?",
-      "His reading of ICAP challenges a simple inference from conversation to learning. Alternating messages alone does not establish constructive engagement. The archive records expressed exchanges while leaving some reading and reflection outside its view."
+      "His reading of ICAP challenges a simple inference from conversation to learning. Alternating messages alone does not establish constructive engagement. The archive records expressed exchanges while leaving some reading and reflection outside its view.",
+      "The current edition preserves this published account of returning. A separately dated explanation produced during the later research has not yet been added to the evidence. Such a return would extend the record as a new episode."
     ],
     "left": {
       "title": "During composition",
@@ -423,6 +433,14 @@
     },
     "record_bases": [
       "published_argument"
-    ]
+    ],
+    "research_note": {
+      "title": "Responsibility within theological scholarship",
+      "text": "The article places the authorship question within theology’s dependence on received texts and arguments. The research asks how the writer becomes able to interpret and take responsibility for those contributions. Examining the grounds for a judgment gives the preserved exchanges their pedagogical significance.",
+      "source_ids": [
+        "P104",
+        "P084"
+      ]
+    }
   }
 ]

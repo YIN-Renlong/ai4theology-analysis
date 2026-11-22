@@ -71,6 +71,22 @@ const MAPS = {
     caption: 'The author accepts the caution and returns to the question about equivalent help. The return records a redirection described in the essay.',
     svg: () => comparison('return'),
   },
+  recurrence: {
+    title: 'The original comparison needs another intervention',
+    caption: 'The published account describes an acknowledgment followed by the return of the disputed qualification. The writer objects again, keeping the original comparison in view.',
+    svg: () => path('M70 90C161 90 304 90 398 90','detour') +
+      path('M398 90C457 109 457 211 398 230') +
+      path('M398 230C310 230 164 230 70 230') +
+      path('M70 230C20 211 20 109 70 90','return') +
+      path('M390 222C306 211 306 112 390 98','detour') +
+      `<path class="map-arrow" d="M68 91l-14 1 7 5 2 8z"/>` +
+      point(70,90) + point(398,90) + point(398,230) + point(70,230) +
+      label(31,41,['Equivalent','assistance'],'start','episode-name') +
+      label(449,41,['Different','comparison'],'end','episode-name') +
+      label(31,273,['Writer','objects again'],'start','episode-name') +
+      label(449,273,['AI','acknowledges'],'end','episode-name') +
+      label(209,151,['Qualification','returns'],'middle','episode-note'),
+  },
   naturalism: {
     title: 'A restriction within method and a claim about existence',
     caption: 'The theological example asks whether a methodological restriction warrants a metaphysical conclusion. The inference remains open to challenge.',
