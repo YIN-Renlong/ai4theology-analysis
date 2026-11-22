@@ -6,6 +6,19 @@
 @media print{.edition-explorer .ex-directory{display:none}.edition-explorer .ex-layout{display:block}.edition-explorer .ex-counts{break-inside:avoid}.edition-explorer .ex-graph{break-inside:avoid}}
 
 /* Episode-scale reading retains every recorded link among the selected ideas. */
+.edition-explorer .ex-layout-compact{display:block}
+.edition-explorer .ex-catalogue{margin:0 0 22px;border-block:1px solid var(--ex-rule)}
+.edition-explorer .ex-catalogue>summary{padding:14px 2px;min-height:48px;font-size:17px;line-height:1.4;color:var(--ex-blue);cursor:pointer}
+.edition-explorer .ex-catalogue .ex-directory{padding:0 0 18px}
+.edition-explorer .ex-catalogue .ex-counts{margin-bottom:18px}
+.edition-explorer .ex-catalogue .ex-count{padding-block:12px 15px}
+.edition-explorer .ex-catalogue .ex-count strong{font-size:32px}
+.edition-explorer .ex-catalogue .ex-search-label{max-width:560px;font-size:14px}
+.edition-explorer .ex-catalogue .ex-tally{font-size:14px}
+.edition-explorer .ex-catalogue .ex-node-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-height:280px;overflow:auto}
+.edition-explorer .ex-catalogue .ex-node-button{align-content:start;padding:13px 10px;min-height:58px}
+@media(max-width:850px){.edition-explorer .ex-catalogue .ex-node-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.edition-explorer .ex-catalogue .ex-node-list{grid-template-columns:1fr;max-height:260px}}
 .edition-explorer [hidden]{display:none!important}
 .edition-explorer select:focus-visible{outline:2px solid var(--ex-blue);outline-offset:3px}
 .edition-explorer .ex-graph-section{margin-top:32px;border-top:1px solid var(--ex-ink);padding-top:7px;min-width:0}

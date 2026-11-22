@@ -28,6 +28,12 @@ jobs:
         run: python3 scripts/build_edition.py
       - name: Verify the analysis export
         run: python3 -m unittest discover -s tests -v
+      - name: Set up Node for visualization checks
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify lexical comparison selection
+        run: node --test tests/visualization.test.mjs
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload static site

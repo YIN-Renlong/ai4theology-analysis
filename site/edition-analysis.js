@@ -292,6 +292,9 @@ export function mountAnalysis(container, report, callbacks) {
   relationSection.append(familyLayout, el('p', 'an-note', 'These counts use the annotated relationships as their denominator. A connected graph path is not automatically a chronological sequence or a valid chain of inference.'));
   container.append(relationSection);
   if (families.length) showFamily(families[0]);
+  const passageComparisons = el('div', 'an-passage-comparisons');
+  passageComparisons.id = 'passage-comparisons';
+  container.append(passageComparisons);
   const motifRecords = report.graph?.motifs || [];
   if (motifRecords.length) {
     const motifs = el('details', 'an-motifs');
@@ -353,7 +356,9 @@ export function mountAnalysis(container, report, callbacks) {
   const limitations = Array.isArray(lexical.limitations) ? lexical.limitations.join(' ') : lexical.limitations;
   if (limitations) method.append(el('p', 'an-note', limitations));
   returns.append(returnLayout, method);
-  container.append(returns);
+  const rankedMatches = el('details', 'an-ranked-matches');
+  rankedMatches.append(el('summary', '', 'Ranked passage matches and calculation details'), returns);
+  container.append(rankedMatches);
 
   const downloads = el('div', 'downloads an-downloads');
   for (const [filename, label] of [

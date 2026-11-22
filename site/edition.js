@@ -1,7 +1,7 @@
 import {createMap} from './edition-maps.js';
 import {mountExplorer} from './edition-explorer.js';
 import {mountAnalysis} from './edition-analysis.js';
-import {mountContextual,mountReasoningChanges} from './edition-context.js';
+import {mountContextual,mountReasoningChanges,mountPassageComparisons} from './edition-context.js';
 const {analysis:data,chapters,collaboration,inquiry}=JSON.parse(document.querySelector('#edition-data').textContent);
 const sourceExcerpts=inquiry?.excerpts||[];
 const blocks=new Map(data.article.blocks.map(b=>[b.id,b]));
@@ -107,6 +107,7 @@ mountAnalysis(document.querySelector('#analysis-explorer'),collaboration,{
   openNodes:ids=>showEvidence({nodes:ids}),
   openRelations:ids=>showEvidence({relations:ids}),
 });
+mountPassageComparisons(document.querySelector('#passage-comparisons'),collaboration,data,analysisCallbacks);
 const termSelect=document.querySelector('#term'),termBars=document.querySelector('#term-bars'),termPassages=document.querySelector('#term-passages');
 let sectionFilter='';
 function markedText(text,spans){const f=document.createDocumentFragment();let pos=0;for(const s of [...spans].sort((a,b)=>a.start-b.start)){f.append(document.createTextNode(text.slice(pos,s.start)),el('mark',text.slice(s.start,s.end)));pos=s.end;}f.append(document.createTextNode(text.slice(pos)));return f;}

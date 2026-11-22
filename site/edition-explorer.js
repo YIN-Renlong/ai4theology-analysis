@@ -71,7 +71,9 @@ export function mountExplorer(container, data, onEvidence, collaboration = {}) {
     counts.append(b);
     countButtons.push(b);
   }
-  const layout = element('div', 'ex-layout');
+  const layout = element('div', 'ex-layout ex-layout-compact');
+  const catalogue = element('details', 'ex-catalogue');
+  const catalogueSummary = element('summary', '', `Browse all ${nodes.length} annotations`);
   const directory = element('div', 'ex-directory');
   const filterLabel = element('label', 'ex-search-label', 'Find an annotation');
   const search = element('input', 'ex-search');
@@ -84,10 +86,12 @@ export function mountExplorer(container, data, onEvidence, collaboration = {}) {
   const list = element('div', 'ex-node-list');
   list.setAttribute('role', 'group');
   list.setAttribute('aria-label', 'Annotations');
-  directory.append(filterLabel, reset, tally, list);
+  directory.append(counts, filterLabel, reset, tally, list);
+  catalogue.append(catalogueSummary, directory);
   const focus = element('div', 'ex-focus');
   const detail = element('section', 'ex-detail');
   detail.setAttribute('aria-label', 'Selected annotation');
+  detail.tabIndex = -1;
   const graphTitle = element('h3', 'ex-small-heading', 'Connected ideas');
   const graph = element('div', 'ex-graph');
   graph.setAttribute('aria-label', 'Immediate relationships of the selected annotation');
@@ -125,7 +129,7 @@ export function mountExplorer(container, data, onEvidence, collaboration = {}) {
   const selectedEvidence = button('Read selected idea', 'ex-text-button', () => selected && onEvidence({nodes:[selected]}));
   graphSection.append(graphTitle, controls, episodeIntro, legend, graph, graphNote, selectedEvidence, episodeLinks);
   focus.append(detail);
-  layout.append(directory, focus);
+  layout.append(catalogue, focus);
   const relationSection = element('section', 'ex-relations');
   relationSection.append(element('h3', '', 'All recorded relationships'));
   const relationIntro = element('p', 'ex-note', 'Open a relationship to read the reason for linking its passages. The labels remain proposed interpretations for review.');
@@ -144,7 +148,7 @@ export function mountExplorer(container, data, onEvidence, collaboration = {}) {
     relationList.append(fold);
   }
   relationSection.append(relationList);
-  container.append(note, counts, layout, graphSection, relationSection);
+  container.append(note, layout, graphSection, relationSection);
 
   function matchesFilters(node) {
     const text = [node.id, node.label, node.interpretation, ...node.evidence.spans.map(span => span.block_id)].join(' ').toLowerCase();
@@ -159,7 +163,11 @@ export function mountExplorer(container, data, onEvidence, collaboration = {}) {
     tally.textContent = `${matches.length} of ${nodes.length} annotations`;
     list.replaceChildren();
     for (const node of matches) {
-      const b = button('', 'ex-node-button', () => selectNode(node.id));
+      const b = button('', 'ex-node-button', () => {
+        selectNode(node.id);
+        catalogue.open = false;
+        detail.focus({preventScroll:true});
+      });
       b.dataset.node = node.id;
       b.setAttribute('aria-pressed', String(node.id === selected));
       b.append(element('span', 'ex-record-id', node.id), element('span', '', node.label));
